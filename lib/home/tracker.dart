@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:muslimpocket/global.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const textGreen = Color.fromRGBO(1, 68, 33, 1);
-    const textGray = Color.fromARGB(255, 75, 75, 75);
-    const textWhite = Color.fromARGB(255, 255, 255, 255);
-    const bgBlur = Color.fromRGBO(217, 217, 217, .3);
-    const bgNotYet = Color.fromRGBO(217, 217, 217, 1);
-    const bgDone = Color.fromRGBO(179, 230, 185, 1);
 
     return SafeArea(
       child: Scaffold(
@@ -24,11 +19,11 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     '13 Rajab 1445 H',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 14, fontWeight: semiBold),
                   ),
                   Text(
                     'Jakarta, Indonesia',
-                    style: TextStyle(fontSize: 12),
+                    style: TextStyle(fontSize: 12, fontWeight: regular),
                   ),
                 ],
               ),
@@ -40,8 +35,8 @@ class HomePage extends StatelessWidget {
                       '16:40',
                       style: TextStyle(
                         fontSize: 48,
-                        color: textGreen,
-                        fontWeight: FontWeight.w900,
+                        color: greenPrimary,
+                        fontWeight: bold,
                       ),
                     ),
                     Row(
@@ -50,8 +45,8 @@ class HomePage extends StatelessWidget {
                         Text(
                           '1:37 ',
                           style: TextStyle(
-                            color: textGreen,
-                            fontWeight: FontWeight.w800,
+                            color: greenPrimary,
+                            fontWeight: bold,
                           ),
                         ),
                         Text('sebelum adzan Magrib')
@@ -75,7 +70,7 @@ class HomePage extends StatelessWidget {
                           Text(
                             'Subuh',
                             style: TextStyle(
-                                color: textGray, fontWeight: FontWeight.w600),
+                                color: textGray, fontWeight: medium),
                           ),
                           Container(
                             padding: EdgeInsets.symmetric(vertical: 2.0),
@@ -98,7 +93,7 @@ class HomePage extends StatelessWidget {
                           Text(
                             'Zuhur',
                             style: TextStyle(
-                                color: textGray, fontWeight: FontWeight.w600),
+                                color: textGray, fontWeight: medium),
                           ),
                           Container(
                             padding: EdgeInsets.symmetric(vertical: 2.0),
@@ -121,7 +116,8 @@ class HomePage extends StatelessWidget {
                           Text(
                             'Asar',
                             style: TextStyle(
-                                color: textGreen, fontWeight: FontWeight.w600),
+                                color: greenPrimary,
+                                fontWeight: medium),
                           ),
                           Container(
                             padding: EdgeInsets.symmetric(vertical: 2.0),
@@ -129,12 +125,12 @@ class HomePage extends StatelessWidget {
                               'assets/images/asar.png',
                               width: 30.0,
                               height: 30.0,
-                              color: textGreen,
+                              color: greenPrimary,
                             ),
                           ),
                           Text(
                             '15:26',
-                            style: TextStyle(color: textGreen, fontSize: 12),
+                            style: TextStyle(color: greenPrimary, fontSize: 12),
                           ),
                         ],
                       ),
@@ -145,7 +141,7 @@ class HomePage extends StatelessWidget {
                           Text(
                             'Magrib',
                             style: TextStyle(
-                                color: textGray, fontWeight: FontWeight.w600),
+                                color: textGray, fontWeight: medium),
                           ),
                           Container(
                             padding: EdgeInsets.symmetric(vertical: 2.0),
@@ -168,7 +164,7 @@ class HomePage extends StatelessWidget {
                           Text(
                             'Isya',
                             style: TextStyle(
-                                color: textGray, fontWeight: FontWeight.w600),
+                                color: textGray, fontWeight: medium),
                           ),
                           Container(
                             padding: EdgeInsets.symmetric(vertical: 2.0),
@@ -209,7 +205,7 @@ class HomePage extends StatelessWidget {
                             margin: EdgeInsets.only(left: 3.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50.0),
-                              color: textGreen,
+                              color: greenPrimary,
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -218,7 +214,7 @@ class HomePage extends StatelessWidget {
                                 Text('Tracker',
                                     style: TextStyle(
                                       color: textWhite,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: medium,
                                     )),
                               ],
                             ),
@@ -236,7 +232,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   'Tasbih',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: medium,
                                   ),
                                 ),
                               ],
@@ -256,7 +252,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   'Kalender',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: medium,
                                   ),
                                 ),
                               ],
@@ -275,7 +271,7 @@ class HomePage extends StatelessWidget {
                               width: 32.0,
                               height: 32.0,
                               decoration: BoxDecoration(
-                                  color: textGreen,
+                                  color: greenPrimary,
                                   borderRadius: BorderRadius.circular(50.0)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -286,7 +282,7 @@ class HomePage extends StatelessWidget {
                                     style: TextStyle(
                                       color: textWhite,
                                       fontSize: 13,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: medium,
                                     ),
                                   ),
                                 ],
@@ -305,7 +301,7 @@ class HomePage extends StatelessWidget {
                                     '27',
                                     style: TextStyle(
                                       fontSize: 13,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: medium,
                                     ),
                                   ),
                                 ],
@@ -324,7 +320,7 @@ class HomePage extends StatelessWidget {
                                     '28',
                                     style: TextStyle(
                                       fontSize: 13,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: medium,
                                     ),
                                   ),
                                 ],
@@ -343,7 +339,7 @@ class HomePage extends StatelessWidget {
                                     '29',
                                     style: TextStyle(
                                       fontSize: 13,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: medium,
                                     ),
                                   ),
                                 ],
@@ -362,7 +358,7 @@ class HomePage extends StatelessWidget {
                                     '30',
                                     style: TextStyle(
                                       fontSize: 13,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: medium,
                                     ),
                                   ),
                                 ],
@@ -381,7 +377,7 @@ class HomePage extends StatelessWidget {
                                     '31',
                                     style: TextStyle(
                                       fontSize: 13,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: medium,
                                     ),
                                   ),
                                 ],
@@ -406,7 +402,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   'Subuh',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: medium,
                                   ),
                                 ),
                                 Image.asset('assets/images/done.png')
@@ -426,7 +422,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   'Zuhur',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: medium,
                                   ),
                                 ),
                                 Image.asset('assets/images/done.png')
@@ -446,7 +442,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   'Asar',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: medium,
                                   ),
                                 ),
                                 Image.asset('assets/images/not-yet.png')
@@ -466,7 +462,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   'Magrib',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: medium,
                                   ),
                                 ),
                                 Image.asset('assets/images/not-yet.png')
@@ -486,7 +482,7 @@ class HomePage extends StatelessWidget {
                                 Text(
                                   'Isya',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: medium,
                                   ),
                                 ),
                                 Image.asset('assets/images/not-yet.png')
@@ -501,13 +497,13 @@ class HomePage extends StatelessWidget {
                           margin: EdgeInsets.symmetric(
                               vertical: 15.0, horizontal: 20.0),
                           decoration: BoxDecoration(
-                              color: textGreen,
+                              color: greenPrimary,
                               borderRadius: BorderRadius.circular(30.0)),
                           child: ElevatedButton(
                             style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
-                                        textGreen)),
+                                        greenPrimary)),
                             onPressed: () {},
                             child: Text('Edit',
                                 style: TextStyle(

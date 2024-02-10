@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     HomePage homePage = const HomePage();
     MaterialApp materialApp = MaterialApp(
-      theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
+      theme: ThemeData(fontFamily: 'Poppins'),
       home: homePage,
     );
 
