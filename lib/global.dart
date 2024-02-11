@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const greenPrimary = Color.fromRGBO(1, 68, 33, 1);
 const textGray = Color.fromARGB(255, 75, 75, 75);
-const textWhite = Color.fromARGB(255, 255, 255, 255);
+const white = Color.fromARGB(255, 255, 255, 255);
 const bgBlur = Color.fromRGBO(217, 217, 217, .3);
 const bgNotYet = Color.fromRGBO(217, 217, 217, 1);
 const bgDone = Color.fromRGBO(179, 230, 185, 1);
