@@ -215,26 +215,15 @@ class sectionMenu extends StatefulWidget {
 class _sectionMenuState extends State<sectionMenu> {
   String currentSection = 'tracker';
 
-  static const bgColor = bgBlur;
-  static const textColor = Colors.black;
-
   Widget getContentWidget() {
     switch (currentSection) {
       case 'tracker':
-        const bgColor = Color.fromRGBO(1, 68, 33, 1);
-        const textColor = white;
         return trackerSection();
       case 'tasbih':
-        const bgColor = Color.fromRGBO(1, 68, 33, 1);
-        const textColor = white;
         return tasbihSection();
       case 'kalender':
-        const bgColor = Color.fromRGBO(1, 68, 33, 1);
-        const textColor = white;
         return kalenderSection();
       default:
-        const bgColor = Color.fromRGBO(1, 68, 33, 1);
-        const textColor = white;
         return trackerSection();
     }
   }
@@ -263,13 +252,26 @@ class _sectionMenuState extends State<sectionMenu> {
                         });
                       },
                       style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(bgColor)),
-                      child: Text(
-                        'Tracker',
-                        style: TextStyle(color: textColor),
-                      )
+                        backgroundColor:
+                            MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                            if (currentSection == 'tracker') {
+                              return greenPrimary;
+                            }
+                            return bgBlur;
+                          },
+                        ),
+                        foregroundColor:
+                            MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                            if (currentSection == 'tracker') {
+                              return Colors.white;
+                            }
+                            return Colors.black;
+                          },
+                        ),
                       ),
+                      child: Text('Tracker')),
                   ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -277,26 +279,53 @@ class _sectionMenuState extends State<sectionMenu> {
                         });
                       },
                       style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(bgColor)),
-                      child: Text(
-                        'Tasbih',
-                        style: TextStyle(color: textColor),
-                      )
+                        backgroundColor:
+                            MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                            if (currentSection == 'tasbih') {
+                              return greenPrimary;
+                            }
+                            return bgBlur;
+                          },
+                        ),
+                        foregroundColor:
+                            MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                            if (currentSection == 'tasbih') {
+                              return Colors.white;
+                            }
+                            return Colors.black;
+                          },
+                        ),
                       ),
+                      child: Text('Tasbih')),
                   ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          currentSection = 'Kalender';
+                          currentSection = 'kalender';
                         });
                       },
                       style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(bgColor)),
-                      child: Text(
-                        'Kalender',
-                        style: TextStyle(color: textColor),
-                      )),
+                        backgroundColor:
+                            MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                            if (currentSection == 'kalender') {
+                              return greenPrimary;
+                            }
+                            return bgBlur;
+                          },
+                        ),
+                        foregroundColor:
+                            MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                            if (currentSection == 'kalender') {
+                              return Colors.white;
+                            }
+                            return Colors.black;
+                          },
+                        ),
+                      ),
+                      child: Text('Kalender')),
                 ],
               ),
             ),
@@ -566,7 +595,38 @@ class tasbihSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Padding(
+      padding: const EdgeInsets.only(top: 30.0),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('0/', style: TextStyle(fontSize: 36, fontWeight: semiBold)),
+              Text('33',
+                  style: TextStyle(
+                      fontSize: 36,
+                      fontWeight: semiBold,
+                      decoration: TextDecoration.underline))
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 7.0),
+            child: Image.asset('assets/images/tasbih.png'),
+          ),
+          Center(
+            child: Text(
+              'Klik di mana saja\nuntuk mulai',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: light,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -575,6 +635,272 @@ class kalenderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 38.0, vertical: 26.0),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('assets/images/back.png', width: 10.0),
+              Text(
+                'Rajab 1445H',
+                style: TextStyle(fontSize: 16, fontWeight: bold),
+              ),
+              Image.asset('assets/images/next.png', width: 10.0),
+            ],
+          ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        'M',
+                        style: TextStyle(color: Colors.red, fontWeight: regular),
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      child: Text(
+                        'S',
+                        style: TextStyle(fontWeight: regular),
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        'S',
+                        style: TextStyle(fontWeight: regular),
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        'R',
+                        style: TextStyle(fontWeight: regular),
+                      ),
+                    ),
+                    Text(
+                      'K',
+                      style: TextStyle(fontWeight: regular),
+                    ),
+                    Text(
+                      'J',
+                      style: TextStyle(fontWeight: regular),
+                    ),
+                    Text(
+                      'S',
+                      style: TextStyle(fontWeight: regular),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '25',
+                      style:
+                          TextStyle(color: disableColor, fontWeight: extraBold),
+                    ),
+                    Text(
+                      '26',
+                      style:
+                          TextStyle(color: disableColor, fontWeight: extraBold),
+                    ),
+                    Text(
+                      '27',
+                      style:
+                          TextStyle(color: disableColor, fontWeight: extraBold),
+                    ),
+                    Text(
+                      '28',
+                      style:
+                          TextStyle(color: disableColor, fontWeight: extraBold),
+                    ),
+                    Text(
+                      '29',
+                      style:
+                          TextStyle(color: disableColor, fontWeight: extraBold),
+                    ),
+                    Text(
+                      '30',
+                      style:
+                          TextStyle(color: disableColor, fontWeight: extraBold),
+                    ),
+                    Text(
+                      '1',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '2',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '3',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '4',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '5',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '6',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '7',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '8',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '9',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '10',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '11',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '12',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      decoration: BoxDecoration(
+                          color: greenPrimary,
+                          borderRadius: BorderRadius.circular(20.0)),
+                      child: Text(
+                        '13',
+                        style: TextStyle(fontWeight: extraBold, color: white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Text(
+                      '14',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '15',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '16',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '17',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '18',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '19',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '20',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '21',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '22',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '23',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '24',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '25',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '26',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '27',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '28',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                    Text(
+                      '29',
+                      style: TextStyle(fontWeight: extraBold),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }

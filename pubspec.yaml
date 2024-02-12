@@ -46,6 +46,9 @@ flutter:
     - assets/images/chevron-right.png
     - assets/images/done.png
     - assets/images/not-yet.png
+    - assets/images/tasbih.png
+    - assets/images/next.png
+    - assets/images/back.png
   fonts:
     - family: Poppins
       fonts:
