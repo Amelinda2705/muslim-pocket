@@ -663,13 +663,7 @@ class kalenderSection extends StatelessWidget {
                       child: Text(
                         'M',
                         style: TextStyle(color: Colors.red, fontWeight: regular),
-                      ),
-                    ),
-                    Container(
-                      width: 25.0,
-                      child: Text(
-                        'S',
-                        style: TextStyle(fontWeight: regular),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                     Container(
@@ -678,6 +672,16 @@ class kalenderSection extends StatelessWidget {
                       child: Text(
                         'S',
                         style: TextStyle(fontWeight: regular),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        'S',
+                        style: TextStyle(fontWeight: regular),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                     Container(
@@ -686,61 +690,35 @@ class kalenderSection extends StatelessWidget {
                       child: Text(
                         'R',
                         style: TextStyle(fontWeight: regular),
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                    Text(
-                      'K',
-                      style: TextStyle(fontWeight: regular),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        'K',
+                        style: TextStyle(fontWeight: regular),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      'J',
-                      style: TextStyle(fontWeight: regular),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        'J',
+                        style: TextStyle(fontWeight: regular),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      'S',
-                      style: TextStyle(fontWeight: regular),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '25',
-                      style:
-                          TextStyle(color: disableColor, fontWeight: extraBold),
-                    ),
-                    Text(
-                      '26',
-                      style:
-                          TextStyle(color: disableColor, fontWeight: extraBold),
-                    ),
-                    Text(
-                      '27',
-                      style:
-                          TextStyle(color: disableColor, fontWeight: extraBold),
-                    ),
-                    Text(
-                      '28',
-                      style:
-                          TextStyle(color: disableColor, fontWeight: extraBold),
-                    ),
-                    Text(
-                      '29',
-                      style:
-                          TextStyle(color: disableColor, fontWeight: extraBold),
-                    ),
-                    Text(
-                      '30',
-                      style:
-                          TextStyle(color: disableColor, fontWeight: extraBold),
-                    ),
-                    Text(
-                      '1',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        'S',
+                        style: TextStyle(fontWeight: regular),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ],
                 ),
@@ -750,33 +728,74 @@ class kalenderSection extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      '2',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '25',
+                        style:
+                            TextStyle(color: disableColor, fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '3',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '26',
+                        style:
+                            TextStyle(color: disableColor, fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '4',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '27',
+                        style:
+                            TextStyle(color: disableColor, fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '5',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '28',
+                        style:
+                            TextStyle(color: disableColor, fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '6',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '29',
+                        style:
+                            TextStyle(color: disableColor, fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '7',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '30',
+                        style:
+                            TextStyle(color: disableColor, fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '8',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '1',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ],
                 ),
@@ -786,77 +805,142 @@ class kalenderSection extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      '9',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '2',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '10',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '3',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '11',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '4',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '12',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '5',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '6',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '7',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '8',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '9',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '10',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '11',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '12',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                     Container(
                       width: 25.0,
                       height: 25.0,
                       decoration: BoxDecoration(
                           color: greenPrimary,
-                          borderRadius: BorderRadius.circular(20.0)),
+                          borderRadius: BorderRadius.circular(10.0)),
                       child: Text(
                         '13',
                         style: TextStyle(fontWeight: extraBold, color: white),
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    Text(
-                      '14',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '14',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '15',
-                      style: TextStyle(fontWeight: extraBold),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '16',
-                      style: TextStyle(fontWeight: extraBold),
-                    ),
-                    Text(
-                      '17',
-                      style: TextStyle(fontWeight: extraBold),
-                    ),
-                    Text(
-                      '18',
-                      style: TextStyle(fontWeight: extraBold),
-                    ),
-                    Text(
-                      '19',
-                      style: TextStyle(fontWeight: extraBold),
-                    ),
-                    Text(
-                      '20',
-                      style: TextStyle(fontWeight: extraBold),
-                    ),
-                    Text(
-                      '21',
-                      style: TextStyle(fontWeight: extraBold),
-                    ),
-                    Text(
-                      '22',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '15',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ],
                 ),
@@ -866,33 +950,139 @@ class kalenderSection extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      '23',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '16',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '24',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '17',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '25',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '18',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '26',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '19',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '27',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '20',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '28',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '21',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    Text(
-                      '29',
-                      style: TextStyle(fontWeight: extraBold),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '22',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '23',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '24',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '25',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '26',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '27',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '28',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Text(
+                        '29',
+                        style: TextStyle(fontWeight: extraBold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ],
                 ),
