@@ -49,6 +49,7 @@ flutter:
     - assets/images/tasbih.png
     - assets/images/next.png
     - assets/images/back.png
+    - assets/images/edit.png
   fonts:
     - family: Poppins
       fonts:

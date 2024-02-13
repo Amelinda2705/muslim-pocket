@@ -345,254 +345,533 @@ class trackerSection extends StatefulWidget {
 }
 
 class _trackerSectionState extends State<trackerSection> {
+  bool edit = false;
+
+  Widget getContentWidget() {
+    if (edit) {
+      return trackerPage();
+    } else {
+      return editPage();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Container(
-        margin: EdgeInsets.all(15.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        getContentWidget(),
+        Container(
+            width: 95.0,
+            height: 26.0,
+            margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+            decoration: BoxDecoration(
+                color: greenPrimary, borderRadius: BorderRadius.circular(30.0)),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(greenPrimary)),
+              onPressed: () {
+                setState(() {
+                  edit = true;
+                });
+              },
+              child: Text('Edit', style: TextStyle(color: white, fontSize: 12)),
+            ))
+      ],
+    );
+  }
+}
+
+class trackerPage extends StatelessWidget {
+  const trackerPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.all(15.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('assets/images/chevron-kiri.png'),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: greenPrimary,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '26',
+                        style: TextStyle(
+                          color: white,
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '27',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '28',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '29',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '30',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '31',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Image.asset('assets/images/chevron-right.png'),
+            ],
+          ),
+        ),
+        Column(
           children: [
-            Image.asset('assets/images/chevron-kiri.png'),
             Container(
-                width: 32.0,
-                height: 32.0,
-                decoration: BoxDecoration(
-                    color: greenPrimary,
-                    borderRadius: BorderRadius.circular(50.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+              width: 237.0,
+              height: 34.0,
+              margin: EdgeInsets.only(top: 5.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: BoxDecoration(
+                  color: bgDone, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
                     Text(
-                      '26',
+                      'Subuh',
                       style: TextStyle(
-                        color: white,
-                        fontSize: 13,
                         fontWeight: medium,
                       ),
                     ),
-                  ],
-                )),
+                    Image.asset(
+                      'assets/images/edit.png',
+                      width: 15.0,
+                      height: 12.0,
+                    )
+                  ]),
+            ),
             Container(
-                width: 32.0,
-                height: 32.0,
-                decoration: BoxDecoration(
-                    color: bgNotYet, borderRadius: BorderRadius.circular(50.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+              width: 237.0,
+              height: 34.0,
+              margin: EdgeInsets.only(top: 5.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: BoxDecoration(
+                  color: bgDone, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
                     Text(
-                      '27',
+                      'Zuhur',
                       style: TextStyle(
-                        fontSize: 13,
                         fontWeight: medium,
                       ),
                     ),
-                  ],
-                )),
+                    Image.asset(
+                      'assets/images/edit.png',
+                      width: 15.0,
+                      height: 12.0,
+                    )
+                  ]),
+            ),
             Container(
-                width: 32.0,
-                height: 32.0,
-                decoration: BoxDecoration(
-                    color: bgNotYet, borderRadius: BorderRadius.circular(50.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+              width: 237.0,
+              height: 34.0,
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: EdgeInsets.only(top: 5.0),
+              decoration: BoxDecoration(
+                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
                     Text(
-                      '28',
+                      'Asar',
                       style: TextStyle(
-                        fontSize: 13,
                         fontWeight: medium,
                       ),
                     ),
-                  ],
-                )),
+                    Image.asset(
+                      'assets/images/edit.png',
+                      width: 15.0,
+                      height: 12.0,
+                    )
+                  ]),
+            ),
             Container(
-                width: 32.0,
-                height: 32.0,
-                decoration: BoxDecoration(
-                    color: bgNotYet, borderRadius: BorderRadius.circular(50.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+              width: 237.0,
+              height: 34.0,
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: EdgeInsets.only(top: 5.0),
+              decoration: BoxDecoration(
+                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
                     Text(
-                      '29',
+                      'Magrib',
                       style: TextStyle(
-                        fontSize: 13,
                         fontWeight: medium,
                       ),
                     ),
-                  ],
-                )),
+                    Image.asset(
+                      'assets/images/edit.png',
+                      width: 15.0,
+                      height: 12.0,
+                    )
+                  ]),
+            ),
             Container(
-                width: 32.0,
-                height: 32.0,
-                decoration: BoxDecoration(
-                    color: bgNotYet, borderRadius: BorderRadius.circular(50.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+              width: 237.0,
+              height: 34.0,
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: EdgeInsets.only(top: 5.0),
+              decoration: BoxDecoration(
+                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
                     Text(
-                      '30',
+                      'Isya',
                       style: TextStyle(
-                        fontSize: 13,
                         fontWeight: medium,
                       ),
                     ),
-                  ],
-                )),
-            Container(
-                width: 32.0,
-                height: 32.0,
-                decoration: BoxDecoration(
-                    color: bgNotYet, borderRadius: BorderRadius.circular(50.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      '31',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: medium,
-                      ),
-                    ),
-                  ],
-                )),
-            Image.asset('assets/images/chevron-right.png'),
+                    Image.asset(
+                      'assets/images/edit.png',
+                      width: 15.0,
+                      height: 12.0,
+                    )
+                  ]),
+            ),
           ],
         ),
-      ),
-      Column(
-        children: [
-          Container(
-            width: 237.0,
-            height: 34.0,
-            margin: EdgeInsets.only(top: 5.0),
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            decoration: BoxDecoration(
-                color: bgDone, borderRadius: BorderRadius.circular(30.0)),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Subuh',
-                    style: TextStyle(
-                      fontWeight: medium,
-                    ),
-                  ),
-                  Image.asset('assets/images/done.png')
-                ]),
+      ],
+    );
+  }
+}
+
+class editPage extends StatelessWidget {
+  const editPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.all(15.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('assets/images/chevron-kiri.png'),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: greenPrimary,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '26',
+                        style: TextStyle(
+                          color: white,
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '27',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '28',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '29',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '30',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Container(
+                  width: 32.0,
+                  height: 32.0,
+                  decoration: BoxDecoration(
+                      color: bgNotYet,
+                      borderRadius: BorderRadius.circular(50.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '31',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ],
+                  )),
+              Image.asset('assets/images/chevron-right.png'),
+            ],
           ),
-          Container(
-            width: 237.0,
-            height: 34.0,
-            margin: EdgeInsets.only(top: 5.0),
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            decoration: BoxDecoration(
-                color: bgDone, borderRadius: BorderRadius.circular(30.0)),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Zuhur',
-                    style: TextStyle(
-                      fontWeight: medium,
-                    ),
-                  ),
-                  Image.asset('assets/images/done.png')
-                ]),
-          ),
-          Container(
-            width: 237.0,
-            height: 34.0,
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            margin: EdgeInsets.only(top: 5.0),
-            decoration: BoxDecoration(
-                color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Asar',
-                    style: TextStyle(
-                      fontWeight: medium,
-                    ),
-                  ),
-                  Image.asset('assets/images/not-yet.png')
-                ]),
-          ),
-          Container(
-            width: 237.0,
-            height: 34.0,
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            margin: EdgeInsets.only(top: 5.0),
-            decoration: BoxDecoration(
-                color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Magrib',
-                    style: TextStyle(
-                      fontWeight: medium,
-                    ),
-                  ),
-                  Image.asset('assets/images/not-yet.png')
-                ]),
-          ),
-          Container(
-            width: 237.0,
-            height: 34.0,
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            margin: EdgeInsets.only(top: 5.0),
-            decoration: BoxDecoration(
-                color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Isya',
-                    style: TextStyle(
-                      fontWeight: medium,
-                    ),
-                  ),
-                  Image.asset('assets/images/not-yet.png')
-                ]),
-          ),
-        ],
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Container(
-              width: 95.0,
-              height: 26.0,
-              margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+        ),
+        Column(
+          children: [
+            Container(
+              width: 237.0,
+              height: 34.0,
+              margin: EdgeInsets.only(top: 5.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
-                  color: greenPrimary,
-                  borderRadius: BorderRadius.circular(30.0)),
-              child: ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(greenPrimary)),
-                onPressed: () {
-                  
-                },
-                child: Text('Edit',
-                    style: TextStyle(
-                      color: white,
-                      fontSize: 12
-                    )),
-              ))
-        ],
-      ),
-    ]);
+                  color: bgDone, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Subuh',
+                      style: TextStyle(
+                        fontWeight: medium,
+                      ),
+                    ),
+                    Image.asset('assets/images/done.png')
+                  ]),
+            ),
+            Container(
+              width: 237.0,
+              height: 34.0,
+              margin: EdgeInsets.only(top: 5.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: BoxDecoration(
+                  color: bgDone, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Zuhur',
+                      style: TextStyle(
+                        fontWeight: medium,
+                      ),
+                    ),
+                    Image.asset('assets/images/done.png')
+                  ]),
+            ),
+            Container(
+              width: 237.0,
+              height: 34.0,
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: EdgeInsets.only(top: 5.0),
+              decoration: BoxDecoration(
+                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Asar',
+                      style: TextStyle(
+                        fontWeight: medium,
+                      ),
+                    ),
+                    Image.asset('assets/images/not-yet.png')
+                  ]),
+            ),
+            Container(
+              width: 237.0,
+              height: 34.0,
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: EdgeInsets.only(top: 5.0),
+              decoration: BoxDecoration(
+                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Magrib',
+                      style: TextStyle(
+                        fontWeight: medium,
+                      ),
+                    ),
+                    Image.asset('assets/images/not-yet.png')
+                  ]),
+            ),
+            Container(
+              width: 237.0,
+              height: 34.0,
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: EdgeInsets.only(top: 5.0),
+              decoration: BoxDecoration(
+                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Isya',
+                      style: TextStyle(
+                        fontWeight: medium,
+                      ),
+                    ),
+                    Image.asset('assets/images/not-yet.png')
+                  ]),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }
 
