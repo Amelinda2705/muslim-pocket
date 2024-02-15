@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:muslimpocket/global.dart';
+import 'package:muslimpocket/screens/global.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
