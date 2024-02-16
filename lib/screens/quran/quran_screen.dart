@@ -29,13 +29,13 @@ class QuranScreen extends StatelessWidget {
               child: Container(
                 height: 50,
                 width: width,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     border: Border(
                   bottom: BorderSide(),
                 )),
                 child: Row(
                   children: [
-                    Text(surah["number"]),
+                    Stack(children: [const Icon(Icons.brightness_1_outlined), Text(surah["number"])]),
                     Text(surah["name_latin"]),
                   ],
                 ),

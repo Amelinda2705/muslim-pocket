@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Column(
+                              const Column(
                                 children: [
                                   Column(
                                     children: <Widget>[
@@ -48,8 +48,8 @@ class HomeScreen extends StatelessWidget {
                                 ],
                               ),
                               Container(
-                                margin: EdgeInsets.symmetric(vertical: 20.0),
-                                child: Column(
+                                margin: const EdgeInsets.symmetric(vertical: 20.0),
+                                child: const Column(
                                   children: <Widget>[
                                     Text(
                                       '16:40',
@@ -76,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.symmetric(vertical: 24),
+                                padding: const EdgeInsets.symmetric(vertical: 24),
                                 decoration: BoxDecoration(
                                     color: bgBlur,
                                     borderRadius: BorderRadius.circular(10.0)),
@@ -88,21 +88,21 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Subuh',
                                             style: TextStyle(
                                                 color: textGray, fontWeight: medium),
                                           ),
                                           Container(
                                             padding:
-                                                EdgeInsets.symmetric(vertical: 2.0),
+                                                const EdgeInsets.symmetric(vertical: 2.0),
                                             child: Image.asset(
                                               'assets/images/subuh.png',
                                               width: 30.0,
                                               height: 30.0,
                                             ),
                                           ),
-                                          Text(
+                                          const Text(
                                             '04:27',
                                             style: TextStyle(
                                                 color: textGray, fontSize: 12),
@@ -113,21 +113,21 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Zuhur',
                                             style: TextStyle(
                                                 color: textGray, fontWeight: medium),
                                           ),
                                           Container(
                                             padding:
-                                                EdgeInsets.symmetric(vertical: 2.0),
+                                                const EdgeInsets.symmetric(vertical: 2.0),
                                             child: Image.asset(
                                               'assets/images/zuhur.png',
                                               width: 30.0,
                                               height: 30.0,
                                             ),
                                           ),
-                                          Text(
+                                          const Text(
                                             '12:05',
                                             style: TextStyle(
                                                 color: textGray, fontSize: 12),
@@ -138,7 +138,7 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Asar',
                                             style: TextStyle(
                                                 color: greenPrimary,
@@ -146,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                           Container(
                                             padding:
-                                                EdgeInsets.symmetric(vertical: 2.0),
+                                                const EdgeInsets.symmetric(vertical: 2.0),
                                             child: Image.asset(
                                               'assets/images/asar.png',
                                               width: 30.0,
@@ -154,7 +154,7 @@ class HomeScreen extends StatelessWidget {
                                               color: greenPrimary,
                                             ),
                                           ),
-                                          Text(
+                                          const Text(
                                             '15:26',
                                             style: TextStyle(
                                                 color: greenPrimary, fontSize: 12),
@@ -165,21 +165,21 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Magrib',
                                             style: TextStyle(
                                                 color: textGray, fontWeight: medium),
                                           ),
                                           Container(
                                             padding:
-                                                EdgeInsets.symmetric(vertical: 2.0),
+                                                const EdgeInsets.symmetric(vertical: 2.0),
                                             child: Image.asset(
                                               'assets/images/magrib.png',
                                               width: 30.0,
                                               height: 30.0,
                                             ),
                                           ),
-                                          Text(
+                                          const Text(
                                             '18:17',
                                             style: TextStyle(
                                                 color: textGray, fontSize: 12),
@@ -190,21 +190,21 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Isya',
                                             style: TextStyle(
                                                 color: textGray, fontWeight: medium),
                                           ),
                                           Container(
                                             padding:
-                                                EdgeInsets.symmetric(vertical: 2.0),
+                                                const EdgeInsets.symmetric(vertical: 2.0),
                                             child: Image.asset(
                                               'assets/images/isya.png',
                                               width: 29.0,
                                               height: 29.0,
                                             ),
                                           ),
-                                          Text(
+                                          const Text(
                                             '19:31',
                                             style: TextStyle(
                                                 color: textGray, fontSize: 12),
@@ -213,13 +213,13 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                     ]),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 30.0,
                               ),
                             ],
                           ),
-                          Expanded(
-                            child: sectionMenu(),
+                          const Expanded(
+                            child: SectionMenu(),
                           ),
                         ],
                       ),
@@ -228,10 +228,10 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 80,
                 width: width,
-                child: TabBar(tabs: [
+                child: const TabBar(tabs: [
                   Tab(
                     icon: Icon(Icons.add),
                   ),
@@ -251,153 +251,155 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class sectionMenu extends StatefulWidget {
-  const sectionMenu({super.key});
+class SectionMenu extends StatefulWidget {
+  const SectionMenu({super.key});
 
   @override
-  State<sectionMenu> createState() => _sectionMenuState();
+  State<SectionMenu> createState() => _SectionMenuState();
 }
 
-class _sectionMenuState extends State<sectionMenu> {
+class _SectionMenuState extends State<SectionMenu> {
   String currentSection = 'tracker';
 
   Widget getContentWidget() {
     switch (currentSection) {
       case 'tracker':
-        return trackerSection();
+        return const TrackerSection();
       case 'tasbih':
-        return tasbihSection();
+        return const TasbihSection();
       case 'kalender':
-        return kalenderSection();
+        return const KalenderSection();
       default:
-        return trackerSection();
+        return const TrackerSection();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: bgBlur, borderRadius: BorderRadius.circular(21.0)),
-      child: Column(
-        children: [
-          Container(
-            width: 325.0,
-            height: 43.0,
-            decoration: BoxDecoration(
-                color: bgBlur, borderRadius: BorderRadius.circular(21.0)),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          currentSection = 'tracker';
-                        });
-                      },
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (currentSection == 'tracker') {
-                              return greenPrimary;
-                            }
-                            return bgBlur;
-                          },
+    return SingleChildScrollView(
+      child: Container(
+        decoration: BoxDecoration(
+            color: bgBlur, borderRadius: BorderRadius.circular(21.0)),
+        child: Column(
+          children: [
+            Container(
+              width: 325.0,
+              height: 43.0,
+              decoration: BoxDecoration(
+                  color: bgBlur, borderRadius: BorderRadius.circular(21.0)),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            currentSection = 'tracker';
+                          });
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              if (currentSection == 'tracker') {
+                                return greenPrimary;
+                              }
+                              return bgBlur;
+                            },
+                          ),
+                          foregroundColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              if (currentSection == 'tracker') {
+                                return Colors.white;
+                              }
+                              return Colors.black;
+                            },
+                          ),
                         ),
-                        foregroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (currentSection == 'tracker') {
-                              return Colors.white;
-                            }
-                            return Colors.black;
-                          },
+                        child: const Text('Tracker')),
+                    ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            currentSection = 'tasbih';
+                          });
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              if (currentSection == 'tasbih') {
+                                return greenPrimary;
+                              }
+                              return bgBlur;
+                            },
+                          ),
+                          foregroundColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              if (currentSection == 'tasbih') {
+                                return Colors.white;
+                              }
+                              return Colors.black;
+                            },
+                          ),
                         ),
-                      ),
-                      child: Text('Tracker')),
-                  ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          currentSection = 'tasbih';
-                        });
-                      },
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (currentSection == 'tasbih') {
-                              return greenPrimary;
-                            }
-                            return bgBlur;
-                          },
+                        child: const Text('Tasbih')),
+                    ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            currentSection = 'kalender';
+                          });
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              if (currentSection == 'kalender') {
+                                return greenPrimary;
+                              }
+                              return bgBlur;
+                            },
+                          ),
+                          foregroundColor:
+                              MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              if (currentSection == 'kalender') {
+                                return Colors.white;
+                              }
+                              return Colors.black;
+                            },
+                          ),
                         ),
-                        foregroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (currentSection == 'tasbih') {
-                              return Colors.white;
-                            }
-                            return Colors.black;
-                          },
-                        ),
-                      ),
-                      child: Text('Tasbih')),
-                  ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          currentSection = 'kalender';
-                        });
-                      },
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (currentSection == 'kalender') {
-                              return greenPrimary;
-                            }
-                            return bgBlur;
-                          },
-                        ),
-                        foregroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (currentSection == 'kalender') {
-                              return Colors.white;
-                            }
-                            return Colors.black;
-                          },
-                        ),
-                      ),
-                      child: Text('Kalender')),
-                ],
+                        child: const Text('Kalender')),
+                  ],
+                ),
               ),
             ),
-          ),
-          getContentWidget(),
-        ],
+            getContentWidget(),
+          ],
+        ),
       ),
     );
   }
 }
 
-class trackerSection extends StatefulWidget {
-  const trackerSection({super.key});
+class TrackerSection extends StatefulWidget {
+  const TrackerSection({super.key});
 
   @override
-  State<trackerSection> createState() => _trackerSectionState();
+  State<TrackerSection> createState() => _TrackerSectionState();
 }
 
-class _trackerSectionState extends State<trackerSection> {
+class _TrackerSectionState extends State<TrackerSection> {
   bool edit = false;
 
   Widget getContentWidget() {
     if (edit) {
-      return trackerPage();
+      return const TrackerPage();
     } else {
-      return editPage();
+      return const EditPage();
     }
   }
 
@@ -410,7 +412,7 @@ class _trackerSectionState extends State<trackerSection> {
         Container(
             width: 95.0,
             height: 26.0,
-            margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+            margin: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
             decoration: BoxDecoration(
                 color: greenPrimary, borderRadius: BorderRadius.circular(30.0)),
             child: ElevatedButton(
@@ -422,22 +424,22 @@ class _trackerSectionState extends State<trackerSection> {
                   edit = true;
                 });
               },
-              child: Text('Edit', style: TextStyle(color: white, fontSize: 12)),
+              child: const Text('Edit', style: TextStyle(color: white, fontSize: 12)),
             ))
       ],
     );
   }
 }
 
-class trackerPage extends StatelessWidget {
-  const trackerPage({super.key});
+class TrackerPage extends StatelessWidget {
+  const TrackerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.all(15.0),
+          margin: const EdgeInsets.all(15.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -448,7 +450,7 @@ class trackerPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: greenPrimary,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -468,7 +470,7 @@ class trackerPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -487,7 +489,7 @@ class trackerPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -506,7 +508,7 @@ class trackerPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -525,7 +527,7 @@ class trackerPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -544,7 +546,7 @@ class trackerPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -566,14 +568,14 @@ class trackerPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              margin: EdgeInsets.only(top: 5.0),
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                   color: bgDone, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Subuh',
                       style: TextStyle(
                         fontWeight: medium,
@@ -589,14 +591,14 @@ class trackerPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              margin: EdgeInsets.only(top: 5.0),
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                   color: bgDone, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Zuhur',
                       style: TextStyle(
                         fontWeight: medium,
@@ -612,14 +614,14 @@ class trackerPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              margin: EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
                   color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Asar',
                       style: TextStyle(
                         fontWeight: medium,
@@ -635,14 +637,14 @@ class trackerPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              margin: EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
                   color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Magrib',
                       style: TextStyle(
                         fontWeight: medium,
@@ -658,14 +660,14 @@ class trackerPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              margin: EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
                   color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Isya',
                       style: TextStyle(
                         fontWeight: medium,
@@ -685,15 +687,15 @@ class trackerPage extends StatelessWidget {
   }
 }
 
-class editPage extends StatelessWidget {
-  const editPage({super.key});
+class EditPage extends StatelessWidget {
+  const EditPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.all(15.0),
+          margin: const EdgeInsets.all(15.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -704,7 +706,7 @@ class editPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: greenPrimary,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -724,7 +726,7 @@ class editPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -743,7 +745,7 @@ class editPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -762,7 +764,7 @@ class editPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -781,7 +783,7 @@ class editPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -800,7 +802,7 @@ class editPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -822,14 +824,14 @@ class editPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              margin: EdgeInsets.only(top: 5.0),
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                   color: bgDone, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Subuh',
                       style: TextStyle(
                         fontWeight: medium,
@@ -841,14 +843,14 @@ class editPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              margin: EdgeInsets.only(top: 5.0),
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                   color: bgDone, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Zuhur',
                       style: TextStyle(
                         fontWeight: medium,
@@ -860,14 +862,14 @@ class editPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              margin: EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
                   color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Asar',
                       style: TextStyle(
                         fontWeight: medium,
@@ -879,14 +881,14 @@ class editPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              margin: EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
                   color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Magrib',
                       style: TextStyle(
                         fontWeight: medium,
@@ -898,14 +900,14 @@ class editPage extends StatelessWidget {
             Container(
               width: 237.0,
               height: 34.0,
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              margin: EdgeInsets.only(top: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
                   color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Isya',
                       style: TextStyle(
                         fontWeight: medium,
@@ -921,8 +923,8 @@ class editPage extends StatelessWidget {
   }
 }
 
-class tasbihSection extends StatelessWidget {
-  const tasbihSection({super.key});
+class TasbihSection extends StatelessWidget {
+  const TasbihSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -930,7 +932,7 @@ class tasbihSection extends StatelessWidget {
       padding: const EdgeInsets.only(top: 30.0),
       child: Column(
         children: [
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('0/', style: TextStyle(fontSize: 36, fontWeight: semiBold)),
@@ -945,14 +947,17 @@ class tasbihSection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 7.0),
             child: Image.asset('assets/images/tasbih.png'),
           ),
-          Center(
-            child: Text(
-              'Klik di mana saja\nuntuk mulai',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: light,
+          const Padding(
+            padding: EdgeInsets.only(bottom: 40),
+            child: Center(
+              child: Text(
+                'Klik di mana saja\nuntuk mulai',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: light,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           )
         ],
@@ -961,8 +966,8 @@ class tasbihSection extends StatelessWidget {
   }
 }
 
-class kalenderSection extends StatelessWidget {
-  const kalenderSection({super.key});
+class KalenderSection extends StatelessWidget {
+  const KalenderSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -974,7 +979,7 @@ class kalenderSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset('assets/images/back.png', width: 10.0),
-              Text(
+              const Text(
                 'Rajab 1445H',
                 style: TextStyle(fontSize: 16, fontWeight: bold),
               ),
@@ -983,13 +988,13 @@ class kalenderSection extends StatelessWidget {
           ),
           Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 15.0),
+              const Padding(
+                padding: EdgeInsets.only(top: 15.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Center(
-                      child: Container(
+                      child: SizedBox(
                         width: 25.0,
                         height: 25.0,
                         child: Center(
@@ -1004,7 +1009,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1015,7 +1020,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1026,7 +1031,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1037,7 +1042,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1048,7 +1053,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1059,7 +1064,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1073,12 +1078,12 @@ class kalenderSection extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1092,7 +1097,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1106,7 +1111,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1120,7 +1125,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1134,7 +1139,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1148,7 +1153,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1162,7 +1167,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1176,12 +1181,12 @@ class kalenderSection extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1192,7 +1197,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1203,7 +1208,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1214,7 +1219,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1225,7 +1230,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1236,7 +1241,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1247,7 +1252,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1266,7 +1271,7 @@ class kalenderSection extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
+                    const SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1277,7 +1282,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    const SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1288,7 +1293,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    const SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1299,7 +1304,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    const SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1316,7 +1321,7 @@ class kalenderSection extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: greenPrimary,
                           borderRadius: BorderRadius.circular(15.0)),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           '13',
                           style: TextStyle(
@@ -1327,7 +1332,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    const SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1338,7 +1343,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    const SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1352,12 +1357,12 @@ class kalenderSection extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1368,7 +1373,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1379,7 +1384,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1390,7 +1395,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1401,7 +1406,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1412,7 +1417,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1423,7 +1428,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1437,12 +1442,12 @@ class kalenderSection extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1453,7 +1458,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1464,7 +1469,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1475,7 +1480,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1486,7 +1491,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1497,7 +1502,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
@@ -1508,7 +1513,7 @@ class kalenderSection extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(

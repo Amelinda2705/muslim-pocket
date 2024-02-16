@@ -40,7 +40,7 @@ class QuranSurahScreen extends StatelessWidget {
                             int.parse(surah["number_of_ayah"]), (index) {
                           return Container(
                             width: width,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 border: Border(bottom: BorderSide())),
                             child: Column(
                               children: [
@@ -60,7 +60,7 @@ class QuranSurahScreen extends StatelessWidget {
             Container(
               height: 50,
               width: 50,
-              decoration: BoxDecoration(color: greenPrimary),
+              decoration: const BoxDecoration(color: greenPrimary),
               child: Text(surah["number"]),
             ),
             Positioned(
@@ -72,8 +72,8 @@ class QuranSurahScreen extends StatelessWidget {
                 child: Container(
                   height: 50,
                   width: 50,
-                  decoration: BoxDecoration(color: greenPrimary),
-                  child: Icon(Icons.close),
+                  decoration: const BoxDecoration(color: greenPrimary),
+                  child: const Icon(Icons.close),
                 ),
               ),
             ),
@@ -88,8 +88,8 @@ class QuranSurahScreen extends StatelessWidget {
                   child: Container(
                     height: 50,
                     width: 100,
-                    decoration: BoxDecoration(color: greenPrimary),
-                    child: Text("sebelumnya"),
+                    decoration: const BoxDecoration(color: greenPrimary),
+                    child: const Text("sebelumnya"),
                   ),
                 ),
               ),
@@ -105,8 +105,8 @@ class QuranSurahScreen extends StatelessWidget {
                   child: Container(
                     height: 50,
                     width: 100,
-                    decoration: BoxDecoration(color: greenPrimary),
-                    child: Text("selanjutnya"),
+                    decoration: const BoxDecoration(color: greenPrimary),
+                    child: const Text("selanjutnya"),
                   ),
                 ),
               ),
