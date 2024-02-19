@@ -50,6 +50,7 @@ flutter:
     - assets/images/next.png
     - assets/images/back.png
     - assets/images/edit.png
+    - assets/images/number-surah.png
   fonts:
     - family: Poppins
       fonts:

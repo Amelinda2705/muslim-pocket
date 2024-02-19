@@ -22,31 +22,57 @@ class QuranSurahScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
+                  padding: const EdgeInsets.only(top: 20),
                   height: 100,
                   width: width,
                   child: Column(
                     children: [
-                      Text(surah["name_latin"]),
-                      Text(surah["translations"]["id"]["name"]),
-                      Text("${surah["number_of_ayah"]} ayat"),
+                      Text(surah["name_latin"],
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: semiBold)),
+                      Text(surah["translations"]["id"]["name"],
+                          style:
+                              const TextStyle(fontSize: 12, fontWeight: light)),
+                      Container(
+                          decoration: const BoxDecoration(
+                            color: greenPrimary,
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 35, vertical: 5),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: Text(
+                            "${surah["number_of_ayah"]} ayat",
+                            style: const TextStyle(
+                                color: white, fontWeight: semiBold),
+                          )),
                     ],
                   ),
                 ),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Container(
+                      margin: const EdgeInsets.only(top: 30, bottom: 70),
+                      width: 325,
                       child: Column(
                         children: List.generate(
                             int.parse(surah["number_of_ayah"]), (index) {
                           return Container(
                             width: width,
+                            padding: const EdgeInsets.symmetric(vertical: 20),
                             decoration: const BoxDecoration(
                                 border: Border(bottom: BorderSide())),
                             child: Column(
                               children: [
-                                Text(surah["text"]["${index + 1}"]),
-                                Text(surah["translations"]["id"]["text"]
-                                    ["${index + 1}"]),
+                                Text(
+                                  surah["text"]["${index + 1}"], style: const TextStyle(
+                                    fontSize: 20, fontWeight: bold
+                                  ),
+                                ),
+                                Text(
+                                  surah["translations"]["id"]["text"]
+                                      ["${index + 1}"]
+                                ),
                               ],
                             ),
                           );
@@ -57,11 +83,27 @@ class QuranSurahScreen extends StatelessWidget {
                 )
               ],
             ),
-            Container(
-              height: 50,
-              width: 50,
-              decoration: const BoxDecoration(color: greenPrimary),
-              child: Text(surah["number"]),
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Container(
+                padding: const EdgeInsets.only(
+                    top: 10, left: 10, right: 20, bottom: 13),
+                decoration: const BoxDecoration(
+                  color: greenPrimary,
+                  borderRadius:
+                      BorderRadius.only(bottomRight: Radius.circular(50)),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      surah["number"],
+                      style: const TextStyle(
+                          color: white, fontSize: 16, fontWeight: semiBold),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Positioned(
               right: 0,
@@ -70,10 +112,17 @@ class QuranSurahScreen extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: const BoxDecoration(color: greenPrimary),
-                  child: const Icon(Icons.close),
+                  padding: const EdgeInsets.only(
+                      top: 10, right: 10, left: 20, bottom: 13),
+                  decoration: const BoxDecoration(
+                    color: greenPrimary,
+                    borderRadius:
+                        BorderRadius.only(bottomLeft: Radius.circular(50)),
+                  ),
+                  child: const Icon(
+                    Icons.close,
+                    color: white,
+                  ),
                 ),
               ),
             ),
@@ -86,10 +135,23 @@ class QuranSurahScreen extends StatelessWidget {
                         builder: (_) => QuranSurahScreen(index - 1)));
                   },
                   child: Container(
-                    height: 50,
-                    width: 100,
-                    decoration: const BoxDecoration(color: greenPrimary),
-                    child: const Text("sebelumnya"),
+                    padding: const EdgeInsets.only(
+                        bottom: 10, left: 10, right: 30, top: 13),
+                    decoration: const BoxDecoration(
+                      color: greenPrimary,
+                      borderRadius:
+                          BorderRadius.only(topRight: Radius.circular(50)),
+                    ),
+                    child: const Row(
+                      children: [
+                        Icon(Icons.keyboard_arrow_left_rounded, color: white),
+                        Text(
+                          "sebelumnya",
+                          style: TextStyle(
+                              color: white, fontSize: 14, fontWeight: semiBold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -103,10 +165,26 @@ class QuranSurahScreen extends StatelessWidget {
                         builder: (_) => QuranSurahScreen(index + 1)));
                   },
                   child: Container(
-                    height: 50,
-                    width: 100,
-                    decoration: const BoxDecoration(color: greenPrimary),
-                    child: const Text("selanjutnya"),
+                    padding: const EdgeInsets.only(
+                        bottom: 10, right: 10, left: 30, top: 13),
+                    decoration: const BoxDecoration(
+                      color: greenPrimary,
+                      borderRadius:
+                          BorderRadius.only(topLeft: Radius.circular(50)),
+                    ),
+                    child: const Row(
+                      children: [
+                        Text("selanjutnya",
+                            style: TextStyle(
+                                color: white,
+                                fontSize: 14,
+                                fontWeight: semiBold)),
+                        Icon(
+                          Icons.keyboard_arrow_right_rounded,
+                          color: white,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
