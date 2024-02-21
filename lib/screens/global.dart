@@ -8,7 +8,7 @@ const bgBlur = Color.fromRGBO(217, 217, 217, .3);
 const bgNotYet = Color.fromRGBO(217, 217, 217, 1);
 const bgDone = Color.fromRGBO(179, 230, 185, 1);
 
-  // fonts weights
+// fonts weights
 const black = FontWeight.w900;
 const extraBold = FontWeight.w800;
 const bold = FontWeight.w700;

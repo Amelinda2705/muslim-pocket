@@ -98,3 +98,6 @@ flutter:
         - asset: assets/fonts/Poppins-ThinItalic.ttf
           style: italic
           weight: 100
+    - family: IsepMisbah
+      fonts:
+        - asset: assets/fonts/quran-font/LPMQ-IsepMisbah.ttf
