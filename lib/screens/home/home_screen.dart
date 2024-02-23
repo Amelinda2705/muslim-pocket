@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:muslimpocket/screens/global.dart';
+import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/screens/quran/quran_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -29,19 +29,19 @@ class HomeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Column(
+                              Column(
                                 children: [
                                   Column(
                                     children: <Widget>[
                                       Text(
                                         '13 Rajab 1445 H',
                                         style: TextStyle(
-                                            fontSize: 14, fontWeight: semiBold),
+                                            fontSize: 14, fontWeight: Global().semiBold),
                                       ),
                                       Text(
                                         'Jakarta, Indonesia',
                                         style: TextStyle(
-                                            fontSize: 12, fontWeight: regular),
+                                            fontSize: 12, fontWeight: Global().regular),
                                       ),
                                     ],
                                   ),
@@ -49,14 +49,14 @@ class HomeScreen extends StatelessWidget {
                               ),
                               Container(
                                 margin: const EdgeInsets.symmetric(vertical: 20.0),
-                                child: const Column(
+                                child: Column(
                                   children: <Widget>[
                                     Text(
                                       '16:40',
                                       style: TextStyle(
                                         fontSize: 48,
-                                        color: greenPrimary,
-                                        fontWeight: bold,
+                                        color: Global().greenPrimary,
+                                        fontWeight: Global().bold,
                                       ),
                                     ),
                                     Row(
@@ -65,11 +65,11 @@ class HomeScreen extends StatelessWidget {
                                         Text(
                                           '1:37 ',
                                           style: TextStyle(
-                                            color: greenPrimary,
-                                            fontWeight: bold,
+                                            color: Global().greenPrimary,
+                                            fontWeight: Global().bold,
                                           ),
                                         ),
-                                        Text('sebelum adzan Magrib')
+                                        const Text('sebelum adzan Magrib')
                                       ],
                                     ),
                                   ],
@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                               Container(
                                 padding: const EdgeInsets.symmetric(vertical: 24),
                                 decoration: BoxDecoration(
-                                    color: bgBlur,
+                                    color: Global().bgBlur,
                                     borderRadius: BorderRadius.circular(10.0)),
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -88,10 +88,10 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          const Text(
+                                          Text(
                                             'Subuh',
                                             style: TextStyle(
-                                                color: textGray, fontWeight: medium),
+                                                color: Global().textGray, fontWeight: Global().medium),
                                           ),
                                           Container(
                                             padding:
@@ -102,10 +102,10 @@ class HomeScreen extends StatelessWidget {
                                               height: 30.0,
                                             ),
                                           ),
-                                          const Text(
+                                          Text(
                                             '04:27',
                                             style: TextStyle(
-                                                color: textGray, fontSize: 12),
+                                                color: Global().textGray, fontSize: 12),
                                           ),
                                         ],
                                       ),
@@ -113,10 +113,10 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          const Text(
+                                          Text(
                                             'Zuhur',
                                             style: TextStyle(
-                                                color: textGray, fontWeight: medium),
+                                                color: Global().textGray, fontWeight: Global().medium),
                                           ),
                                           Container(
                                             padding:
@@ -127,10 +127,10 @@ class HomeScreen extends StatelessWidget {
                                               height: 30.0,
                                             ),
                                           ),
-                                          const Text(
+                                          Text(
                                             '12:05',
                                             style: TextStyle(
-                                                color: textGray, fontSize: 12),
+                                                color: Global().textGray, fontSize: 12),
                                           ),
                                         ],
                                       ),
@@ -138,11 +138,11 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          const Text(
+                                          Text(
                                             'Asar',
                                             style: TextStyle(
-                                                color: greenPrimary,
-                                                fontWeight: medium),
+                                                color: Global().greenPrimary,
+                                                fontWeight: Global().medium),
                                           ),
                                           Container(
                                             padding:
@@ -151,13 +151,13 @@ class HomeScreen extends StatelessWidget {
                                               'assets/images/asar.png',
                                               width: 30.0,
                                               height: 30.0,
-                                              color: greenPrimary,
+                                              color: Global().greenPrimary,
                                             ),
                                           ),
-                                          const Text(
+                                          Text(
                                             '15:26',
                                             style: TextStyle(
-                                                color: greenPrimary, fontSize: 12),
+                                                color: Global().greenPrimary, fontSize: 12),
                                           ),
                                         ],
                                       ),
@@ -165,10 +165,10 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          const Text(
+                                         Text(
                                             'Magrib',
                                             style: TextStyle(
-                                                color: textGray, fontWeight: medium),
+                                                color: Global().textGray, fontWeight: Global().medium),
                                           ),
                                           Container(
                                             padding:
@@ -179,10 +179,10 @@ class HomeScreen extends StatelessWidget {
                                               height: 30.0,
                                             ),
                                           ),
-                                          const Text(
+                                          Text(
                                             '18:17',
                                             style: TextStyle(
-                                                color: textGray, fontSize: 12),
+                                                color: Global().textGray, fontSize: 12),
                                           ),
                                         ],
                                       ),
@@ -190,10 +190,10 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          const Text(
+                                          Text(
                                             'Isya',
                                             style: TextStyle(
-                                                color: textGray, fontWeight: medium),
+                                                color: Global().textGray, fontWeight: Global().medium),
                                           ),
                                           Container(
                                             padding:
@@ -204,10 +204,10 @@ class HomeScreen extends StatelessWidget {
                                               height: 29.0,
                                             ),
                                           ),
-                                          const Text(
+                                          Text(
                                             '19:31',
                                             style: TextStyle(
-                                                color: textGray, fontSize: 12),
+                                                color: Global().textGray, fontSize: 12),
                                           ),
                                         ],
                                       ),
@@ -279,14 +279,14 @@ class _SectionMenuState extends State<SectionMenu> {
     return SingleChildScrollView(
       child: Container(
         decoration: BoxDecoration(
-            color: bgBlur, borderRadius: BorderRadius.circular(21.0)),
+            color: Global().bgBlur, borderRadius: BorderRadius.circular(21.0)),
         child: Column(
           children: [
             Container(
               width: 325.0,
               height: 43.0,
               decoration: BoxDecoration(
-                  color: bgBlur, borderRadius: BorderRadius.circular(21.0)),
+                  color: Global().bgBlur, borderRadius: BorderRadius.circular(21.0)),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4.0),
                 child: Row(
@@ -303,16 +303,16 @@ class _SectionMenuState extends State<SectionMenu> {
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
                               if (currentSection == 'tracker') {
-                                return greenPrimary;
+                                return Global().greenPrimary;
                               }
-                              return bgBlur;
+                              return Global().bgBlur;
                             },
                           ),
                           foregroundColor:
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
                               if (currentSection == 'tracker') {
-                                return Colors.white;
+                                return Global().white;
                               }
                               return Colors.black;
                             },
@@ -330,16 +330,16 @@ class _SectionMenuState extends State<SectionMenu> {
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
                               if (currentSection == 'tasbih') {
-                                return greenPrimary;
+                                return Global().greenPrimary;
                               }
-                              return bgBlur;
+                              return Global().bgBlur;
                             },
                           ),
                           foregroundColor:
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
                               if (currentSection == 'tasbih') {
-                                return Colors.white;
+                                return Global().white;
                               }
                               return Colors.black;
                             },
@@ -357,16 +357,16 @@ class _SectionMenuState extends State<SectionMenu> {
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
                               if (currentSection == 'kalender') {
-                                return greenPrimary;
+                                return Global().greenPrimary;
                               }
-                              return bgBlur;
+                              return Global().bgBlur;
                             },
                           ),
                           foregroundColor:
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
                               if (currentSection == 'kalender') {
-                                return Colors.white;
+                                return Global().white;
                               }
                               return Colors.black;
                             },
@@ -414,17 +414,17 @@ class _TrackerSectionState extends State<TrackerSection> {
             height: 26.0,
             margin: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
             decoration: BoxDecoration(
-                color: greenPrimary, borderRadius: BorderRadius.circular(30.0)),
+                color: Global().greenPrimary, borderRadius: BorderRadius.circular(30.0)),
             child: ElevatedButton(
               style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(greenPrimary)),
+                      MaterialStateProperty.all<Color>(Global().greenPrimary)),
               onPressed: () {
                 setState(() {
                   edit = true;
                 });
               },
-              child: const Text('Edit', style: TextStyle(color: white, fontSize: 12)),
+              child: Text('Edit', style: TextStyle(color: Global().white, fontSize: 12)),
             ))
       ],
     );
@@ -448,18 +448,18 @@ class TrackerPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: greenPrimary,
+                      color: Global().greenPrimary,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         '26',
                         style: TextStyle(
-                          color: white,
+                          color: Global().white,
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -468,9 +468,9 @@ class TrackerPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -478,7 +478,7 @@ class TrackerPage extends StatelessWidget {
                         '27',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -487,9 +487,9 @@ class TrackerPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -497,7 +497,7 @@ class TrackerPage extends StatelessWidget {
                         '28',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -506,9 +506,9 @@ class TrackerPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -516,7 +516,7 @@ class TrackerPage extends StatelessWidget {
                         '29',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -525,9 +525,9 @@ class TrackerPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -535,7 +535,7 @@ class TrackerPage extends StatelessWidget {
                         '30',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -544,9 +544,9 @@ class TrackerPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -554,7 +554,7 @@ class TrackerPage extends StatelessWidget {
                         '31',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -571,14 +571,14 @@ class TrackerPage extends StatelessWidget {
               margin: const EdgeInsets.only(top: 5.0),
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
-                  color: bgDone, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgDone, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Subuh',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset(
@@ -594,14 +594,14 @@ class TrackerPage extends StatelessWidget {
               margin: const EdgeInsets.only(top: 5.0),
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
-                  color: bgDone, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgDone, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Zuhur',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset(
@@ -617,14 +617,14 @@ class TrackerPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
-                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Asar',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset(
@@ -640,14 +640,14 @@ class TrackerPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
-                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Magrib',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset(
@@ -663,14 +663,14 @@ class TrackerPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
-                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Isya',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset(
@@ -704,18 +704,18 @@ class EditPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: greenPrimary,
+                      color: Global().greenPrimary,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         '26',
                         style: TextStyle(
-                          color: white,
+                          color: Global().white,
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -724,9 +724,9 @@ class EditPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -734,7 +734,7 @@ class EditPage extends StatelessWidget {
                         '27',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -743,9 +743,9 @@ class EditPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -753,7 +753,7 @@ class EditPage extends StatelessWidget {
                         '28',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -762,9 +762,9 @@ class EditPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -772,7 +772,7 @@ class EditPage extends StatelessWidget {
                         '29',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -781,9 +781,9 @@ class EditPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -791,7 +791,7 @@ class EditPage extends StatelessWidget {
                         '30',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -800,9 +800,9 @@ class EditPage extends StatelessWidget {
                   width: 32.0,
                   height: 32.0,
                   decoration: BoxDecoration(
-                      color: bgNotYet,
+                      color: Global().bgNotYet,
                       borderRadius: BorderRadius.circular(50.0)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -810,7 +810,7 @@ class EditPage extends StatelessWidget {
                         '31',
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: medium,
+                          fontWeight: Global().medium,
                         ),
                       ),
                     ],
@@ -827,14 +827,14 @@ class EditPage extends StatelessWidget {
               margin: const EdgeInsets.only(top: 5.0),
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
-                  color: bgDone, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgDone, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Subuh',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset('assets/images/done.png')
@@ -846,14 +846,14 @@ class EditPage extends StatelessWidget {
               margin: const EdgeInsets.only(top: 5.0),
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
-                  color: bgDone, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgDone, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Zuhur',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset('assets/images/done.png')
@@ -865,14 +865,14 @@ class EditPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
-                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Asar',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset('assets/images/not-yet.png')
@@ -884,14 +884,14 @@ class EditPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
-                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Magrib',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset('assets/images/not-yet.png')
@@ -903,14 +903,14 @@ class EditPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               margin: const EdgeInsets.only(top: 5.0),
               decoration: BoxDecoration(
-                  color: bgNotYet, borderRadius: BorderRadius.circular(30.0)),
+                  color: Global().bgNotYet, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Isya',
                       style: TextStyle(
-                        fontWeight: medium,
+                        fontWeight: Global().medium,
                       ),
                     ),
                     Image.asset('assets/images/not-yet.png')
@@ -932,14 +932,14 @@ class TasbihSection extends StatelessWidget {
       padding: const EdgeInsets.only(top: 30.0),
       child: Column(
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('0/', style: TextStyle(fontSize: 36, fontWeight: semiBold)),
+              Text('0/', style: TextStyle(fontSize: 36, fontWeight: Global().semiBold)),
               Text('33',
                   style: TextStyle(
                       fontSize: 36,
-                      fontWeight: semiBold,
+                      fontWeight: Global().semiBold,
                       decoration: TextDecoration.underline))
             ],
           ),
@@ -947,14 +947,14 @@ class TasbihSection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 7.0),
             child: Image.asset('assets/images/tasbih.png'),
           ),
-          const Padding(
-            padding: EdgeInsets.only(bottom: 40),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 40),
             child: Center(
               child: Text(
                 'Klik di mana saja\nuntuk mulai',
                 style: TextStyle(
                   fontSize: 12,
-                  fontWeight: light,
+                  fontWeight: Global().light,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -979,17 +979,17 @@ class KalenderSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset('assets/images/back.png', width: 10.0),
-              const Text(
+              Text(
                 'Rajab 1445H',
-                style: TextStyle(fontSize: 16, fontWeight: bold),
+                style: TextStyle(fontSize: 16, fontWeight: Global().bold),
               ),
               Image.asset('assets/images/next.png', width: 10.0),
             ],
           ),
           Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 15.0),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -1002,7 +1002,7 @@ class KalenderSection extends StatelessWidget {
                             'M',
                             style: TextStyle(
                                 color: Colors.red,
-                                fontWeight: regular,
+                                fontWeight: Global().regular,
                                 fontSize: 12),
                             textAlign: TextAlign.center,
                           ),
@@ -1015,7 +1015,7 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'S',
-                          style: TextStyle(fontWeight: regular, fontSize: 12),
+                          style: TextStyle(fontWeight: Global().regular, fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1026,7 +1026,7 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'S',
-                          style: TextStyle(fontWeight: regular, fontSize: 12),
+                          style: TextStyle(fontWeight: Global().regular, fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1037,7 +1037,7 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'R',
-                          style: TextStyle(fontWeight: regular, fontSize: 12),
+                          style: TextStyle(fontWeight: Global().regular, fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1048,7 +1048,7 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'K',
-                          style: TextStyle(fontWeight: regular, fontSize: 12),
+                          style: TextStyle(fontWeight: Global().regular, fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1059,7 +1059,7 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'J',
-                          style: TextStyle(fontWeight: regular, fontSize: 12),
+                          style: TextStyle(fontWeight: Global().regular, fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1070,195 +1070,7 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           'S',
-                          style: TextStyle(fontWeight: regular, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '25',
-                          style: TextStyle(
-                              color: disableColor,
-                              fontWeight: extraBold,
-                              fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '26',
-                          style: TextStyle(
-                              color: disableColor,
-                              fontWeight: extraBold,
-                              fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '27',
-                          style: TextStyle(
-                              color: disableColor,
-                              fontWeight: extraBold,
-                              fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '28',
-                          style: TextStyle(
-                              color: disableColor,
-                              fontWeight: extraBold,
-                              fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '29',
-                          style: TextStyle(
-                              color: disableColor,
-                              fontWeight: extraBold,
-                              fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '30',
-                          style: TextStyle(
-                              color: disableColor,
-                              fontWeight: extraBold,
-                              fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '1',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '2',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '3',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '4',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '5',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '6',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '7',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '8',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
+                          style: TextStyle(fontWeight: Global().regular, fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1271,211 +1083,16 @@ class KalenderSection extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '9',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '10',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '11',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '12',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 25.0,
-                      height: 25.0,
-                      decoration: BoxDecoration(
-                          color: greenPrimary,
-                          borderRadius: BorderRadius.circular(15.0)),
-                      child: const Center(
-                        child: Text(
-                          '13',
-                          style: TextStyle(
-                              fontWeight: extraBold,
-                              color: white,
-                              fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '14',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '15',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '16',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '17',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '18',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '19',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '20',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '21',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '22',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '23',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                      height: 25.0,
-                      child: Center(
-                        child: Text(
-                          '24',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
                     SizedBox(
                       width: 25.0,
                       height: 25.0,
                       child: Center(
                         child: Text(
                           '25',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
+                          style: TextStyle(
+                              color: Global().disableColor,
+                              fontWeight: Global().extraBold,
+                              fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1486,7 +1103,10 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           '26',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
+                          style: TextStyle(
+                              color: Global().disableColor,
+                              fontWeight: Global().extraBold,
+                              fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1497,7 +1117,10 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           '27',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
+                          style: TextStyle(
+                              color: Global().disableColor,
+                              fontWeight: Global().extraBold,
+                              fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1508,7 +1131,10 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           '28',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
+                          style: TextStyle(
+                              color: Global().disableColor,
+                              fontWeight: Global().extraBold,
+                              fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -1519,7 +1145,381 @@ class KalenderSection extends StatelessWidget {
                       child: Center(
                         child: Text(
                           '29',
-                          style: TextStyle(fontWeight: extraBold, fontSize: 12),
+                          style: TextStyle(
+                              color: Global().disableColor,
+                              fontWeight: Global().extraBold,
+                              fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '30',
+                          style: TextStyle(
+                              color: Global().disableColor,
+                              fontWeight: Global().extraBold,
+                              fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '1',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '2',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '3',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '4',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '5',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '6',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '7',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '8',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '9',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '10',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '11',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '12',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 25.0,
+                      height: 25.0,
+                      decoration: BoxDecoration(
+                          color: Global().greenPrimary,
+                          borderRadius: BorderRadius.circular(15.0)),
+                      child: Center(
+                        child: Text(
+                          '13',
+                          style: TextStyle(
+                              fontWeight: Global().extraBold,
+                              color: Global().white,
+                              fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '14',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '15',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '16',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '17',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '18',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '19',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '20',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '21',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '22',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '23',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '24',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '25',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '26',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '27',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '28',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 25.0,
+                      height: 25.0,
+                      child: Center(
+                        child: Text(
+                          '29',
+                          style: TextStyle(fontWeight: Global().extraBold, fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),

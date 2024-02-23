@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muslimpocket/resources/datas/quran_data.dart';
-import 'package:muslimpocket/screens/global.dart';
+import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/screens/quran/quran_surah_screen.dart';
 
 class QuranScreen extends StatelessWidget {
@@ -22,9 +22,9 @@ class QuranScreen extends StatelessWidget {
         child: Container(
           width: 325,
           height: height,
-          decoration: const BoxDecoration(
-            color: bgBlur,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+          decoration: BoxDecoration(
+            color: Global().bgBlur,
+            borderRadius: const BorderRadius.all(const Radius.circular(10)),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           margin: const EdgeInsets.only(top: 20),
@@ -61,10 +61,10 @@ class QuranScreen extends StatelessWidget {
                               child: Center(
                                 child: Text(
                                   surah["number"],
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       fontSize: 13,
-                                      fontWeight: semiBold,
-                                      color: greenPrimary),
+                                      fontWeight: Global().semiBold,
+                                      color: Global().greenPrimary),
                                 ),
                               ))
                         ]),
@@ -77,8 +77,8 @@ class QuranScreen extends StatelessWidget {
                           children: [
                             Text(
                               surah["name_latin"],
-                              style: const TextStyle(
-                                  fontSize: 16, fontWeight: semiBold),
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: Global().semiBold),
                             ),
                             SizedBox(
                               width: 200,

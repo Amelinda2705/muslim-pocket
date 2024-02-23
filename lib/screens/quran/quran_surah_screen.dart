@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muslimpocket/resources/datas/quran_data.dart';
-import 'package:muslimpocket/screens/global.dart';
+import 'package:muslimpocket/commons/global.dart';
 
 class QuranSurahScreen extends StatelessWidget {
   final int index;
@@ -15,8 +15,8 @@ class QuranSurahScreen extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
       child: Container(
-        decoration: const BoxDecoration(
-          color: bgBlur,
+        decoration: BoxDecoration(
+          color: Global().bgBlur,
         ),
         child: SizedBox(
           height: height,
@@ -32,26 +32,26 @@ class QuranSurahScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(surah["name_latin"],
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 16,
-                              fontWeight: semiBold,
+                              fontWeight: Global().semiBold,
                             )),
                         Text(surah["translations"]["id"]["name"],
-                            style: const TextStyle(
-                                fontSize: 12, fontWeight: light)),
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: Global().light)),
                         Container(
-                            decoration: const BoxDecoration(
-                              color: greenPrimary,
+                            decoration: BoxDecoration(
+                              color: Global().greenPrimary,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  const BorderRadius.all(Radius.circular(10)),
                             ),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 35, vertical: 5),
                             margin: const EdgeInsets.only(top: 10),
                             child: Text(
                               "${surah["number_of_ayah"]} ayat",
-                              style: const TextStyle(
-                                  color: white, fontWeight: semiBold),
+                              style: TextStyle(
+                                  color: Global().white, fontWeight: Global().semiBold),
                             )),
                       ],
                     ),
@@ -74,17 +74,17 @@ class QuranSurahScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     surah["text"]["${index + 1}"],
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 25,
-                                      fontWeight: bold,
+                                      fontWeight: Global().bold,
                                       fontFamily: 'IsepMisbah',
                                       height: 2.0
                                     ),
                                   ),
                                   Text(
                                     surah["transliteration"]["${index + 1}"],
-                                    style: const TextStyle(
-                                      color: greenPrimary,
+                                    style: TextStyle(
+                                      color: Global().greenPrimary,
                                     ),
                                   ),
                                   Text(surah["translations"]["id"]["text"]
@@ -105,17 +105,17 @@ class QuranSurahScreen extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.only(
                       top: 10, left: 10, right: 20, bottom: 13),
-                  decoration: const BoxDecoration(
-                    color: greenPrimary,
+                  decoration: BoxDecoration(
+                    color: Global().greenPrimary,
                     borderRadius:
-                        BorderRadius.only(bottomRight: Radius.circular(50)),
+                        const BorderRadius.only(bottomRight: Radius.circular(50)),
                   ),
                   child: Column(
                     children: [
                       Text(
                         surah["number"],
-                        style: const TextStyle(
-                            color: white, fontSize: 16, fontWeight: semiBold),
+                        style: TextStyle(
+                            color: Global().white, fontSize: 16, fontWeight: Global().semiBold),
                       ),
                     ],
                   ),
@@ -130,14 +130,14 @@ class QuranSurahScreen extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.only(
                         top: 10, right: 10, left: 20, bottom: 13),
-                    decoration: const BoxDecoration(
-                      color: greenPrimary,
+                    decoration: BoxDecoration(
+                      color: Global().greenPrimary,
                       borderRadius:
-                          BorderRadius.only(bottomLeft: Radius.circular(50)),
+                          const BorderRadius.only(bottomLeft: Radius.circular(50)),
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.close,
-                      color: white,
+                      color: Global().white,
                     ),
                   ),
                 ),
@@ -153,20 +153,20 @@ class QuranSurahScreen extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.only(
                           bottom: 10, left: 10, right: 30, top: 13),
-                      decoration: const BoxDecoration(
-                        color: greenPrimary,
+                      decoration: BoxDecoration(
+                        color: Global().greenPrimary,
                         borderRadius:
-                            BorderRadius.only(topRight: Radius.circular(50)),
+                            const BorderRadius.only(topRight: Radius.circular(50)),
                       ),
-                      child: const Row(
+                      child: Row(
                         children: [
-                          Icon(Icons.keyboard_arrow_left_rounded, color: white),
+                          Icon(Icons.keyboard_arrow_left_rounded, color: Global().white),
                           Text(
                             "sebelumnya",
                             style: TextStyle(
-                                color: white,
+                                color: Global().white,
                                 fontSize: 14,
-                                fontWeight: semiBold),
+                                fontWeight: Global().semiBold),
                           ),
                         ],
                       ),
@@ -185,21 +185,21 @@ class QuranSurahScreen extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.only(
                           bottom: 10, right: 10, left: 30, top: 13),
-                      decoration: const BoxDecoration(
-                        color: greenPrimary,
+                      decoration: BoxDecoration(
+                        color: Global().greenPrimary,
                         borderRadius:
-                            BorderRadius.only(topLeft: Radius.circular(50)),
+                            const BorderRadius.only(topLeft: Radius.circular(50)),
                       ),
-                      child: const Row(
+                      child: Row(
                         children: [
                           Text("selanjutnya",
                               style: TextStyle(
-                                  color: white,
+                                  color: Global().white,
                                   fontSize: 14,
-                                  fontWeight: semiBold)),
+                                  fontWeight: Global().semiBold)),
                           Icon(
                             Icons.keyboard_arrow_right_rounded,
-                            color: white,
+                            color: Global().white,
                           ),
                         ],
                       ),
