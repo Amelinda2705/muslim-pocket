@@ -24,7 +24,7 @@ class QuranScreen extends StatelessWidget {
           height: height,
           decoration: BoxDecoration(
             color: Global().bgBlur,
-            borderRadius: const BorderRadius.all(const Radius.circular(10)),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           margin: const EdgeInsets.only(top: 20),
@@ -46,28 +46,23 @@ class QuranScreen extends StatelessWidget {
                   )),
                   child: Row(
                     children: [
-                      SizedBox(
+                      Container(
                         width: 50,
                         height: 50,
-                        child: Stack(children: [
-                          Image.asset(
-                            'assets/images/number-surah.png',
+                        alignment: Alignment.center,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/number-surah.png'),
+                            fit: BoxFit.cover,
                           ),
-                          Positioned(
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              bottom: 0,
-                              child: Center(
-                                child: Text(
-                                  surah["number"],
-                                  style: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: Global().semiBold,
-                                      color: Global().greenPrimary),
-                                ),
-                              ))
-                        ]),
+                        ),
+                        child: Text(
+                          surah["number"],
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: Global().semiBold,
+                              color: Global().greenPrimary),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 10),

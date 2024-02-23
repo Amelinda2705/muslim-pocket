@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Global {
-  Color greenPrimary = Color.fromRGBO(1, 68, 33, 1);
-  Color disableColor = Color.fromRGBO(0, 0, 0, .5);
-  Color textGray = Color.fromARGB(255, 75, 75, 75);
-  Color white = Color.fromARGB(255, 255, 255, 255);
-  Color bgBlur = Color.fromRGBO(217, 217, 217, .3);
-  Color bgNotYet = Color.fromRGBO(217, 217, 217, 1);
-  Color bgDone = Color.fromRGBO(179, 230, 185, 1);
+  Color greenPrimary = const Color.fromRGBO(1, 68, 33, 1);
+  Color disableColor = const Color.fromRGBO(0, 0, 0, .5);
+  Color textGray = const Color.fromARGB(255, 75, 75, 75);
+  Color white = const Color.fromARGB(255, 255, 255, 255);
+  Color bgBlur = const Color.fromRGBO(217, 217, 217, .3);
+  Color bgNotYet = const Color.fromRGBO(217, 217, 217, 1);
+  Color bgDone = const Color.fromRGBO(179, 230, 185, 1);
 
   // fonts weights
   FontWeight black = FontWeight.w900;

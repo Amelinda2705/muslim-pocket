@@ -87,8 +87,8 @@ class QuranSurahScreen extends StatelessWidget {
                                       color: Global().greenPrimary,
                                     ),
                                   ),
-                                  Text(surah["translations"]["id"]["text"]
-                                      ["${index + 1}"]),
+                                  Text('${surah["translations"]["id"]["text"]
+                                      ["${index + 1}"]}'),
                                 ],
                               ),
                             );

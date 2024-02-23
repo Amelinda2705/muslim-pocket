@@ -233,13 +233,13 @@ class HomeScreen extends StatelessWidget {
                 width: width,
                 child: const TabBar(tabs: [
                   Tab(
-                    icon: Icon(Icons.add),
+                    icon: Icon(Icons.book),
                   ),
                   Tab(
-                    icon: Icon(Icons.home_outlined),
+                    icon: Icon(Icons.home_rounded),
                   ),
                   Tab(
-                    icon: Icon(Icons.add),
+                    icon: Icon(Icons.person),
                   ),
                 ]),
               ),
