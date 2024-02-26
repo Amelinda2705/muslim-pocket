@@ -27,7 +27,7 @@ class QuranSurahScreen extends StatelessWidget {
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 20),
-                    height: 120,
+                    height: 260,
                     width: width,
                     child: Column(
                       children: [
@@ -54,6 +54,36 @@ class QuranSurahScreen extends StatelessWidget {
                                   color: Global().white,
                                   fontWeight: Global().semiBold),
                             )),
+                        Container(
+                          margin: EdgeInsets.only(top: 20),
+                          child: Column(
+                            children: [
+                              Text(
+                                'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: Global().bold,
+                                    fontFamily: 'IsepMisbah',
+                                    height: 2.0),
+                                textAlign: TextAlign.right,
+                              ),
+                              Text(
+                                'bismillahir-rahmanir-rahim',
+                                style: TextStyle(
+                                    color: Global().greenPrimary,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              Container(
+                                width: 250,
+                                child: Text(
+                                  'Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.',
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -93,7 +123,8 @@ class QuranSurahScreen extends StatelessWidget {
                                     height: 10,
                                   ),
                                   Text(
-                                      '${index + 1}. ${surah["translations"]["id"]["text"]["${index + 1}"]}',),
+                                    '${index + 1}. ${surah["translations"]["id"]["text"]["${index + 1}"]}',
+                                  ),
                                 ],
                               ),
                             );
