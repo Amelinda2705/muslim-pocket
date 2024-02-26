@@ -51,6 +51,9 @@ flutter:
     - assets/images/back.png
     - assets/images/edit.png
     - assets/images/number-surah.png
+    - assets/images/profile.png
+    - assets/images/quran.png
+    - assets/images/kalender.png
   fonts:
     - family: Poppins
       fonts:

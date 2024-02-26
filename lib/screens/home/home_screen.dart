@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muslimpocket/commons/global.dart';
+import 'package:muslimpocket/screens/profile/profile_screen.dart';
 import 'package:muslimpocket/screens/quran/quran_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -91,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                                           Text(
                                             'Subuh',
                                             style: TextStyle(
-                                                color: Global().textGray, fontWeight: Global().medium),
+                                                color: Global().grayPrimary, fontWeight: Global().medium),
                                           ),
                                           Container(
                                             padding:
@@ -105,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                                           Text(
                                             '04:27',
                                             style: TextStyle(
-                                                color: Global().textGray, fontSize: 12),
+                                                color: Global().grayPrimary, fontSize: 12),
                                           ),
                                         ],
                                       ),
@@ -116,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                                           Text(
                                             'Zuhur',
                                             style: TextStyle(
-                                                color: Global().textGray, fontWeight: Global().medium),
+                                                color: Global().grayPrimary, fontWeight: Global().medium),
                                           ),
                                           Container(
                                             padding:
@@ -130,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                                           Text(
                                             '12:05',
                                             style: TextStyle(
-                                                color: Global().textGray, fontSize: 12),
+                                                color: Global().grayPrimary, fontSize: 12),
                                           ),
                                         ],
                                       ),
@@ -168,7 +169,7 @@ class HomeScreen extends StatelessWidget {
                                          Text(
                                             'Magrib',
                                             style: TextStyle(
-                                                color: Global().textGray, fontWeight: Global().medium),
+                                                color: Global().grayPrimary, fontWeight: Global().medium),
                                           ),
                                           Container(
                                             padding:
@@ -182,7 +183,7 @@ class HomeScreen extends StatelessWidget {
                                           Text(
                                             '18:17',
                                             style: TextStyle(
-                                                color: Global().textGray, fontSize: 12),
+                                                color: Global().grayPrimary, fontSize: 12),
                                           ),
                                         ],
                                       ),
@@ -193,7 +194,7 @@ class HomeScreen extends StatelessWidget {
                                           Text(
                                             'Isya',
                                             style: TextStyle(
-                                                color: Global().textGray, fontWeight: Global().medium),
+                                                color: Global().grayPrimary, fontWeight: Global().medium),
                                           ),
                                           Container(
                                             padding:
@@ -207,7 +208,7 @@ class HomeScreen extends StatelessWidget {
                                           Text(
                                             '19:31',
                                             style: TextStyle(
-                                                color: Global().textGray, fontSize: 12),
+                                                color: Global().grayPrimary, fontSize: 12),
                                           ),
                                         ],
                                       ),
@@ -224,7 +225,7 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(),
+                    const ProfileScreen(),
                   ],
                 ),
               ),
@@ -1090,7 +1091,7 @@ class KalenderSection extends StatelessWidget {
                         child: Text(
                           '25',
                           style: TextStyle(
-                              color: Global().disableColor,
+                              color: Global().graySecondary,
                               fontWeight: Global().extraBold,
                               fontSize: 12),
                           textAlign: TextAlign.center,
@@ -1104,7 +1105,7 @@ class KalenderSection extends StatelessWidget {
                         child: Text(
                           '26',
                           style: TextStyle(
-                              color: Global().disableColor,
+                              color: Global().graySecondary,
                               fontWeight: Global().extraBold,
                               fontSize: 12),
                           textAlign: TextAlign.center,
@@ -1118,7 +1119,7 @@ class KalenderSection extends StatelessWidget {
                         child: Text(
                           '27',
                           style: TextStyle(
-                              color: Global().disableColor,
+                              color: Global().graySecondary,
                               fontWeight: Global().extraBold,
                               fontSize: 12),
                           textAlign: TextAlign.center,
@@ -1132,7 +1133,7 @@ class KalenderSection extends StatelessWidget {
                         child: Text(
                           '28',
                           style: TextStyle(
-                              color: Global().disableColor,
+                              color: Global().graySecondary,
                               fontWeight: Global().extraBold,
                               fontSize: 12),
                           textAlign: TextAlign.center,
@@ -1146,7 +1147,7 @@ class KalenderSection extends StatelessWidget {
                         child: Text(
                           '29',
                           style: TextStyle(
-                              color: Global().disableColor,
+                              color: Global().graySecondary,
                               fontWeight: Global().extraBold,
                               fontSize: 12),
                           textAlign: TextAlign.center,
@@ -1160,7 +1161,7 @@ class KalenderSection extends StatelessWidget {
                         child: Text(
                           '30',
                           style: TextStyle(
-                              color: Global().disableColor,
+                              color: Global().graySecondary,
                               fontWeight: Global().extraBold,
                               fontSize: 12),
                           textAlign: TextAlign.center,

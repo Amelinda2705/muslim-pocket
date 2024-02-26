@@ -10,12 +10,18 @@ class QuranScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'Al-Quran',
-          style: TextStyle(fontSize: 18),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(85.0),
+        child: AppBar(
+          toolbarHeight: 85.0,
+          centerTitle: true,
+          scrolledUnderElevation: 0.0,
+          title: Text(
+            'Al-Quran',
+            style: TextStyle(fontSize: 32, fontWeight: Global().semiBold),
+          ),
         ),
       ),
       body: Center(
@@ -24,10 +30,13 @@ class QuranScreen extends StatelessWidget {
           height: height,
           decoration: BoxDecoration(
             color: Global().bgBlur,
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(10),
+              topLeft: Radius.circular(10),
+            ),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          margin: const EdgeInsets.only(top: 20),
+          // margin: const EdgeInsets.only(top: 20),
           child: SingleChildScrollView(
             child: Column(
                 children: List.generate(quranData.length, (index) {
