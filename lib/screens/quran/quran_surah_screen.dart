@@ -27,7 +27,7 @@ class QuranSurahScreen extends StatelessWidget {
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 20),
-                    height: 260,
+                    height: 120,
                     width: width,
                     child: Column(
                       children: [
@@ -54,36 +54,6 @@ class QuranSurahScreen extends StatelessWidget {
                                   color: Global().white,
                                   fontWeight: Global().semiBold),
                             )),
-                        Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: Column(
-                            children: [
-                              Text(
-                                'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ',
-                                style: TextStyle(
-                                    fontSize: 25,
-                                    fontWeight: Global().bold,
-                                    fontFamily: 'IsepMisbah',
-                                    height: 2.0),
-                                textAlign: TextAlign.right,
-                              ),
-                              Text(
-                                'bismillahir-rahmanir-rahim',
-                                style: TextStyle(
-                                    color: Global().greenPrimary,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              Container(
-                                width: 250,
-                                child: Text(
-                                  'Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.',
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -93,42 +63,84 @@ class QuranSurahScreen extends StatelessWidget {
                         margin: const EdgeInsets.only(bottom: 70),
                         width: 325,
                         child: Column(
-                          children: List.generate(
-                              int.parse(surah["number_of_ayah"]), (index) {
-                            return Container(
-                              width: width,
-                              padding: const EdgeInsets.symmetric(vertical: 20),
-                              decoration: const BoxDecoration(
-                                  border: Border(bottom: BorderSide())),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  Text(
-                                    surah["text"]["${index + 1}"],
-                                    style: TextStyle(
-                                        fontSize: 25,
-                                        fontWeight: Global().bold,
-                                        fontFamily: 'IsepMisbah',
-                                        height: 2.0),
-                                    textAlign: TextAlign.right,
-                                  ),
-                                  Text(
-                                    surah["transliteration"]["${index + 1}"],
-                                    style: TextStyle(
-                                      color: Global().greenPrimary,
+                          children: [
+                            if (surah['withBasmalah'] != false)
+                              Container(
+                                margin: const EdgeInsets.only(top: 20),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ',
+                                      style: TextStyle(
+                                          fontSize: 32,
+                                          fontWeight: Global().bold,
+                                          fontFamily: 'IsepMisbah',
+                                          height: 2.0),
+                                      textAlign: TextAlign.right,
                                     ),
-                                    textAlign: TextAlign.right,
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    '${index + 1}. ${surah["translations"]["id"]["text"]["${index + 1}"]}',
-                                  ),
-                                ],
+                                    Text(
+                                      'bismillahir-rahmanir-rahim',
+                                      style: TextStyle(
+                                        color: Global().greenPrimary,
+                                        fontSize: 15,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Container(
+                                      width: 250,
+                                      child: const Text(
+                                        'Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            );
-                          }),
+                            Column(
+                              children: List.generate(
+                                  int.parse(surah["number_of_ayah"]), (index) {
+                                return Container(
+                                  width: width,
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 20),
+                                  decoration: const BoxDecoration(
+                                      border: Border(bottom: BorderSide())),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      Text(
+                                        surah["text"]["${index + 1}"],
+                                        style: TextStyle(
+                                            fontSize: 25,
+                                            fontWeight: Global().bold,
+                                            fontFamily: 'IsepMisbah',
+                                            height: 2.0),
+                                        textAlign: TextAlign.right,
+                                      ),
+                                      Text(
+                                        surah["transliteration"]
+                                            ["${index + 1}"],
+                                        style: TextStyle(
+                                          color: Global().greenPrimary,
+                                        ),
+                                        textAlign: TextAlign.right,
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        '${index + 1}. ${surah["translations"]["id"]["text"]["${index + 1}"]}',
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }),
+                            ),
+                          ],
                         ),
                       ),
                     ),
