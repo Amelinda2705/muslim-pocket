@@ -54,6 +54,7 @@ flutter:
     - assets/images/profile.png
     - assets/images/quran.png
     - assets/images/kalender.png
+    - assets/images/progress.png
   fonts:
     - family: Poppins
       fonts:
