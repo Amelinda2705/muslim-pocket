@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:muslimpocket/resources/datas/quran_data.dart';
 import 'package:muslimpocket/commons/global.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class QuranSurahScreen extends StatelessWidget {
   final int index;
@@ -210,7 +211,7 @@ class QuranSurahScreen extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.keyboard_arrow_left_rounded,
+                          FaIcon(FontAwesomeIcons.chevronLeft,
                               color: Global().white),
                           Text(
                             "sebelumnya",
@@ -248,8 +249,8 @@ class QuranSurahScreen extends StatelessWidget {
                                   color: Global().white,
                                   fontSize: 14,
                                   fontWeight: Global().semiBold)),
-                          Icon(
-                            Icons.keyboard_arrow_right_rounded,
+                          FaIcon(
+                            FontAwesomeIcons.chevronRight,
                             color: Global().white,
                           ),
                         ],

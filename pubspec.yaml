@@ -18,6 +18,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
+  iconify_flutter: ^0.0.5
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +57,7 @@ flutter:
     - assets/images/quran.png
     - assets/images/kalender.png
     - assets/images/progress.png
+    - assets/images/quran-nav.svg
   fonts:
     - family: Poppins
       fonts:
