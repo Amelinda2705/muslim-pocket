@@ -6,6 +6,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/zondicons.dart';
 import 'package:colorful_iconify_flutter/icons/emojione.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:muslimpocket/widgets/prayer_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -29,228 +30,17 @@ class HomeScreen extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 25.0, horizontal: 32.0),
-                      child: Column(
+                      child: const Column(
                         children: [
                           Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Column(
-                                children: [
-                                  Column(
-                                    children: <Widget>[
-                                      Text(
-                                        '13 Rajab 1445 H',
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: Global().semiBold),
-                                      ),
-                                      Text(
-                                        'Jakarta, Indonesia',
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: Global().regular),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Container(
-                                margin:
-                                    const EdgeInsets.symmetric(vertical: 20.0),
-                                child: Column(
-                                  children: <Widget>[
-                                    Text(
-                                      '16:40',
-                                      style: TextStyle(
-                                        fontSize: 48,
-                                        color: Global().greenPrimary,
-                                        fontWeight: Global().bold,
-                                      ),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '1:37 ',
-                                          style: TextStyle(
-                                            color: Global().greenPrimary,
-                                            fontWeight: Global().bold,
-                                          ),
-                                        ),
-                                        const Text('sebelum adzan Magrib')
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 24),
-                                decoration: BoxDecoration(
-                                    color: Global().bgBlur,
-                                    borderRadius: BorderRadius.circular(10.0)),
-                                child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'Subuh',
-                                            style: TextStyle(
-                                                color: Global().grayPrimary,
-                                                fontWeight: Global().medium),
-                                          ),
-                                          Container(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 2.0),
-                                            child: Image.asset(
-                                              'assets/images/subuh.png',
-                                              width: 30.0,
-                                              height: 30.0,
-                                            ),
-                                          ),
-                                          Text(
-                                            '04:27',
-                                            style: TextStyle(
-                                                color: Global().grayPrimary,
-                                                fontSize: 12),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'Zuhur',
-                                            style: TextStyle(
-                                                color: Global().grayPrimary,
-                                                fontWeight: Global().medium),
-                                          ),
-                                          Container(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 2.0),
-                                            child: Image.asset(
-                                              'assets/images/zuhur.png',
-                                              width: 30.0,
-                                              height: 30.0,
-                                            ),
-                                          ),
-                                          Text(
-                                            '12:05',
-                                            style: TextStyle(
-                                                color: Global().grayPrimary,
-                                                fontSize: 12),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'Asar',
-                                            style: TextStyle(
-                                                color: Global().greenPrimary,
-                                                fontWeight: Global().medium),
-                                          ),
-                                          Container(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 2.0),
-                                            child: Image.asset(
-                                              'assets/images/asar.png',
-                                              width: 30.0,
-                                              height: 30.0,
-                                              color: Global().greenPrimary,
-                                            ),
-                                          ),
-                                          Text(
-                                            '15:26',
-                                            style: TextStyle(
-                                                color: Global().greenPrimary,
-                                                fontSize: 12),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'Magrib',
-                                            style: TextStyle(
-                                                color: Global().grayPrimary,
-                                                fontWeight: Global().medium),
-                                          ),
-                                          Container(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 2.0),
-                                            child: Image.asset(
-                                              'assets/images/magrib.png',
-                                              width: 30.0,
-                                              height: 30.0,
-                                            ),
-                                          ),
-                                          Text(
-                                            '18:17',
-                                            style: TextStyle(
-                                                color: Global().grayPrimary,
-                                                fontSize: 12),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'Isya',
-                                            style: TextStyle(
-                                                color: Global().grayPrimary,
-                                                fontWeight: Global().medium),
-                                          ),
-                                          Container(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 2.0),
-                                            child: Image.asset(
-                                              'assets/images/isya.png',
-                                              width: 29.0,
-                                              height: 29.0,
-                                            ),
-                                          ),
-                                          Text(
-                                            '19:31',
-                                            style: TextStyle(
-                                                color: Global().grayPrimary,
-                                                fontSize: 12),
-                                          ),
-                                        ],
-                                      ),
-                                    ]),
-                              ),
-                              const SizedBox(
+                              PrayerWidget(),
+                              SizedBox(
                                 height: 30.0,
                               ),
                             ],
                           ),
-                          const Expanded(
+                          Expanded(
                             child: SectionMenu(),
                           ),
                         ],

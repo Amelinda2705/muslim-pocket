@@ -244,11 +244,14 @@ class QuranSurahScreen extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          Text("selanjutnya",
-                              style: TextStyle(
-                                  color: Global().white,
-                                  fontSize: 14,
-                                  fontWeight: Global().semiBold)),
+                          Text(
+                            "selanjutnya",
+                            style: TextStyle(
+                              color: Global().white,
+                              fontSize: 14,
+                              fontWeight: Global().semiBold,
+                            ),
+                          ),
                           FaIcon(
                             FontAwesomeIcons.chevronRight,
                             color: Global().white,
