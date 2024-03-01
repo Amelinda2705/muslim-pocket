@@ -3,6 +3,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:muslimpocket/commons/global.dart';
+import 'package:intl/intl.dart';
+import 'package:geocoding/geocoding.dart';
 
 class PrayerWidget extends StatefulWidget {
   const PrayerWidget({super.key});
@@ -44,6 +46,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
   }
 
   late Position position;
+  String currentAddress = 'Jakarta';
   getLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -67,7 +70,17 @@ class _PrayerWidgetState extends State<PrayerWidget> {
     }
     position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
-    setState(() {});
+
+    try {
+      List<Placemark> placemarks =
+          await placemarkFromCoordinates(position.latitude, position.longitude);
+      Placemark place = placemarks[0];
+      setState(() {
+        currentAddress = '${place.locality}, ${place.subAdministrativeArea}';
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 
   inisiasi() async {
@@ -91,6 +104,8 @@ class _PrayerWidgetState extends State<PrayerWidget> {
         Column(
           children: [
             Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   '${prayerSchedule['date']['hijri']['day']} ${prayerSchedule['date']['hijri']['month']['en']} ${prayerSchedule['date']['hijri']['year']} H',
@@ -100,7 +115,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                       fontFamily: 'Roboto'),
                 ),
                 Text(
-                  '${position}, Indonesia',
+                  '${currentAddress}',
                   style: TextStyle(fontSize: 12, fontWeight: Global().regular),
                 ),
               ],
@@ -114,9 +129,10 @@ class _PrayerWidgetState extends State<PrayerWidget> {
               StreamBuilder(
                 stream: Stream.periodic(const Duration(seconds: 1)),
                 builder: (context, snapshot) {
-                  DateTime jam = DateTime.now();
+                  String jam = DateFormat.Hm().format(DateTime.now());
+
                   return Text(
-                    '${jam.hour}:${jam.minute}',
+                    '${jam}',
                     style: TextStyle(
                       fontSize: 48,
                       color: Global().greenPrimary,
