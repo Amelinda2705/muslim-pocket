@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muslimpocket/commons/global.dart';
+import 'package:muslimpocket/screens/profile/log_in.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -9,6 +10,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -52,13 +54,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Masuk',
-                      style: TextStyle(
-                        fontWeight: Global().semiBold,
-                        fontSize: 15,
-                        decoration: TextDecoration.underline,
-                        decorationThickness: 2,
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushReplacement<void, void>(
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => const authentificationScreen()));
+                      },
+                      child: Text(
+                        'Masuk',
+                        style: TextStyle(
+                          fontWeight: Global().semiBold,
+                          fontSize: 15,
+                          decoration: TextDecoration.underline,
+                          decorationThickness: 2,
+                        ),
                       ),
                     ),
                     Text(
@@ -194,7 +203,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Container(
                     margin: const EdgeInsets.symmetric(
                         horizontal: 22, vertical: 20),
-                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 20),
                     decoration: BoxDecoration(
                       color: Global().bgBlur,
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -203,7 +213,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.stars_rounded, color: Global().greenPrimary,),
+                            Icon(
+                              Icons.stars_rounded,
+                              color: Global().greenPrimary,
+                            ),
                             const SizedBox(
                               width: 8,
                             ),
@@ -214,10 +227,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             const Icon(Icons.navigate_next_rounded)
                           ],
                         ),
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           children: [
-                            Icon(Icons.mobile_friendly_rounded, color: Global().greenPrimary,),
+                            Icon(
+                              Icons.mobile_friendly_rounded,
+                              color: Global().greenPrimary,
+                            ),
                             const SizedBox(
                               width: 8,
                             ),

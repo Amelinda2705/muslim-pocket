@@ -211,8 +211,12 @@ class QuranSurahScreen extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          FaIcon(FontAwesomeIcons.chevronLeft,
-                              color: Global().white),
+                          FaIcon(
+                            FontAwesomeIcons.chevronLeft,
+                            color: Global().white,
+                            size: 13,
+                          ),
+                          const SizedBox(width: 5,),
                           Text(
                             "sebelumnya",
                             style: TextStyle(
@@ -252,9 +256,11 @@ class QuranSurahScreen extends StatelessWidget {
                               fontWeight: Global().semiBold,
                             ),
                           ),
+                          const SizedBox(width: 5,),
                           FaIcon(
                             FontAwesomeIcons.chevronRight,
                             color: Global().white,
+                            size: 13,
                           ),
                         ],
                       ),
