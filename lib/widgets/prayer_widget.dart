@@ -15,6 +15,7 @@ class PrayerWidget extends StatefulWidget {
 
 class _PrayerWidgetState extends State<PrayerWidget> {
   late Map<String, dynamic> prayerSchedule;
+
   List<Map<String, dynamic>> prayerIcon = [
     {'name': 'Subuh', 'id': 'Fajr', 'icon': 'assets/images/subuh.png'},
     {'name': 'Zuhur', 'id': 'Dhuhr', 'icon': 'assets/images/zuhur.png'},
@@ -37,7 +38,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
   getScheduleLocation() async {
     DateTime dateTime = DateTime.now();
     http.Response response = await http.get(Uri.parse(
-        'https://api.aladhan.com/v1/calendar/${dateTime.year}/${dateTime.month}?latitude=${position.latitude}&longitude=${position.longitude}&method=2'));
+        'https://api.aladhan.com/v1/calendar/${dateTime.year}/${dateTime.month}?latitude=${position.latitude}&longitude=${position.longitude}&method=4'));
     if (response.statusCode >= 200 && response.statusCode <= 299) {
       Map<String, dynamic> dataResponse = jsonDecode(response.body);
       prayerSchedule = dataResponse['data'][dateTime.day - 1];
@@ -46,7 +47,8 @@ class _PrayerWidgetState extends State<PrayerWidget> {
   }
 
   late Position position;
-  String currentAddress = 'Jakarta';
+  String currentAddress = 'Jakarta, Indonesia';
+  
   getLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -160,8 +162,9 @@ class _PrayerWidgetState extends State<PrayerWidget> {
         Container(
           padding: const EdgeInsets.symmetric(vertical: 24),
           decoration: BoxDecoration(
-              color: Global().bgBlur,
-              borderRadius: BorderRadius.circular(10.0)),
+            color: Global().bgBlur,
+            borderRadius: BorderRadius.circular(10.0),
+          ),
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -199,10 +202,12 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                     Text(
                       '${prayerIcon[index]['name']}',
                       style: TextStyle(
-                          color: isWaktuSolat
-                              ? Global().greenPrimary
-                              : Global().grayPrimary,
-                          fontWeight: Global().medium),
+                        color: isWaktuSolat
+                            ? Global().greenPrimary
+                            : Global().grayPrimary,
+                        fontWeight:
+                            isWaktuSolat ? Global().bold : Global().medium,
+                      ),
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 2.0),
@@ -218,10 +223,13 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                     Text(
                       waktuSolat,
                       style: TextStyle(
-                          color: isWaktuSolat
-                              ? Global().greenPrimary
-                              : Global().grayPrimary,
-                          fontSize: 12),
+                        color: isWaktuSolat
+                            ? Global().greenPrimary
+                            : Global().grayPrimary,
+                        fontSize: 12,
+                        fontWeight:
+                            isWaktuSolat ? Global().bold : Global().regular,
+                      ),
                     ),
                   ],
                 );
