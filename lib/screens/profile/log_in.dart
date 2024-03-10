@@ -3,127 +3,134 @@ import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/widgets/login_widget.dart';
 import 'package:muslimpocket/widgets/signup_widget.dart';
 
-class authentificationScreen extends StatefulWidget {
-  const authentificationScreen({super.key});
+class AuthentificationScreen extends StatefulWidget {
+  const AuthentificationScreen({super.key});
 
   @override
-  State<authentificationScreen> createState() => _authentificationScreenState();
+  State<AuthentificationScreen> createState() => _AuthentificationScreenState();
 }
 
-class _authentificationScreenState extends State<authentificationScreen> {
+class _AuthentificationScreenState extends State<AuthentificationScreen> {
+  String currentSection = 'login';
+
+  Widget getContentWidget() {
+    switch (currentSection) {
+      case 'login':
+        return const LogInWidget();
+      case 'signup':
+        return const SignUpWidget();
+      default:
+        return const LogInWidget();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    String currentWidget = 'login';
-
-    Widget getContentWidget() {
-      switch (currentWidget) {
-        case 'login':
-          return const LogInWidget();
-        case 'signup':
-          return const SignUpWidget();
-        default:
-          return const LogInWidget();
-      }
-    }
 
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          width: width,
-          decoration: BoxDecoration(
-            color: Global().greenPrimary,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: width * .50,
-                    child: Text(
-                      'Selamat datang!',
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: Global().semiBold,
-                        color: Global().white,
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Global().greenPrimary,
+            ),
+            height: height,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    SizedBox(
+                      width: width * .50,
+                      child: Text(
+                        'Selamat datang!',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: Global().semiBold,
+                          color: Global().white,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
-                  ),
-                  Image.asset(
-                    'assets/images/auth.png',
-                    width: width * .50,
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: width * .1,
-                      vertical: height * .05,
+                    Image.asset(
+                      'assets/images/auth.png',
+                      width: width * .50,
                     ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: width * .01,
-                    ),
-                    width: width,
-                    decoration: BoxDecoration(
-                        color: Global().bgLogin,
-                        borderRadius: BorderRadius.circular(25)),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Global().bgLogin,
-                                foregroundColor: Global().white,
+                  ],
+                ),
+                Container(
+                  width: 325.0,
+                  height: 43.0,
+                  decoration: BoxDecoration(
+                      color: Global().bgBlur,
+                      borderRadius: BorderRadius.circular(21.0)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                currentSection = 'login';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                                  if (currentSection == 'login') {
+                                    return Global().greenPrimary;
+                                  }
+                                  return Global().bgBlur;
+                                },
                               ),
-                              onPressed: () {
-                                setState(() {
-                                  String currentWidget = 'login';
-                                });
-                              },
-                              child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: width * .083),
-                                  child: Text('Masuk')),
-                            ),
-                            SizedBox(
-                              width: width * .01,
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Global().bgLogin,
-                                foregroundColor: Global().white,
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                                  if (currentSection == 'login') {
+                                    return Global().white;
+                                  }
+                                  return Colors.black;
+                                },
                               ),
-                              onPressed: () {
-                                setState(() {
-                                  String currentWidget = 'signup';
-                                });
-                              },
-                              child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: width * .083),
-                                  child: Text('Daftar')),
                             ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text('Email'),
-                          ],
-                        ),
+                            child: const Text('login')),
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                currentSection = 'signup';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                                  if (currentSection == 'signup') {
+                                    return Global().greenPrimary;
+                                  }
+                                  return Global().bgBlur;
+                                },
+                              ),
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                                  if (currentSection == 'signup') {
+                                    return Global().white;
+                                  }
+                                  return Colors.black;
+                                },
+                              ),
+                            ),
+                            child: const Text('signup')),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+                getContentWidget(),
+              ],
+            ),
           ),
         ),
       ),

@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                 child: TabBar(
                     indicatorColor: Global().greenPrimary,
                     labelColor: Global().greenPrimary,
-                    indicatorPadding: EdgeInsets.symmetric(horizontal: 13),
+                    indicatorPadding: const EdgeInsets.symmetric(horizontal: 13),
                     tabs: const [
                       Tab(
                         child: Align(
