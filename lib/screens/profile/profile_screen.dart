@@ -58,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       onTap: () {
                         Navigator.of(context).pushReplacement<void, void>(
                             MaterialPageRoute(
-                                builder: (BuildContext context) => const authentificationScreen()));
+                                builder: (BuildContext context) => const AuthentificationScreen()));
                       },
                       child: Text(
                         'Masuk',

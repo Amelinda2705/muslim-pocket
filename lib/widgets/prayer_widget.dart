@@ -48,7 +48,8 @@ class _PrayerWidgetState extends State<PrayerWidget> {
 
   late Position position;
   String currentAddress = 'Jakarta, Indonesia';
-  
+  bool isLoading = true;
+
   getLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -86,8 +87,17 @@ class _PrayerWidgetState extends State<PrayerWidget> {
   }
 
   inisiasi() async {
-    await getLocation();
-    await getScheduleLocation();
+    isLoading = true;
+    setState(() async {
+      await getLocation();
+      await getScheduleLocation();
+    });
+    isLoading = false;
+    setState(() {
+      const Center(
+        child: CircularProgressIndicator(),
+      );
+    });
   }
 
   @override
