@@ -55,7 +55,19 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
         key: widget.fieldKey,
         obscureText: widget.isPasswordField == true ? _obscureText : false,
         onSaved: widget.onSaved,
-        validator: widget.validator,
+        validator: widget.isPasswordField == true
+            ? (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Masukkan password';
+                }
+                return null;
+              }
+            : (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Masukkan email';
+                }
+                return null;
+              },
         onFieldSubmitted: widget.onFieldSubmitted,
         decoration: InputDecoration(
           prefixIcon: widget.prefixIcon,

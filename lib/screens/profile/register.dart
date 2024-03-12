@@ -4,22 +4,25 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
+import 'package:muslimpocket/screens/profile/log_in.dart';
 import 'package:muslimpocket/screens/profile/register.dart';
 import 'package:muslimpocket/widgets/textfield_widget.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final Function()? onTap;
 
-  LoginPage({super.key, required this.onTap});
+  RegisterPage({Key? key, required this.onTap}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _emailController = TextEditingController();
-
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   void showmessage(String errorMessage) {
     showDialog(
         context: context,
@@ -28,23 +31,30 @@ class _LoginPageState extends State<LoginPage> {
         });
   }
 
-  void _signUserIn(BuildContext context) async {
+  void _signUserup(BuildContext context) async {
+    if (_passwordController.text != _confirmPasswordController.text) {
+      showmessage("Password does not match");
+      return;
+    }
+
     showDialog(
         context: context,
         builder: (context) {
           return Center(child: CircularProgressIndicator());
         });
+
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text, password: _passwordController.text);
       Navigator.of(context).pushReplacement<void, void>(
           MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      //wrong Email
-      showmessage(e.code);
+      if (e.code == 'email-already-in-use') {
+        showmessage('alamat email sudah dipakai, gunakan alamat email lain.');
+      } else {
+        showmessage(e.code);
+      }
     }
   }
 
@@ -96,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: <Widget>[
                         ElevatedButton(
                           onPressed: () {},
-                          child: Text('Masuk'),
+                          child: const Text('Daftar'),
                         ),
                       ],
                     ),
@@ -139,6 +149,22 @@ class _LoginPageState extends State<LoginPage> {
                         isPasswordField: true,
                         prefixIcon: Icon(Icons.key),
                       ),
+                      SizedBox(height: height * .02),
+                      Text(
+                        'Konfirmasi Password',
+                        style: TextStyle(
+                          color: Global().white,
+                          fontWeight: Global().semiBold,
+                          fontSize: 14,
+                        ),
+                      ),
+                      SizedBox(height: height * .01),
+                      FormContainerWidget(
+                        controller: _confirmPasswordController,
+                        hintText: "********",
+                        isPasswordField: true,
+                        prefixIcon: Icon(Icons.key),
+                      ),
                       SizedBox(height: height * .01),
                       Text(
                         'Lupa Password?',
@@ -153,15 +179,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: height * .02),
                       ElevatedButton(
-                        onPressed: () => _signUserIn(context),
-                        child:
-                            //  _isSigning
-                            //     ? CircularProgressIndicator(
-                            //         color: Colors.white,
-                            //       )
-                            //     :
-                            Text(
-                          'Masuk',
+                        onPressed: () => _signUserup(context),
+                        child: Text(
+                          'Daftar',
                           style: TextStyle(
                             color: Global().greenPrimary,
                             fontWeight: Global().extraBold,
@@ -205,15 +225,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               const SizedBox(width: 4),
                               GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context)
-                                      .pushReplacement<void, void>(
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) =>
-                                                  RegisterPage(
-                                                    onTap: () {},
-                                                  )));
-                                },
+                                onTap: widget.onTap,
                                 child: Text(
                                   'Daftar',
                                   style: TextStyle(
@@ -239,15 +251,15 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // void _logIn() async {
-  //   setState(() {
-  //     _isSigning = true;
-  //   });
+  // void _signUp() async {
+  //   // setState(() {
+  //   //   _isSigning = true;
+  //   // });
 
   //   String email = _emailController.text;
   //   String password = _passwordController.text;
 
-  //   User? user = await _auth.signInWithEmailAndPassword(email, password);
+  //   User? user = await _auth.signUpWithEmailAndPassword(email, password);
 
   //   if (user != null) {
   //     print('User is successfully created');
