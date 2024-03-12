@@ -1,38 +1,54 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:muslimpocket/commons/toast.dart';
+import 'package:flutter/material.dart';
+import 'package:muslimpocket/screens/home/home_screen.dart';
+import 'package:muslimpocket/screens/profile/log_in.dart';
+import 'package:muslimpocket/screens/profile/register.dart';
 
-class FirebaseAuthService {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+class AuthPage extends StatelessWidget {
+  const AuthPage({super.key});
 
-  Future<User?> signUpWithEmailAndPassword(
-      String email, String password) async {
-    try {
-      UserCredential credential = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      return credential.user;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'email-already-in-use') {
-        showToast(message: 'The email address is already in use.');
-      } else {
-        showToast(message: 'An error occurred: ${e.code}');
-      }
-    }
-    return null;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return HomeScreen();
+          } else {
+            return LoginOrRegister();
+          }
+        },
+      ),
+    );
+  }
+}
+class LoginOrRegister extends StatefulWidget {
+  const LoginOrRegister({Key? key}) : super(key: key);
+
+  @override
+  State<LoginOrRegister> createState() => _LoginOrRegisterState();
+}
+
+class _LoginOrRegisterState extends State<LoginOrRegister> {
+  bool showLoginPage = true;
+
+  void togglePage() {
+    setState(() {
+      showLoginPage = !showLoginPage;
+    });
   }
 
-  Future<User?> signInWithEmailAndPassword(
-      String email, String password) async {
-    try {
-      UserCredential credential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return credential.user;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
-        showToast(message: 'Invalid email or password.');
-      } else {
-        showToast(message: 'An error occurred: ${e.code}');
-      }
+  @override
+  Widget build(BuildContext context) {
+    if (showLoginPage) {
+      return LoginPage(
+        onTap: togglePage,
+      );
+    } else {
+      return RegisterPage(
+        onTap: togglePage,
+      );
     }
-    return null;
   }
 }
