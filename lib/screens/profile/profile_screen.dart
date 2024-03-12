@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/screens/profile/log_in.dart';
+import 'package:muslimpocket/screens/profile/sign_up.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -58,7 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       onTap: () {
                         Navigator.of(context).pushReplacement<void, void>(
                             MaterialPageRoute(
-                                builder: (BuildContext context) => const AuthentificationScreen()));
+                                builder: (BuildContext context) => const LoginPage()));
                       },
                       child: Text(
                         'Masuk',
@@ -77,15 +78,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         fontSize: 15,
                       ),
                     ),
-                    Text(
-                      'Daftar',
-                      style: TextStyle(
-                        fontWeight: Global().semiBold,
-                        fontSize: 15,
-                        decoration: TextDecoration.underline,
-                        decorationThickness: 2,
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushReplacement<void, void>(
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => const SignUpPage()));
+                      },
+                      child: Text(
+                        'Daftar',
+                        style: TextStyle(
+                          fontWeight: Global().semiBold,
+                          fontSize: 15,
+                          decoration: TextDecoration.underline,
+                          decorationThickness: 2,
+                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

@@ -10,7 +10,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -27,6 +27,15 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       theme: ThemeData(fontFamily: 'Poppins'),
       home: const HomeScreen(),
+      routes: {
+        // '/': (context) => SplashScreen(
+        //   // Here, you can decide whether to show the LoginPage or HomePage based on user authentication
+        //   child: LoginPage(),
+        // ),
+        // '/login': (context) => LoginPage(),
+        // '/signUp': (context) => SignUpPage(),
+        '/home': (context) => const HomeScreen(),
+      },
     );
   }
 }
