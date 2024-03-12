@@ -2,10 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:muslimpocket/commons/global.dart';
-import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:muslimpocket/screens/profile/log_in.dart';
-import 'package:muslimpocket/screens/profile/register.dart';
 import 'package:muslimpocket/widgets/textfield_widget.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -216,7 +214,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Belum punya akun? ',
+                                'Sudah punya akun? ',
                                 style: TextStyle(
                                   color: Global().white,
                                   fontSize: 12,
@@ -225,9 +223,17 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                               const SizedBox(width: 4),
                               GestureDetector(
-                                onTap: widget.onTap,
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushReplacement<void, void>(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  LoginPage(
+                                                    onTap: () {},
+                                                  )));
+                                },
                                 child: Text(
-                                  'Daftar',
+                                  'Masuk',
                                   style: TextStyle(
                                     fontWeight: Global().semiBold,
                                     fontSize: 15,

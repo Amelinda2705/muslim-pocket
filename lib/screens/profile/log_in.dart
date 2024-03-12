@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:muslimpocket/commons/global.dart';
-import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:muslimpocket/screens/profile/register.dart';
 import 'package:muslimpocket/widgets/textfield_widget.dart';
@@ -43,7 +42,6 @@ class _LoginPageState extends State<LoginPage> {
           MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      //wrong Email
       showmessage(e.code);
     }
   }
