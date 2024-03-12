@@ -27,7 +27,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
   getSchedule() async {
     DateTime dateTime = DateTime.now();
     http.Response response = await http.get(Uri.parse(
-        'https://api.aladhan.com/v1/calendarByCity/${dateTime.year}/${dateTime.month}?city=London&country=Bandung&method=2'));
+        'https://api.aladhan.com/v1/calendarByCity/${dateTime.year}/${dateTime.month}?city=London&country=Bandung&method=4'));
     if (response.statusCode >= 200 && response.statusCode <= 299) {
       Map<String, dynamic> dataResponse = jsonDecode(response.body);
       prayerSchedule = dataResponse['data'][dateTime.day - 1];
@@ -87,16 +87,10 @@ class _PrayerWidgetState extends State<PrayerWidget> {
   }
 
   inisiasi() async {
-    isLoading = true;
     setState(() async {
       await getLocation();
       await getScheduleLocation();
-    });
-    isLoading = false;
-    setState(() {
-      const Center(
-        child: CircularProgressIndicator(),
-      );
+      isLoading = false;
     });
   }
 
@@ -109,143 +103,151 @@ class _PrayerWidgetState extends State<PrayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Column(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  '${prayerSchedule['date']['hijri']['day']} ${prayerSchedule['date']['hijri']['month']['en']} ${prayerSchedule['date']['hijri']['year']} H',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: Global().semiBold,
-                      fontFamily: 'Roboto'),
-                ),
-                Text(
-                  '${currentAddress}',
-                  style: TextStyle(fontSize: 12, fontWeight: Global().regular),
-                ),
-              ],
-            ),
-          ],
-        ),
-        Container(
-          margin: const EdgeInsets.symmetric(vertical: 20.0),
-          child: Column(
-            children: <Widget>[
-              StreamBuilder(
-                stream: Stream.periodic(const Duration(seconds: 1)),
-                builder: (context, snapshot) {
-                  String jam = DateFormat.Hm().format(DateTime.now());
-
-                  return Text(
-                    '${jam}',
-                    style: TextStyle(
-                      fontSize: 48,
-                      color: Global().greenPrimary,
-                      fontWeight: Global().bold,
-                    ),
-                  );
-                },
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+    return isLoading
+        ? const CircularProgressIndicator(
+            color: Colors.black,
+          )
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
                 children: [
-                  Text(
-                    '1:37 ',
-                    style: TextStyle(
-                      color: Global().greenPrimary,
-                      fontWeight: Global().bold,
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        '${prayerSchedule['date']['hijri']['day']} ${prayerSchedule['date']['hijri']['month']['en']} ${prayerSchedule['date']['hijri']['year']} H',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: Global().semiBold,
+                            fontFamily: 'Roboto'),
+                      ),
+                      Text(
+                        '${currentAddress}',
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: Global().regular),
+                      ),
+                    ],
                   ),
-                  const Text('sebelum adzan Magrib')
                 ],
               ),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 24),
-          decoration: BoxDecoration(
-            color: Global().bgBlur,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: List.generate(prayerIcon.length, (index) {
-                String waktuSolat =
-                    '${prayerSchedule['timings']['${prayerIcon[index]['id']}']}'
-                        .split(' ')[0];
-                String waktuSolatSelanjutnya = index + 1 == prayerIcon.length
-                    ? '${prayerSchedule['timings']['${prayerIcon[0]['id']}']}'
-                        .split(' ')[0]
-                    : '${prayerSchedule['timings']['${prayerIcon[index + 1]['id']}']}'
-                        .split(' ')[0];
-                DateTime sekarang = DateTime.now();
-                DateTime jadwalSolat = DateTime(
-                  sekarang.year,
-                  sekarang.month,
-                  sekarang.day,
-                  int.parse(waktuSolat.split(':')[0]),
-                  int.parse(waktuSolat.split(':')[1]),
-                );
-                DateTime jadwalSolatSelanjutnya = DateTime(
-                  sekarang.year,
-                  sekarang.month,
-                  sekarang.day,
-                  int.parse(waktuSolatSelanjutnya.split(':')[0]),
-                  int.parse(waktuSolatSelanjutnya.split(':')[1]),
-                );
-                bool isWaktuSolat = sekarang.isAfter(jadwalSolat) &&
-                    sekarang.isBefore(jadwalSolatSelanjutnya);
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 20.0),
+                child: Column(
+                  children: <Widget>[
+                    StreamBuilder(
+                      stream: Stream.periodic(const Duration(seconds: 1)),
+                      builder: (context, snapshot) {
+                        String jam = DateFormat.Hm().format(DateTime.now());
 
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      '${prayerIcon[index]['name']}',
-                      style: TextStyle(
-                        color: isWaktuSolat
-                            ? Global().greenPrimary
-                            : Global().grayPrimary,
-                        fontWeight:
-                            isWaktuSolat ? Global().bold : Global().medium,
-                      ),
+                        return Text(
+                          '${jam}',
+                          style: TextStyle(
+                            fontSize: 48,
+                            color: Global().greenPrimary,
+                            fontWeight: Global().bold,
+                          ),
+                        );
+                      },
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 2.0),
-                      child: Image.asset(
-                        '${prayerIcon[index]['icon']}',
-                        width: 29.0,
-                        height: 29.0,
-                        color: isWaktuSolat
-                            ? Global().greenPrimary
-                            : Global().grayPrimary,
-                      ),
-                    ),
-                    Text(
-                      waktuSolat,
-                      style: TextStyle(
-                        color: isWaktuSolat
-                            ? Global().greenPrimary
-                            : Global().grayPrimary,
-                        fontSize: 12,
-                        fontWeight:
-                            isWaktuSolat ? Global().bold : Global().regular,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '1:37 ',
+                          style: TextStyle(
+                            color: Global().greenPrimary,
+                            fontWeight: Global().bold,
+                          ),
+                        ),
+                        const Text('sebelum adzan Magrib')
+                      ],
                     ),
                   ],
-                );
-              })),
-        ),
-      ],
-    );
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 24),
+                decoration: BoxDecoration(
+                  color: Global().bgBlur,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: List.generate(prayerIcon.length, (index) {
+                      String waktuSolat =
+                          '${prayerSchedule['timings']['${prayerIcon[index]['id']}']}'
+                              .split(' ')[0];
+                      String waktuSolatSelanjutnya = index + 1 ==
+                              prayerIcon.length
+                          ? '${prayerSchedule['timings']['${prayerIcon[0]['id']}']}'
+                              .split(' ')[0]
+                          : '${prayerSchedule['timings']['${prayerIcon[index + 1]['id']}']}'
+                              .split(' ')[0];
+                      DateTime sekarang = DateTime.now();
+                      DateTime jadwalSolat = DateTime(
+                        sekarang.year,
+                        sekarang.month,
+                        sekarang.day,
+                        int.parse(waktuSolat.split(':')[0]),
+                        int.parse(waktuSolat.split(':')[1]),
+                      );
+                      DateTime jadwalSolatSelanjutnya = DateTime(
+                        sekarang.year,
+                        sekarang.month,
+                        sekarang.day,
+                        int.parse(waktuSolatSelanjutnya.split(':')[0]),
+                        int.parse(waktuSolatSelanjutnya.split(':')[1]),
+                      );
+                      bool isWaktuSolat = sekarang.isAfter(jadwalSolat) &&
+                          sekarang.isBefore(jadwalSolatSelanjutnya);
+
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            '${prayerIcon[index]['name']}',
+                            style: TextStyle(
+                              color: isWaktuSolat
+                                  ? Global().greenPrimary
+                                  : Global().grayPrimary,
+                              fontWeight: isWaktuSolat
+                                  ? Global().bold
+                                  : Global().medium,
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(vertical: 2.0),
+                            child: Image.asset(
+                              '${prayerIcon[index]['icon']}',
+                              width: 29.0,
+                              height: 29.0,
+                              color: isWaktuSolat
+                                  ? Global().greenPrimary
+                                  : Global().grayPrimary,
+                            ),
+                          ),
+                          Text(
+                            waktuSolat,
+                            style: TextStyle(
+                              color: isWaktuSolat
+                                  ? Global().greenPrimary
+                                  : Global().grayPrimary,
+                              fontSize: 12,
+                              fontWeight: isWaktuSolat
+                                  ? Global().bold
+                                  : Global().regular,
+                            ),
+                          ),
+                        ],
+                      );
+                    })),
+              ),
+            ],
+          );
   }
 }
