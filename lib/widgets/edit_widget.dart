@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/widgets/tracker_widget.dart';
 import 'package:provider/provider.dart';
@@ -266,19 +268,52 @@ class _EditPageState extends State<EditPage> {
                     )
                   ]),
             ),
-            Container(
-              width: 237.0,
-              height: 34.0,
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              margin: const EdgeInsets.only(top: 5.0),
-              decoration: BoxDecoration(
-                  color: Global().greenPrimary,
-                  borderRadius: BorderRadius.circular(30.0)),
-              child: Icon(Icons.add, color: Global().white,),
-            ),
+            AddPray("", ""),
           ],
         ),
       ],
+    );
+  }
+}
+
+class AddPray extends StatelessWidget {
+  String id, prayerName;
+
+  AddPray(
+    this.id,
+    this.prayerName,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    CollectionReference prayTracker =
+        FirebaseFirestore.instance.collection('prayTracker');
+
+    Future<void> addPray() {
+      return prayTracker
+          .add({
+            'id': id,
+            'prayerName': prayerName,
+          })
+          .then((value) => print("User Added"))
+          .catchError((error) => print("Failed to add user: $error"));
+    }
+
+    return GestureDetector(
+      onTap: addPray,
+      child: Container(
+        width: 237.0,
+        height: 34.0,
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        margin: const EdgeInsets.only(top: 5.0),
+        decoration: BoxDecoration(
+            color: Global().greenPrimary,
+            borderRadius: BorderRadius.circular(30.0)),
+        child: Icon(
+          Icons.add,
+          color: Global().white,
+        ),
+      ),
     );
   }
 }

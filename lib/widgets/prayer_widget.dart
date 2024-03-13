@@ -24,16 +24,16 @@ class _PrayerWidgetState extends State<PrayerWidget> {
     {'name': 'Isya', 'id': 'Isha', 'icon': 'assets/images/isya.png'},
   ];
 
-  getSchedule() async {
-    DateTime dateTime = DateTime.now();
-    http.Response response = await http.get(Uri.parse(
-        'https://api.aladhan.com/v1/calendarByCity/${dateTime.year}/${dateTime.month}?city=London&country=Bandung&method=4'));
-    if (response.statusCode >= 200 && response.statusCode <= 299) {
-      Map<String, dynamic> dataResponse = jsonDecode(response.body);
-      prayerSchedule = dataResponse['data'][dateTime.day - 1];
-    }
-    setState(() {});
-  }
+  // getSchedule() async {
+  //   DateTime dateTime = DateTime.now();
+  //   http.Response response = await http.get(Uri.parse(
+  //       'https://api.aladhan.com/v1/calendarByCity/${dateTime.year}/${dateTime.month}?city=London&country=Bandung&method=4'));
+  //   if (response.statusCode >= 200 && response.statusCode <= 299) {
+  //     Map<String, dynamic> dataResponse = jsonDecode(response.body);
+  //     prayerSchedule = dataResponse['data'][dateTime.day - 1];
+  //   }
+  //   setState(() {});
+  // }
 
   getScheduleLocation() async {
     DateTime dateTime = DateTime.now();
