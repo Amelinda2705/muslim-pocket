@@ -162,7 +162,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                             fontWeight: Global().bold,
                           ),
                         ),
-                        const Text('sebelum adzan Magrib')
+                        const Text('menuju adzan Magrib')
                       ],
                     ),
                   ],

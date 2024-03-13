@@ -30,6 +30,7 @@ dependencies:
   firebase_auth: ^4.17.7
   provider: ^6.1.2
   firebase_storage: ^11.6.8
+  msh_checkbox: ^2.0.1
 
 dev_dependencies:
   flutter_test:
