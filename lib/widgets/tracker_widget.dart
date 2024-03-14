@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:msh_checkbox/msh_checkbox.dart';
 import 'package:muslimpocket/commons/global.dart';
-import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:muslimpocket/widgets/edit_widget.dart';
 
 class TrackerSection extends StatefulWidget {
@@ -341,6 +339,5 @@ class _TrackerPageState extends State<TrackerPage> {
         ),
       ],
     );
-    ;
   }
 }

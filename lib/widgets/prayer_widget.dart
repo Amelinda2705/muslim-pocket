@@ -103,9 +103,83 @@ class _PrayerWidgetState extends State<PrayerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return isLoading
-        ? const CircularProgressIndicator(
-            color: Colors.black,
+        ? Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        width: width * .3,
+                        height: height * .017,
+                        decoration: BoxDecoration(
+                          color: Global().bgBlur,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: height * .003),
+                        width: width * .4,
+                        height: height * .017,
+                        decoration: BoxDecoration(
+                          color: Global().bgBlur,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 20.0),
+                child: Column(
+                  children: <Widget>[
+                    StreamBuilder(
+                      stream: Stream.periodic(const Duration(seconds: 1)),
+                      builder: (context, snapshot) {
+                        String jam = DateFormat.Hm().format(DateTime.now());
+
+                        return Text(
+                          '${jam}',
+                          style: TextStyle(
+                            fontSize: 48,
+                            color: Global().greenPrimary,
+                            fontWeight: Global().bold,
+                          ),
+                        );
+                      },
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '1:37 ',
+                          style: TextStyle(
+                            color: Global().greenPrimary,
+                            fontWeight: Global().bold,
+                          ),
+                        ),
+                        const Text('menuju adzan Magrib')
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 24),
+                height: height * .124,
+                decoration: BoxDecoration(
+                  color: Global().bgBlur,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+            ],
           )
         : Column(
             mainAxisAlignment: MainAxisAlignment.start,
