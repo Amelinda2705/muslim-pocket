@@ -43,7 +43,11 @@ class _LoginPageState extends State<LoginPage> {
           builder: (BuildContext context) => const HomeScreen()));
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      showmessage(e.code);
+      if (e.code == 'invalid-credential') {
+        showmessage('mohon cek lagi mengenai format email dan password');
+      } else {
+        showmessage(e.code);
+      }
     }
   }
 

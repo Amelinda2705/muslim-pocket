@@ -46,13 +46,18 @@ class _RegisterPageState extends State<RegisterPage> {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _emailController.text, password: _passwordController.text);
       Navigator.of(context).pushReplacement<void, void>(
-          MaterialPageRoute(builder: (BuildContext context) => const HomeScreen()));
+          MaterialPageRoute(builder: (BuildContext context) => LoginPage(onTap: () {
+            
+          },)));
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       if (e.code == 'email-already-in-use') {
         showmessage('alamat email sudah dipakai, gunakan alamat email lain.');
+      } else if (e.code == 'invalid-email') {
+        showmessage('masukkan email dengan benar');
       } else {
         showmessage(e.code);
+
       }
     }
   }
