@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.muslim.pocket.muslimpocket"
-    compileSdkVersion 33
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {

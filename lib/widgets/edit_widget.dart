@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:muslimpocket/commons/global.dart';
-import 'package:muslimpocket/widgets/tracker_widget.dart';
-import 'package:provider/provider.dart';
 
 class EditPage extends StatefulWidget {
   const EditPage({super.key});
