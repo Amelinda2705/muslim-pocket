@@ -5,14 +5,14 @@ import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/widgets/wrapper_widget.dart';
 
-class EditPage extends StatefulWidget {
-  const EditPage({super.key});
+class EditWidget extends StatefulWidget {
+  const EditWidget({super.key});
 
   @override
-  State<EditPage> createState() => _EditPageState();
+  State<EditWidget> createState() => _EditWidgetState();
 }
 
-class _EditPageState extends State<EditPage> {
+class _EditWidgetState extends State<EditWidget> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -302,49 +302,58 @@ class _EditPageState extends State<EditPage> {
             },
           ),
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              width: width * .25,
+              height: height * .035,
+              margin:
+                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+              decoration: BoxDecoration(
+                  color: Global().greenPrimary,
+                  borderRadius: BorderRadius.circular(30.0)),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Global().greenPrimary),
+                ),
+                onPressed: () {
+                },
+                child: Text(
+                  'Kembali',
+                  style: TextStyle(
+                    color: Global().white,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: width * .25,
+              height: height * .035,
+              margin:
+                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+              decoration: BoxDecoration(
+                  color: Global().greenPrimary,
+                  borderRadius: BorderRadius.circular(30.0)),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Global().greenPrimary),
+                ),
+                onPressed: () {
+                },
+                child: Text(
+                  'Simpan',
+                  style: TextStyle(
+                    color: Global().white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        )
       ],
-    );
-  }
-}
-
-class AddPray extends StatelessWidget {
-  String id, prayerName;
-
-  AddPray(
-    this.id,
-    this.prayerName,
-  );
-
-  @override
-  Widget build(BuildContext context) {
-    CollectionReference prayTracker =
-        FirebaseFirestore.instance.collection('prayTracker');
-
-    Future<void> addPray() {
-      return prayTracker
-          .add({
-            'id': id,
-            'prayerName': prayerName,
-          })
-          .then((value) => print("User Added"))
-          .catchError((error) => print("Failed to add user: $error"));
-    }
-
-    return GestureDetector(
-      onTap: addPray,
-      child: Container(
-        width: 237.0,
-        height: 34.0,
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        margin: const EdgeInsets.only(top: 5.0),
-        decoration: BoxDecoration(
-            color: Global().greenPrimary,
-            borderRadius: BorderRadius.circular(30.0)),
-        child: Icon(
-          Icons.add,
-          color: Global().white,
-        ),
-      ),
     );
   }
 }

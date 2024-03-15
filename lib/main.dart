@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:muslimpocket/widgets/tracker_form_widget.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       routes: { 
         '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginOrRegister(),
+        '/form': (context) => const FormWidget(),
       },
     );
   }

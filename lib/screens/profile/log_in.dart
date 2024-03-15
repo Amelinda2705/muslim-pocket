@@ -10,7 +10,7 @@ import 'package:muslimpocket/widgets/textfield_widget.dart';
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
 
-  LoginPage({super.key, required this.onTap});
+  LoginPage({super.key, this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();

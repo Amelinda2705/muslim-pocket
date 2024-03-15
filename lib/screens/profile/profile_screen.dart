@@ -181,13 +181,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               );
                             } else {
-                              return Column(
-                                children: [
-                                  Text(userName),
-                                  const InkWell(
-                                    child: Text('Logout'),
+                              return Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        userName,
+                                        style: TextStyle(
+                                          fontWeight: Global().semiBold,
+                                          fontSize: 15,
+                                          decorationThickness: 2,
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          FirebaseAuth.instance.signOut();
+                                          Navigator.pushNamed(
+                                              context, "/login");
+                                          showmessage("Berhasil keluar");
+                                        },
+                                        child: const Center(
+                                          child: Text(
+                                            "Keluar",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               );
                             }
                           }
