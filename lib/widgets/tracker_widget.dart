@@ -22,7 +22,13 @@ class _TrackerSectionState extends State<TrackerSection> {
   Widget build(BuildContext context) {
     if (showEdit) {
       if (showForm) {
-        return FormWidget();
+        return FormWidget(
+          onSaveName: () {
+          showEdit = !showEdit;
+          print(showEdit);
+          setState(() {});
+          },
+        );
       }
       return EditWidget(
         onBack: () {
