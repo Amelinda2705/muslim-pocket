@@ -1,9 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:muslimpocket/commons/global.dart';
-import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:muslimpocket/screens/profile/log_in.dart';
 import 'package:muslimpocket/widgets/textfield_widget.dart';
 

@@ -5,14 +5,12 @@ import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/widgets/wrapper_widget.dart';
 
-class EditWidget extends StatefulWidget {
-  const EditWidget({super.key});
+class EditWidget extends StatelessWidget {
+  final Function()? onBack;
+  final Function()? onSave;
+  final Function()? onShowForm;
+  const EditWidget({super.key, this.onBack, this.onSave, this.onShowForm});
 
-  @override
-  State<EditWidget> createState() => _EditWidgetState();
-}
-
-class _EditWidgetState extends State<EditWidget> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -275,7 +273,7 @@ class _EditWidgetState extends State<EditWidget> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: onShowForm,
                       child: Container(
                         width: width * .6,
                         height: height * .04,
@@ -318,8 +316,7 @@ class _EditWidgetState extends State<EditWidget> {
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Global().greenPrimary),
                 ),
-                onPressed: () {
-                },
+                onPressed: onBack,
                 child: Text(
                   'Kembali',
                   style: TextStyle(
@@ -341,8 +338,7 @@ class _EditWidgetState extends State<EditWidget> {
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Global().greenPrimary),
                 ),
-                onPressed: () {
-                },
+                onPressed: onSave,
                 child: Text(
                   'Simpan',
                   style: TextStyle(
