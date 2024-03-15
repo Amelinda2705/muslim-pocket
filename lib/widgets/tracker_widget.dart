@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:msh_checkbox/msh_checkbox.dart';
 import 'package:muslimpocket/commons/global.dart';
@@ -72,6 +73,9 @@ bool isDone = false;
 class _TrackerPageState extends State<TrackerPage> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -209,159 +213,130 @@ class _TrackerPageState extends State<TrackerPage> {
             ],
           ),
         ),
-        WrapperWidget(
-          builder: (user) {
-            if (user == null) {
-              return InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => const LoginOrRegister()),
-                  );
-                },
-                child: const Text("Login"),
-              );
-            }
-            DateTime date = DateTime.now();
-            return Center(
-              child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                stream: FirebaseFirestore.instance
-                    .collection("trackers")
-                    .doc("${user.uid}-${date.year}${date.month}${date.day}")
-                    .snapshots(),
-                builder: (_, snapshot) {
-                  double width = MediaQuery.of(context).size.width;
-                  double height = MediaQuery.of(context).size.height;
-                  
-                  if (!snapshot.hasData) {
-                    return const Text("Loading");
-                  }
-                  if (snapshot.data == null || snapshot.data!.data() == null) {
-                    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                      FirebaseFirestore.instance
-                          .collection("trackers")
-                          .doc(
-                              "${user.uid}-${date.year}${date.month}${date.day}")
-                          .set({
-                        "userId": user.uid,
-                        "createdAt": FieldValue.serverTimestamp(),
-                        "checklists": [
-                          "Subuh",
-                          "Zuhur",
-                          "Asar",
-                          "Magrib",
-                          "Isya",
-                        ]
-                      });
-                    });
-                    return const Text("Tidak ada data");
-                    // Bikin data disini
-                  }
-                  DocumentSnapshot<Map<String, dynamic>> doc = snapshot.data!;
-                  return Column(
-                    children: [
-                      Text(user.uid),
-                      Text(doc.id),
-                      Column(
-                        children: List.generate(
-                            doc.data()!['checklists'].length, (index) {
-                          String value = doc.data()!['checklists'][index];
-                          bool isCheck = false;
-                          try {
-                            isCheck = doc.data()!['udahChecklists'][index];
-                          } catch (e) {}
-                          return GestureDetector(
-                            onTap: () {
-                              List<bool> value = [];
-                              try {
-                                value = List<bool>.from(
-                                    doc.data()!['udahChecklists']);
-                              } catch (e) {
-                                print(e);
-                                value = List.generate(
-                                    doc.data()!['checklists'].length,
-                                    (index) => false);
-                              }
-                              value[index] = !isCheck;
-                              doc.reference.update(
-                                  {"udahChecklists": value, "asdh": ""});
-                            },
-                            child: Container(
-                              width: width * .6,
-                              height: height * .04,
-                              margin: const EdgeInsets.only(top: 5.0),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 20.0,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Global().bgDone,
-                                borderRadius: BorderRadius.circular(30.0),
-                              ),
-                              child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Expanded(
-                                        child: Text(
-                                      value,
-                                      style: TextStyle(
-                                        fontWeight: Global().medium,
-                                      ),
-                                    )),
-                                    FaIcon(
-                                      isCheck
-                                          ? FontAwesomeIcons.solidCircleCheck
-                                          : FontAwesomeIcons.circle,
-                                    ),
-                                  ]),
-                            ),
-                          );
-                        }),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          List<bool> value = [];
-                          List<String> valueTitle = [];
-                          try {
-                            value =
-                                List<bool>.from(doc.data()!['udahChecklists']);
-                            valueTitle =
-                                List<String>.from(doc.data()!['checklists']);
-                          } catch (e) {
-                            print(e);
-                            value = List.generate(
-                                doc.data()!['checklists'].length,
-                                (index) => false);
-                            valueTitle =
-                                List<String>.from(doc.data()!['checklists']);
-                          }
-                          print(value.length);
-
-                          value.add(false);
-                          valueTitle.add("Gimana User");
-
-                          doc.reference.update({
-                            "udahChecklists": value,
-                            "checklists": valueTitle
+        SizedBox(
+          height: height * .26,
+          width: width * 07,
+          child: WrapperWidget(
+            builder: (user) {
+              if (user == null) {
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const LoginOrRegister()),
+                    );
+                  },
+                  child: const Text("Login"),
+                );
+              }
+              DateTime date = DateTime.now();
+              return Container(
+                color: Global().bgBlur,
+                child: Center(
+                  child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                    stream: FirebaseFirestore.instance
+                        .collection("trackers")
+                        .doc("${user.uid}-${date.year}${date.month}${date.day}")
+                        .snapshots(),
+                    builder: (_, snapshot) {
+                      double width = MediaQuery.of(context).size.width;
+                      double height = MediaQuery.of(context).size.height;
+                        
+                      if (!snapshot.hasData) {
+                        return const Text("Loading");
+                      }
+                      if (snapshot.data == null ||
+                          snapshot.data!.data() == null) {
+                        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                          FirebaseFirestore.instance
+                              .collection("trackers")
+                              .doc(
+                                  "${user.uid}-${date.year}${date.month}${date.day}")
+                              .set({
+                            "userId": user.uid,
+                            "createdAt": FieldValue.serverTimestamp(),
+                            "checklists": [
+                              "Subuh",
+                              "Zuhur",
+                              "Asar",
+                              "Magrib",
+                              "Isya",
+                            ]
                           });
-                        },
-                        child: const Text("Tambah"),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => const LoginOrRegister()));
-                        },
-                        child: const Text("Login"),
-                      ),
-                    ],
-                  );
-                },
-              ),
-            );
-          },
+                        });
+                        return const Text("Tidak ada data");
+                        // Bikin data disini
+                      }
+                      DocumentSnapshot<Map<String, dynamic>> doc = snapshot.data!;
+                      return Column(
+                        children: [
+                          Column(
+                            children: List.generate(
+                                doc.data()!['checklists'].length, (index) {
+                              String value = doc.data()!['checklists'][index];
+                              bool isCheck = false;
+                              try {
+                                isCheck = doc.data()!['udahChecklists'][index];
+                              } catch (e) {}
+                              return GestureDetector(
+                                onTap: () {
+                                  List<bool> value = [];
+                                  try {
+                                    value = List<bool>.from(
+                                        doc.data()!['udahChecklists']);
+                                  } catch (e) {
+                                    print(e);
+                                    value = List.generate(
+                                        doc.data()!['checklists'].length,
+                                        (index) => false);
+                                  }
+                                  value[index] = !isCheck;
+                                  doc.reference.update(
+                                      {"udahChecklists": value, "asdh": ""});
+                                },
+                                child: Container(
+                                  width: width * .6,
+                                  height: height * .04,
+                                  margin: const EdgeInsets.only(top: 5.0),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 20.0,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: isCheck
+                                              ? Global().bgDone
+                                              : Global().bgNotYet,
+                                    borderRadius: BorderRadius.circular(30.0),
+                                  ),
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Expanded(
+                                            child: Text(
+                                          value,
+                                          style: TextStyle(
+                                            fontWeight: Global().medium,
+                                          ),
+                                        )),
+                                        FaIcon(
+                                          isCheck
+                                              ? FontAwesomeIcons.solidCircleCheck
+                                              : FontAwesomeIcons.circle,
+                                        ),
+                                      ]),
+                                ),
+                              );
+                            }),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              );
+            },
+          ),
         ),
       ],
     );
