@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:muslimpocket/screens/tracker/tracker_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: const TrackerScreen(),
+      home: const HomeScreen(),
       routes: { 
         '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginOrRegister(),
