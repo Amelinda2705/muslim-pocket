@@ -20,17 +20,41 @@ class _TrackerSectionState extends State<TrackerSection> {
 
   @override
   Widget build(BuildContext context) {
+    if (showEdit) {
+      if (showForm) {
+        return FormWidget();
+      }
+      return EditWidget(
+        onBack: () {
+          showEdit = !showEdit;
+          print(showEdit);
+          setState(() {});
+        },
+        onSave: () {
+          showEdit = !showEdit;
+          print(showEdit);
+          setState(() {});
+        },
+        onShowForm: () {
+          showForm = !showForm;
+          print(showEdit);
+          setState(() {});
+        },
+      );
+    }
     return TrackerWidget(
-      onshowEdit: () {
-        return EditWidget();
+      onShowEdit: () {
+        showEdit = !showEdit;
+        print(showEdit);
+        setState(() {});
       },
     );
   }
 }
 
 class TrackerWidget extends StatelessWidget {
-  final Function()? onshowEdit;
-  TrackerWidget({super.key, this.onshowEdit});
+  final Function()? onShowEdit;
+  TrackerWidget({super.key, this.onShowEdit});
 
   @override
   Widget build(BuildContext context) {
@@ -326,7 +350,7 @@ class TrackerWidget extends StatelessWidget {
                                     MaterialStateProperty.all<Color>(
                                         Global().greenPrimary),
                               ),
-                              onPressed: () => onshowEdit,
+                              onPressed: onShowEdit,
                               child: Text(
                                 'Edit',
                                 style: TextStyle(

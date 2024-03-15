@@ -126,6 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                   SizedBox(height: height * .01),
                                   FormContainerWidget(
+                                    inputType: TextInputType.emailAddress,
                                     controller: _emailController,
                                     hintText: "example.gmail.com",
                                     isPasswordField: false,
