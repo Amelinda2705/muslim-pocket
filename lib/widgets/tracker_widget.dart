@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:msh_checkbox/msh_checkbox.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
-import 'package:muslimpocket/widgets/edit_widget.dart';
+import 'package:muslimpocket/widgets/tracker_edit_widget.dart';
+import 'package:muslimpocket/widgets/tracker_form_widget.dart';
 import 'package:muslimpocket/widgets/wrapper_widget.dart';
 
 class TrackerSection extends StatefulWidget {
@@ -16,61 +15,23 @@ class TrackerSection extends StatefulWidget {
 }
 
 class _TrackerSectionState extends State<TrackerSection> {
-  bool edit = false;
-
-  Widget getContentWidget() {
-    if (edit) {
-      return const EditPage();
-    } else {
-      return const TrackerPage();
-    }
-  }
+  bool showEdit = false;
+  bool showForm = false;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        getContentWidget(),
-        Container(
-            width: 95.0,
-            height: 26.0,
-            margin:
-                const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
-            decoration: BoxDecoration(
-                color: Global().greenPrimary,
-                borderRadius: BorderRadius.circular(30.0)),
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Global().greenPrimary)),
-              onPressed: () {
-                setState(() {
-                  edit = !edit;
-                });
-              },
-              child: Text(
-                !edit ? 'Edit' : 'Simpan',
-                style: TextStyle(
-                  color: Global().white,
-                  fontSize: 12,
-                ),
-              ),
-            )),
-      ],
+    return TrackerWidget(
+      onshowEdit: () {
+        return EditWidget();
+      },
     );
   }
 }
 
-class TrackerPage extends StatefulWidget {
-  const TrackerPage({super.key});
+class TrackerWidget extends StatelessWidget {
+  final Function()? onshowEdit;
+  TrackerWidget({super.key, this.onshowEdit});
 
-  @override
-  State<TrackerPage> createState() => _TrackerPageState();
-}
-
-bool isDone = false;
-
-class _TrackerPageState extends State<TrackerPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -130,24 +91,25 @@ class _TrackerPageState extends State<TrackerPage> {
                     ],
                   )),
               Container(
-                  width: 32.0,
-                  height: 32.0,
-                  decoration: BoxDecoration(
-                      color: Global().bgNotYet,
-                      borderRadius: BorderRadius.circular(50.0)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        '28',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: Global().medium,
-                        ),
+                width: 32.0,
+                height: 32.0,
+                decoration: BoxDecoration(
+                    color: Global().bgNotYet,
+                    borderRadius: BorderRadius.circular(50.0)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      '28',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: Global().medium,
                       ),
-                    ],
-                  )),
+                    ),
+                  ],
+                ),
+              ),
               Container(
                   width: 32.0,
                   height: 32.0,
@@ -214,7 +176,7 @@ class _TrackerPageState extends State<TrackerPage> {
           ),
         ),
         SizedBox(
-          height: height * .26,
+          height: height * .3,
           width: width * 07,
           child: WrapperWidget(
             builder: (user) {
@@ -232,107 +194,151 @@ class _TrackerPageState extends State<TrackerPage> {
               }
               DateTime date = DateTime.now();
               return Container(
+                width: width,
                 color: Global().bgBlur,
-                child: Center(
-                  child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                    stream: FirebaseFirestore.instance
-                        .collection("trackers")
-                        .doc("${user.uid}-${date.year}${date.month}${date.day}")
-                        .snapshots(),
-                    builder: (_, snapshot) {
-                      double width = MediaQuery.of(context).size.width;
-                      double height = MediaQuery.of(context).size.height;
-                        
-                      if (!snapshot.hasData) {
-                        return const Text("Loading");
-                      }
-                      if (snapshot.data == null ||
-                          snapshot.data!.data() == null) {
-                        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                          FirebaseFirestore.instance
+                child: Column(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                          stream: FirebaseFirestore.instance
                               .collection("trackers")
                               .doc(
                                   "${user.uid}-${date.year}${date.month}${date.day}")
-                              .set({
-                            "userId": user.uid,
-                            "createdAt": FieldValue.serverTimestamp(),
-                            "checklists": [
-                              "Subuh",
-                              "Zuhur",
-                              "Asar",
-                              "Magrib",
-                              "Isya",
-                            ]
-                          });
-                        });
-                        return const Text("Tidak ada data");
-                        // Bikin data disini
-                      }
-                      DocumentSnapshot<Map<String, dynamic>> doc = snapshot.data!;
-                      return Column(
-                        children: [
-                          Column(
-                            children: List.generate(
-                                doc.data()!['checklists'].length, (index) {
-                              String value = doc.data()!['checklists'][index];
-                              bool isCheck = false;
-                              try {
-                                isCheck = doc.data()!['udahChecklists'][index];
-                              } catch (e) {}
-                              return GestureDetector(
-                                onTap: () {
-                                  List<bool> value = [];
-                                  try {
-                                    value = List<bool>.from(
-                                        doc.data()!['udahChecklists']);
-                                  } catch (e) {
-                                    print(e);
-                                    value = List.generate(
-                                        doc.data()!['checklists'].length,
-                                        (index) => false);
-                                  }
-                                  value[index] = !isCheck;
-                                  doc.reference.update(
-                                      {"udahChecklists": value, "asdh": ""});
-                                },
-                                child: Container(
-                                  width: width * .6,
-                                  height: height * .04,
-                                  margin: const EdgeInsets.only(top: 5.0),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: isCheck
+                              .snapshots(),
+                          builder: (_, snapshot) {
+                            double width = MediaQuery.of(context).size.width;
+                            double height = MediaQuery.of(context).size.height;
+
+                            if (!snapshot.hasData) {
+                              return const Text("Loading");
+                            }
+                            if (snapshot.data == null ||
+                                snapshot.data!.data() == null) {
+                              WidgetsBinding.instance
+                                  .addPostFrameCallback((timeStamp) {
+                                FirebaseFirestore.instance
+                                    .collection("trackers")
+                                    .doc(
+                                        "${user.uid}-${date.year}${date.month}${date.day}")
+                                    .set({
+                                  "userId": user.uid,
+                                  "createdAt": FieldValue.serverTimestamp(),
+                                  "checklists": [
+                                    "Subuh",
+                                    "Zuhur",
+                                    "Asar",
+                                    "Magrib",
+                                    "Isya",
+                                  ]
+                                });
+                              });
+                              return const Text("Tidak ada data");
+                              // Bikin data disini
+                            }
+                            DocumentSnapshot<Map<String, dynamic>> doc =
+                                snapshot.data!;
+                            return Column(
+                              children: [
+                                Column(
+                                  children: List.generate(
+                                      doc.data()!['checklists'].length,
+                                      (index) {
+                                    String value =
+                                        doc.data()!['checklists'][index];
+                                    bool isCheck = false;
+                                    try {
+                                      isCheck =
+                                          doc.data()!['udahChecklists'][index];
+                                    } catch (e) {}
+                                    return GestureDetector(
+                                      onTap: () {
+                                        List<bool> value = [];
+                                        try {
+                                          value = List<bool>.from(
+                                              doc.data()!['udahChecklists']);
+                                        } catch (e) {
+                                          print(e);
+                                          value = List.generate(
+                                              doc.data()!['checklists'].length,
+                                              (index) => false);
+                                        }
+                                        value[index] = !isCheck;
+                                        doc.reference.update({
+                                          "udahChecklists": value,
+                                          "asdh": ""
+                                        });
+                                      },
+                                      child: Container(
+                                        width: width * .6,
+                                        height: height * .04,
+                                        margin: const EdgeInsets.only(top: 5.0),
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 20.0,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: isCheck
                                               ? Global().bgDone
                                               : Global().bgNotYet,
-                                    borderRadius: BorderRadius.circular(30.0),
-                                  ),
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Expanded(
-                                            child: Text(
-                                          value,
-                                          style: TextStyle(
-                                            fontWeight: Global().medium,
-                                          ),
-                                        )),
-                                        FaIcon(
-                                          isCheck
-                                              ? FontAwesomeIcons.solidCircleCheck
-                                              : FontAwesomeIcons.circle,
+                                          borderRadius:
+                                              BorderRadius.circular(30.0),
                                         ),
-                                      ]),
+                                        child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: <Widget>[
+                                              Expanded(
+                                                  child: Text(
+                                                value,
+                                                style: TextStyle(
+                                                  fontWeight: Global().medium,
+                                                ),
+                                              )),
+                                              FaIcon(
+                                                isCheck
+                                                    ? FontAwesomeIcons
+                                                        .solidCircleCheck
+                                                    : FontAwesomeIcons.circle,
+                                              ),
+                                            ]),
+                                      ),
+                                    );
+                                  }),
                                 ),
-                              );
-                            }),
+                              ],
+                            );
+                          },
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                            width: width * .25,
+                            height: height * .035,
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 15.0, horizontal: 20.0),
+                            decoration: BoxDecoration(
+                                color: Global().greenPrimary,
+                                borderRadius: BorderRadius.circular(30.0)),
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Global().greenPrimary),
+                              ),
+                              onPressed: () => onshowEdit,
+                              child: Text(
+                                'Edit',
+                                style: TextStyle(
+                                  color: Global().white,
+                                ),
+                              ),
+                            ),
                           ),
-                        ],
-                      );
-                    },
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               );
             },
