@@ -247,6 +247,12 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                 decoration: BoxDecoration(
                   color: Global().bgBlur,
                   borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 4.0,
+                    ),
+                  ],
                 ),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

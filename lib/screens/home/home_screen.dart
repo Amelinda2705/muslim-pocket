@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/screens/profile/profile_screen.dart';
 import 'package:muslimpocket/screens/quran/quran_screen.dart';
@@ -17,7 +19,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    
+
     return DefaultTabController(
       length: 3,
       initialIndex: 1,
@@ -32,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 25.0, horizontal: 32.0),
-                      child: Column(
+                      child: const Column(
                         children: [
                           Column(
                             children: [
@@ -58,7 +60,8 @@ class HomeScreen extends StatelessWidget {
                 child: TabBar(
                     indicatorColor: Global().greenPrimary,
                     labelColor: Global().greenPrimary,
-                    indicatorPadding: const EdgeInsets.symmetric(horizontal: 13),
+                    indicatorPadding:
+                        const EdgeInsets.symmetric(horizontal: 13),
                     tabs: const [
                       Tab(
                         child: Align(
@@ -104,8 +107,8 @@ class _SectionMenuState extends State<SectionMenu> {
         return const TrackerSection();
       case 'tasbih':
         return const TasbihSection();
-      case 'kalender':
-        return const KalenderSection();
+      // case 'kalender':
+      //   return const KalenderSection();
       default:
         return const TrackerSection();
     }
@@ -113,24 +116,37 @@ class _SectionMenuState extends State<SectionMenu> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return SingleChildScrollView(
       child: Container(
         decoration: BoxDecoration(
-            color: Global().bgBlur, borderRadius: BorderRadius.circular(21.0)),
+          color: Global().bgBlur,
+          borderRadius: BorderRadius.circular(21.0),
+        ),
         child: Column(
           children: [
             Container(
-              width: 325.0,
-              height: 43.0,
+              height: height * .055,
               decoration: BoxDecoration(
-                  color: Global().bgBlur,
-                  borderRadius: BorderRadius.circular(21.0)),
+                color: Global().bgBlur,
+                borderRadius: BorderRadius.circular(21.0),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black38,
+                    blurRadius: 4.0,
+                  ), 
+                ],
+              ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    ElevatedButton(
+                    SizedBox(
+                      width: width * .4,
+                      child: ElevatedButton(
                         onPressed: () {
                           setState(() {
                             currentSection = 'tracker';
@@ -156,8 +172,12 @@ class _SectionMenuState extends State<SectionMenu> {
                             },
                           ),
                         ),
-                        child: const Text('Tracker')),
-                    ElevatedButton(
+                        child: const Text('Tracker'),
+                      ),
+                    ),
+                    SizedBox(
+                      width: width * .4,
+                      child: ElevatedButton(
                         onPressed: () {
                           setState(() {
                             currentSection = 'tasbih';
@@ -183,34 +203,36 @@ class _SectionMenuState extends State<SectionMenu> {
                             },
                           ),
                         ),
-                        child: const Text('Tasbih')),
-                    ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            currentSection = 'kalender';
-                          });
-                        },
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.resolveWith<Color>(
-                            (Set<MaterialState> states) {
-                              if (currentSection == 'kalender') {
-                                return Global().greenPrimary;
-                              }
-                              return Global().bgBlur;
-                            },
-                          ),
-                          foregroundColor:
-                              MaterialStateProperty.resolveWith<Color>(
-                            (Set<MaterialState> states) {
-                              if (currentSection == 'kalender') {
-                                return Global().white;
-                              }
-                              return Colors.black;
-                            },
-                          ),
-                        ),
-                        child: const Text('Kalender')),
+                        child: const Text('Tasbih'),
+                      ),
+                    ),
+                    // ElevatedButton(
+                    //     onPressed: () {
+                    //       setState(() {
+                    //         currentSection = 'kalender';
+                    //       });
+                    //     },
+                    //     style: ButtonStyle(
+                    //       backgroundColor:
+                    //           MaterialStateProperty.resolveWith<Color>(
+                    //         (Set<MaterialState> states) {
+                    //           if (currentSection == 'kalender') {
+                    //             return Global().greenPrimary;
+                    //           }
+                    //           return Global().bgBlur;
+                    //         },
+                    //       ),
+                    //       foregroundColor:
+                    //           MaterialStateProperty.resolveWith<Color>(
+                    //         (Set<MaterialState> states) {
+                    //           if (currentSection == 'kalender') {
+                    //             return Global().white;
+                    //           }
+                    //           return Colors.black;
+                    //         },
+                    //       ),
+                    //     ),
+                    //     child: const Text('Kalender')),
                   ],
                 ),
               ),
@@ -222,5 +244,3 @@ class _SectionMenuState extends State<SectionMenu> {
     );
   }
 }
-
-

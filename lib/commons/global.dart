@@ -5,7 +5,7 @@ class Global {
   Color graySecondary = const Color.fromRGBO(0, 0, 0, .5);
   Color grayPrimary = const Color.fromARGB(255, 75, 75, 75);
   Color white = const Color.fromARGB(255, 255, 255, 255);
-  Color bgBlur = const Color.fromRGBO(217, 217, 217, .3);
+  Color bgBlur = const Color(0xffF4F4F4);
   Color bgNotYet = const Color.fromRGBO(217, 217, 217, 1);
   Color bgDone = const Color.fromRGBO(179, 230, 185, 1);
   Color bgLogin = const Color.fromRGBO(217, 217, 217, .2);
