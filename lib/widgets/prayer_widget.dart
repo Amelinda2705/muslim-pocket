@@ -285,6 +285,8 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                       bool isWaktuSolat = sekarang.isAfter(jadwalSolat) &&
                           sekarang.isBefore(jadwalSolatSelanjutnya);
 
+                      
+
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,

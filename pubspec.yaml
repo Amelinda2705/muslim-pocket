@@ -32,6 +32,8 @@ dependencies:
   firebase_storage: ^11.6.8
   msh_checkbox: ^2.0.1
   flutter_local_notifications: ^17.0.0
+  shared_preferences: ^2.2.2
+  firebase_messaging: ^14.7.20
 
 dev_dependencies:
   flutter_test:

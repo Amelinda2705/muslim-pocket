@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,7 +27,14 @@ class _TrackerSectionState extends State<TrackerSection> {
       if (showForm) {
         return FormWidget(
           onSaveName: () {
-            showEdit = !showEdit;
+            showEdit = true;
+            showForm = false;
+            print(showEdit);
+            setState(() {});
+          },
+          onBack: () {
+            showEdit = true;
+            showForm = false;
             print(showEdit);
             setState(() {});
           },
@@ -33,17 +42,17 @@ class _TrackerSectionState extends State<TrackerSection> {
       }
       return EditWidget(
         onBack: () {
-          showEdit = !showEdit;
+          showEdit = false;
           print(showEdit);
           setState(() {});
         },
         onSave: () {
-          showEdit = !showEdit;
+          showEdit = false;
           print(showEdit);
           setState(() {});
         },
         onShowForm: () {
-          showForm = !showForm;
+          showForm = true;
           print(showEdit);
           setState(() {});
         },
@@ -51,7 +60,8 @@ class _TrackerSectionState extends State<TrackerSection> {
     }
     return TrackerWidget(
       onShowEdit: () {
-        showEdit = !showEdit;
+        showEdit = true;
+        showForm = false;
         print(showEdit);
         setState(() {});
       },
@@ -84,16 +94,249 @@ class _TrackerWidgetState extends State<TrackerWidget> {
     return WrapperWidget(
       builder: (user) {
         if (user == null) {
-          return Container(
-            height: 100,
-            width: width,
-            alignment: Alignment.center,
-            child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, "login");
-              },
-              child: const Text("Login/Daftar Akun"),
-            ),
+          return Stack(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  SizedBox(
+                    width: width,
+                    height: 60,
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                      ),
+                      scrollDirection: Axis.horizontal,
+                      child: Center(
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                right: 8,
+                              ),
+                              child: Container(
+                                width: width * .1,
+                                height: height * .055,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[400],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "1",
+                                    ),
+                                    Text(
+                                      "Jan",
+                                      style: TextStyle(
+                                          // color: Colors.white,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                right: 8,
+                              ),
+                              child: Container(
+                                width: width * .1,
+                                height: height * .055,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[400],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "1",
+                                    ),
+                                    Text(
+                                      "Jan",
+                                      style: TextStyle(
+                                          // color: Colors.white,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: width * .1,
+                              height: height * .055,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Global().greenPrimary,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "3",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Jan",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 8,
+                              ),
+                              child: Container(
+                                width: width * .1,
+                                height: height * .055,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[400],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "4",
+                                      style: TextStyle(
+                                          // color: Colors.white,
+                                          ),
+                                    ),
+                                    Text(
+                                      "Jan",
+                                      style: TextStyle(
+                                          // color: Colors.white,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 8,
+                              ),
+                              child: Container(
+                                width: width * .1,
+                                height: height * .055,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[400],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "4",
+                                      style: TextStyle(
+                                          // color: Colors.white,
+                                          ),
+                                    ),
+                                    Text(
+                                      "Jan",
+                                      style: TextStyle(
+                                          // color: Colors.white,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Column(
+                    children: [
+                      Column(children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                          child: Container(
+                            width: width,
+                            height: 50,
+                            margin: const EdgeInsets.only(top: 5.0),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Global().bgNotYet,
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Text(
+                                    "Subuh",
+                                    style: TextStyle(
+                                      fontWeight: Global().medium,
+                                    ),
+                                  )),
+                                  const FaIcon(
+                                    FontAwesomeIcons.circle,
+                                  ),
+                                ]),
+                          ),
+                        ),
+                      ]),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                ],
+              ),
+              ClipRect(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 5.0,
+                    sigmaY: 5.0,
+                  ),
+                  child: Container(
+                    height: 100,
+                    width: width,
+                    alignment: Alignment.center,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "login");
+                      },
+                      child: const Text("Login/Daftar Akun"),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           );
         }
         return Column(
@@ -102,135 +345,135 @@ class _TrackerWidgetState extends State<TrackerWidget> {
             const SizedBox(
               height: 8,
             ),
-            SizedBox(
-              width: width,
-              height: 60,
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 7),
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                ),
                 scrollDirection: Axis.horizontal,
-                child: Center(
-                  child: Row(
-                    children: [
-                      Row(
-                        children: List.generate(2, (index) {
-                          return currDate.add(Duration(days: -(index + 1)));
-                        }).reversed.map((value) {
-                          return Padding(
-                            padding: const EdgeInsets.only(
-                              right: 8,
-                            ),
-                            child: InkWell(
-                              onTap: () {
-                                currDate = value;
-                                setState(() {});
-                              },
-                              child: Container(
-                                width: width * .1,
-                                height: height * .055,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[400],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      value.day.toString(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: List.generate(2, (index) {
+                        return currDate.add(Duration(days: -(index + 1)));
+                      }).reversed.map((value) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                            right: 8,
+                          ),
+                          child: InkWell(
+                            onTap: () {
+                              currDate = value;
+                              setState(() {});
+                            },
+                            child: Container(
+                              width: width * .1,
+                              height: height * .05,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Global().bgNotYet,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    value.day.toString(),
+                                    style: TextStyle(
+                                      fontWeight: Global().semiBold,
                                     ),
-                                    Text(
-                                      DateFormat("MMM").format(value),
-                                      style: const TextStyle(
-                                          // color: Colors.white,
-                                          ),
+                                  ),
+                                  Text(
+                                    DateFormat("MMM").format(value),
+                                    style: const TextStyle(
+                                      fontSize: 12,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
-                          );
-                        }).toList(),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                    Container(
+                      width: width * .1,
+                      height: height * .055,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Global().greenPrimary,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      Container(
-                        width: width * .1,
-                        height: height * .055,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Global().greenPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              currDate.day.toString(),
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            currDate.day.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: Global().bold,
+                              fontSize: 16,
                             ),
-                            Text(
-                              DateFormat("MMM").format(currDate),
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                              ),
+                          ),
+                          Text(
+                            DateFormat("MMM").format(currDate),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      Row(
-                        children: List.generate(2, (index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(
-                              left: 8,
-                            ),
-                            child: InkWell(
-                              onTap: () {
-                                currDate =
-                                    currDate.add(Duration(days: (index + 1)));
-                                setState(() {});
-                              },
-                              child: Container(
-                                width: width * .1,
-                                height: height * .055,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[400],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      currDate
-                                          .add(Duration(days: (index + 1)))
-                                          .day
-                                          .toString(),
-                                      style: const TextStyle(
-                                          // color: Colors.white,
-                                          ),
+                    ),
+                    Row(
+                      children: List.generate(2, (index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                          ),
+                          child: InkWell(
+                            onTap: () {
+                              currDate =
+                                  currDate.add(Duration(days: (index + 1)));
+                              setState(() {});
+                            },
+                            child: Container(
+                              width: width * .1,
+                              height: height * .05,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Global().bgNotYet,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    currDate
+                                        .add(Duration(days: (index + 1)))
+                                        .day
+                                        .toString(),
+                                    style: TextStyle(
+                                      fontWeight: Global().semiBold,
                                     ),
-                                    Text(
-                                      DateFormat("MMM").format(currDate
-                                          .add(Duration(days: (index + 1)))),
-                                      style: const TextStyle(
-                                          // color: Colors.white,
-                                          ),
+                                  ),
+                                  Text(
+                                    DateFormat("MMM").format(currDate
+                                        .add(Duration(days: (index + 1)))),
+                                    style: const TextStyle(
+                                      fontSize: 12,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
-                          );
-                        }),
-                      ),
-                    ],
-                  ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -305,8 +548,8 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                               doc.reference.update({"udahChecklists": value});
                             },
                             child: Container(
-                              width: width,
-                              height: 50,
+                              width: width * .64,
+                              height: height * .04,
                               margin: const EdgeInsets.only(top: 5.0),
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 20.0,
@@ -332,6 +575,7 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                                       isCheck
                                           ? FontAwesomeIcons.solidCircleCheck
                                           : FontAwesomeIcons.circle,
+                                      size: width * .05,
                                     ),
                                   ]),
                             ),
@@ -346,8 +590,27 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                 );
               },
             ),
-            const SizedBox(
-              height: 16,
+            Container(
+              width: width * .25,
+              height: height * .035,
+              decoration: BoxDecoration(
+                color: Global().greenPrimary,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              margin: const EdgeInsets.only(bottom: 10),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Global().greenPrimary),
+                ),
+                onPressed: widget.onShowEdit,
+                child: Text(
+                  'Edit',
+                  style: TextStyle(
+                    color: Global().white,
+                  ),
+                ),
+              ),
             ),
           ],
         );
