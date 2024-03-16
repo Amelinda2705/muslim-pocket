@@ -8,7 +8,6 @@ import 'package:muslimpocket/screens/quran/quran_screen.dart';
 // import 'package:iconify_flutter/icons/zondicons.dart';
 // import 'package:colorful_iconify_flutter/icons/emojione.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:muslimpocket/widgets/calender_widget.dart';
 import 'package:muslimpocket/widgets/prayer_widget.dart';
 import 'package:muslimpocket/widgets/tasbih_widget.dart';
 import 'package:muslimpocket/widgets/tracker_widget.dart';

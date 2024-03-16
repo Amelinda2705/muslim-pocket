@@ -41,7 +41,7 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
       width: double.infinity,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        color: Global().bgBlur,
+        color: Global().graySecondary,
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
@@ -74,7 +74,7 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
           prefixIconColor: Global().white,
           border: InputBorder.none,
           filled: true,
-          fillColor: Global().bgBlur,
+          fillColor: Global().graySecondary,
           hintText: widget.hintText,
           hintStyle: TextStyle(
             color: Global().white,
