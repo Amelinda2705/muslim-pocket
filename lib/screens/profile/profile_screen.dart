@@ -64,7 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   children: [
                     SizedBox(
-                      height: height * .07,
+                      height: height * .1,
                       width: width,
                       child: WrapperWidget(
                         builder: (user) {
