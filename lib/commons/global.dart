@@ -20,4 +20,5 @@ class Global {
   FontWeight light = FontWeight.w300;
   FontWeight extraLight = FontWeight.w200;
   FontWeight thin = FontWeight.w100;
+  
 }
