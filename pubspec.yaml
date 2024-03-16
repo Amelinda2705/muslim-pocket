@@ -30,6 +30,8 @@ dependencies:
   firebase_auth: ^4.17.7
   provider: ^6.1.2
   firebase_storage: ^11.6.8
+  msh_checkbox: ^2.0.1
+  flutter_local_notifications: ^17.0.0
 
 dev_dependencies:
   flutter_test:

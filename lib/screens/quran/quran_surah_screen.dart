@@ -62,7 +62,8 @@ class QuranSurahScreen extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 70),
-                        width: 325,
+                        padding: EdgeInsets.symmetric(horizontal: width * .06),
+                        width: width,
                         child: Column(
                           children: [
                             if (surah['withBasmalah'] != false)
@@ -104,37 +105,66 @@ class QuranSurahScreen extends StatelessWidget {
                               children: List.generate(
                                   int.parse(surah["number_of_ayah"]), (index) {
                                 return Container(
-                                  width: width,
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 20),
                                   decoration: const BoxDecoration(
                                       border: Border(bottom: BorderSide())),
-                                  child: Column(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 20),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        surah["text"]["${index + 1}"],
-                                        style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: Global().bold,
-                                            fontFamily: 'IsepMisbah',
-                                            height: 2.0),
-                                        textAlign: TextAlign.right,
+                                      Container(
+                                        width: width * .08,
+                                        height: width * .08,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: Global().greenPrimary,
+                                              width: 2,
+                                            ),
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                                    Radius.circular(20))),
+                                        child: Center(
+                                            child: Text(
+                                          '${index + 1}',
+                                          style: TextStyle(
+                                            color: Global().greenPrimary,
+                                          ),
+                                        )),
                                       ),
-                                      Text(
-                                        surah["transliteration"]
-                                            ["${index + 1}"],
-                                        style: TextStyle(
-                                          color: Global().greenPrimary,
+                                      Container(
+                                        width: width * .78,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.stretch,
+                                          children: [
+                                            Text(
+                                              surah["text"]["${index + 1}"],
+                                              style: TextStyle(
+                                                  fontSize: 25,
+                                                  fontWeight: Global().bold,
+                                                  fontFamily: 'IsepMisbah',
+                                                  height: 2.0),
+                                              textAlign: TextAlign.right,
+                                            ),
+                                            Text(
+                                              surah["transliteration"]
+                                                  ["${index + 1}"],
+                                              style: TextStyle(
+                                                color: Global().greenPrimary,
+                                              ),
+                                              textAlign: TextAlign.right,
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              '${surah["translations"]["id"]["text"]["${index + 1}"]}',
+                                            ),
+                                          ],
                                         ),
-                                        textAlign: TextAlign.right,
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        '${index + 1}. ${surah["translations"]["id"]["text"]["${index + 1}"]}',
                                       ),
                                     ],
                                   ),
@@ -216,7 +246,9 @@ class QuranSurahScreen extends StatelessWidget {
                             color: Global().white,
                             size: 13,
                           ),
-                          const SizedBox(width: 5,),
+                          const SizedBox(
+                            width: 5,
+                          ),
                           Text(
                             "sebelumnya",
                             style: TextStyle(
@@ -256,7 +288,9 @@ class QuranSurahScreen extends StatelessWidget {
                               fontWeight: Global().semiBold,
                             ),
                           ),
-                          const SizedBox(width: 5,),
+                          const SizedBox(
+                            width: 5,
+                          ),
                           FaIcon(
                             FontAwesomeIcons.chevronRight,
                             color: Global().white,
