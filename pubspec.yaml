@@ -73,6 +73,7 @@ flutter:
     - assets/images/progress.png
     - assets/images/quran-nav.png
     - assets/images/auth.png
+    - assets/images/login.png
   fonts:
     - family: Poppins
       fonts:

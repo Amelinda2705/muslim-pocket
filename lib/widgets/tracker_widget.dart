@@ -1,11 +1,14 @@
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
+import 'package:muslimpocket/screens/profile/log_in.dart';
 import 'package:muslimpocket/widgets/tracker_edit_widget.dart';
 import 'package:muslimpocket/widgets/tracker_form_widget.dart';
 import 'package:muslimpocket/widgets/wrapper_widget.dart';
@@ -105,78 +108,20 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                   SizedBox(
                     width: width,
                     height: 60,
-                    child: SingleChildScrollView(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                      ),
-                      scrollDirection: Axis.horizontal,
-                      child: Center(
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                right: 8,
-                              ),
-                              child: Container(
-                                width: width * .1,
-                                height: height * .055,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[400],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: const Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "1",
-                                    ),
-                                    Text(
-                                      "Jan",
-                                      style: TextStyle(
-                                          // color: Colors.white,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              right: 8,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                right: 8,
-                              ),
-                              child: Container(
-                                width: width * .1,
-                                height: height * .055,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[400],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: const Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "1",
-                                    ),
-                                    Text(
-                                      "Jan",
-                                      style: TextStyle(
-                                          // color: Colors.white,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
+                            child: Container(
                               width: width * .1,
                               height: height * .055,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                color: Global().greenPrimary,
+                                color: Colors.grey[400],
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: const Column(
@@ -184,87 +129,140 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "3",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
+                                    "1",
                                   ),
                                   Text(
                                     "Jan",
                                     style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12,
-                                    ),
+                                        // color: Colors.white,
+                                        ),
                                   ),
                                 ],
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              right: 8,
+                            ),
+                            child: Container(
+                              width: width * .1,
+                              height: height * .055,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[400],
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Container(
-                                width: width * .1,
-                                height: height * .055,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[400],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: const Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "4",
-                                      style: TextStyle(
-                                          // color: Colors.white,
-                                          ),
-                                    ),
-                                    Text(
-                                      "Jan",
-                                      style: TextStyle(
-                                          // color: Colors.white,
-                                          ),
-                                    ),
-                                  ],
-                                ),
+                              child: const Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "1",
+                                  ),
+                                  Text(
+                                    "Jan",
+                                    style: TextStyle(
+                                        // color: Colors.white,
+                                        ),
+                                  ),
+                                ],
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8,
+                          ),
+                          Container(
+                            width: width * .1,
+                            height: height * .055,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Global().greenPrimary,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: const Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "3",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  "Jan",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 8,
+                            ),
+                            child: Container(
+                              width: width * .1,
+                              height: height * .055,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[400],
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Container(
-                                width: width * .1,
-                                height: height * .055,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[400],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: const Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "4",
-                                      style: TextStyle(
-                                          // color: Colors.white,
-                                          ),
-                                    ),
-                                    Text(
-                                      "Jan",
-                                      style: TextStyle(
-                                          // color: Colors.white,
-                                          ),
-                                    ),
-                                  ],
-                                ),
+                              child: const Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "4",
+                                    style: TextStyle(
+                                        // color: Colors.white,
+                                        ),
+                                  ),
+                                  Text(
+                                    "Jan",
+                                    style: TextStyle(
+                                        // color: Colors.white,
+                                        ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 8,
+                            ),
+                            child: Container(
+                              width: width * .1,
+                              height: height * .055,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[400],
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "4",
+                                    style: TextStyle(
+                                        // color: Colors.white,
+                                        ),
+                                  ),
+                                  Text(
+                                    "Jan",
+                                    style: TextStyle(
+                                        // color: Colors.white,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -279,8 +277,8 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                             horizontal: 16,
                           ),
                           child: Container(
-                            width: width,
-                            height: 50,
+                            width: width * .64,
+                            height: height * .04,
                             margin: const EdgeInsets.only(top: 5.0),
                             padding: const EdgeInsets.symmetric(
                               horizontal: 20.0,
@@ -306,6 +304,134 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                                 ]),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                          child: Container(
+                            width: width * .64,
+                            height: height * .04,
+                            margin: const EdgeInsets.only(top: 5.0),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Global().bgNotYet,
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Text(
+                                    "Zuhur",
+                                    style: TextStyle(
+                                      fontWeight: Global().medium,
+                                    ),
+                                  )),
+                                  const FaIcon(
+                                    FontAwesomeIcons.circle,
+                                  ),
+                                ]),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                          child: Container(
+                            width: width * .64,
+                            height: height * .04,
+                            margin: const EdgeInsets.only(top: 5.0),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Global().bgNotYet,
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Text(
+                                    "Asar",
+                                    style: TextStyle(
+                                      fontWeight: Global().medium,
+                                    ),
+                                  )),
+                                  const FaIcon(
+                                    FontAwesomeIcons.circle,
+                                  ),
+                                ]),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                          child: Container(
+                            width: width * .64,
+                            height: height * .04,
+                            margin: const EdgeInsets.only(top: 5.0),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Global().bgNotYet,
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Text(
+                                    "Magrib",
+                                    style: TextStyle(
+                                      fontWeight: Global().medium,
+                                    ),
+                                  )),
+                                  const FaIcon(
+                                    FontAwesomeIcons.circle,
+                                  ),
+                                ]),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                          child: Container(
+                            width: width * .64,
+                            height: height * .04,
+                            margin: const EdgeInsets.only(top: 5.0),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Global().bgNotYet,
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Text(
+                                    "Isya",
+                                    style: TextStyle(
+                                      fontWeight: Global().medium,
+                                    ),
+                                  )),
+                                  const FaIcon(
+                                    FontAwesomeIcons.circle,
+                                  ),
+                                ]),
+                          ),
+                        ),
                       ]),
                       const SizedBox(
                         height: 16,
@@ -318,20 +444,73 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                 ],
               ),
               ClipRect(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 5.0,
-                    sigmaY: 5.0,
-                  ),
-                  child: Container(
-                    height: 100,
-                    width: width,
-                    alignment: Alignment.center,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, "login");
-                      },
-                      child: const Text("Login/Daftar Akun"),
+                child: Container(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 3.0,
+                      sigmaY: 3.0,
+                    ),
+                    child: Container(
+                      height: height * .36,
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, "login");
+                        },
+                        child: Center(
+                            child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const FaIcon(FontAwesomeIcons.lock),
+                            SizedBox(
+                              height: height * .01,
+                            ),
+                            SizedBox(
+                              width: width * .5,
+                              child: Text(
+                                "Masuk untuk membuka fitur ini.",
+                                style: TextStyle(
+                                  fontWeight: Global().medium,
+                                  fontSize: 18,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Container(
+                              width: width * .25,
+                              height: height * .035,
+                              margin: const EdgeInsets.symmetric(
+                                  vertical: 15.0, horizontal: 20.0),
+                              decoration: BoxDecoration(
+                                  color: Global().greenPrimary,
+                                  borderRadius: BorderRadius.circular(30.0)),
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Global().greenPrimary),
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context)
+                                      .pushReplacement<void, void>(
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          LoginPage(),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Masuk',
+                                  style: TextStyle(
+                                    color: Global().white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )),
+                      ),
                     ),
                   ),
                 ),
@@ -367,7 +546,7 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                             },
                             child: Container(
                               width: width * .1,
-                              height: height * .05,
+                              height: height * .055,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 color: Global().bgNotYet,
@@ -440,7 +619,7 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                             },
                             child: Container(
                               width: width * .1,
-                              height: height * .05,
+                              height: height * .055,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 color: Global().bgNotYet,

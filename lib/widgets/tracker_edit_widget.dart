@@ -278,10 +278,10 @@ class _EditWidgetState extends State<EditWidget> {
                                                 doc.data()!['checklists']);
                                           }
                                           print(value.length);
-
+        
                                           value.removeAt(index);
                                           valueTitle.removeAt(index);
-
+        
                                           doc.reference.update({
                                             "udahChecklists": value,
                                             "checklists": valueTitle

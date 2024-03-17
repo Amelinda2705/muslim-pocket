@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
     return DefaultTabController(
@@ -31,19 +32,19 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     const QuranScreen(),
                     Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 25.0, horizontal: 32.0),
-                      child: const Column(
+                      padding: EdgeInsets.symmetric(
+                          vertical: height * .03, horizontal: width * .08),
+                      child: Column(
                         children: [
                           Column(
                             children: [
-                              PrayerWidget(),
+                              const PrayerWidget(),
                               SizedBox(
-                                height: 30.0,
+                                height: height * .03,
                               ),
                             ],
                           ),
-                          Expanded(
+                          const Expanded(
                             child: SectionMenu(),
                           ),
                         ],
@@ -54,13 +55,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 80,
+                height: height * .09,
                 width: width,
                 child: TabBar(
                     indicatorColor: Global().greenPrimary,
                     labelColor: Global().greenPrimary,
                     indicatorPadding:
-                        const EdgeInsets.symmetric(horizontal: 13),
+                        EdgeInsets.symmetric(horizontal: height * .01),
                     tabs: const [
                       Tab(
                         child: Align(
@@ -139,7 +140,7 @@ class _SectionMenuState extends State<SectionMenu> {
                 ],
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                padding: EdgeInsets.symmetric(vertical: height * .001,),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
