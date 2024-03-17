@@ -15,9 +15,9 @@ class QuranScreen extends StatelessWidget {
       length: 1,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(85.0),
+          preferredSize: Size.fromHeight(height * .09),
           child: AppBar(
-            toolbarHeight: 85.0,
+            toolbarHeight: height * .09,
             centerTitle: true,
             scrolledUnderElevation: 0.0,
             title: Text(
@@ -29,7 +29,7 @@ class QuranScreen extends StatelessWidget {
         ),
         body: Center(
           child: Container(
-            width: 325,
+            width: width * .8,
             height: height,
             decoration: BoxDecoration(
               color: Global().bgBlur,
@@ -38,8 +38,7 @@ class QuranScreen extends StatelessWidget {
                 topLeft: Radius.circular(10),
               ),
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            // margin: const EdgeInsets.only(top: 20),
+            padding: EdgeInsets.symmetric(horizontal: width * .05, vertical: height * .008),
             child: SingleChildScrollView(
               child: Column(
                   children: List.generate(quranData.length, (index) {
@@ -50,7 +49,7 @@ class QuranScreen extends StatelessWidget {
                         builder: (_) => QuranSurahScreen(index)));
                   },
                   child: Container(
-                    height: 70,
+                    height: height * .08,
                     width: width,
                     decoration: const BoxDecoration(
                         border: Border(
@@ -59,8 +58,8 @@ class QuranScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                          width: 50,
-                          height: 50,
+                          width: width * .13,
+                          height: height * .06,
                           alignment: Alignment.center,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
@@ -77,7 +76,7 @@ class QuranScreen extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: EdgeInsets.only(left: width * .02),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +87,7 @@ class QuranScreen extends StatelessWidget {
                                     fontSize: 16, fontWeight: Global().semiBold),
                               ),
                               SizedBox(
-                                width: 200,
+                                width: width * .5,
                                 child: Text(
                                   "${surah["translations"]["id"]["name"]} | ${surah["number_of_ayah"]} ayat",
                                   style: const TextStyle(fontSize: 12),

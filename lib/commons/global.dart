@@ -8,7 +8,8 @@ class Global {
   Color bgBlur = const Color(0xffF4F4F4);
   Color bgNotYet = const Color.fromRGBO(217, 217, 217, 1);
   Color bgDone = const Color.fromRGBO(179, 230, 185, 1);
-  Color bgLogin = const Color.fromRGBO(217, 217, 217, .2);
+  Color bgLogin = const Color.fromRGBO(255, 255, 255, .1);
+  Color bgInput = const Color.fromRGBO(255, 255, 255, .3);
 
   // fonts weights
   FontWeight black = FontWeight.w900;

@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -39,8 +40,11 @@ class _LoginPageState extends State<LoginPage> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      Navigator.of(context).pushReplacement<void, void>(MaterialPageRoute(
-          builder: (BuildContext context) => const HomeScreen()));
+      Navigator.of(context).pushReplacement<void, void>(
+        MaterialPageRoute(
+          builder: (BuildContext context) => const HomeScreen(),
+        ),
+      );
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       if (e.code == 'invalid-credential') {
@@ -68,50 +72,133 @@ class _LoginPageState extends State<LoginPage> {
                 delegate: SliverChildListDelegate([
                   Column(
                     children: [
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: width * .50,
-                            child: Text(
-                              'Selamat datang!',
-                              style: TextStyle(
-                                fontSize: 32,
-                                fontWeight: Global().semiBold,
-                                color: Global().white,
-                              ),
-                              textAlign: TextAlign.center,
+                      SizedBox(
+                        width: width,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Image.asset(
+                              'assets/images/login.png',
+                              width: width * .9,
                             ),
-                          ),
-                          Image.asset(
-                            'assets/images/auth.png',
-                            width: width * .50,
-                          ),
-                        ],
+                            Center(
+                              child: Container(
+                                margin: EdgeInsets.only(
+                                  top: height * .02,
+                                ),
+                                width: width * .8,
+                                child: Text(
+                                  'Selamat datang kembali!',
+                                  style: TextStyle(
+                                    fontSize: 32,
+                                    fontWeight: Global().semiBold,
+                                    color: Global().white,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: width * .1,
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: width * .065,
+                          vertical: height * .05,
+                        ),
+                        width: width,
+                        decoration: BoxDecoration(
+                          color: Global().bgLogin,
+                          borderRadius: BorderRadius.circular(25.0),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 4.0,
+                            ),
+                          ],
                         ),
                         child: Column(
                           children: [
                             Container(
                               width: double.infinity,
-                              height: 43.0,
-                              margin: const EdgeInsets.only(
-                                top: 10,
+                              height: height * .05,
+                              padding: EdgeInsets.symmetric(
+                                vertical: height * .005,
+                                horizontal: width * .015,
                               ),
                               decoration: BoxDecoration(
-                                  color: Global().bgBlur,
+                                  color: Global().bgLogin,
                                   borderRadius: BorderRadius.circular(21.0)),
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: const Text('Masuk'),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: width * .415,
+                                    decoration: BoxDecoration(
+                                        color: Global().bgLogin,
+                                        borderRadius:
+                                            BorderRadius.circular(30.0)),
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                          Global().bgLogin,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context)
+                                            .pushReplacement<void, void>(
+                                          MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                LoginPage(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        'Masuk',
+                                        style: TextStyle(
+                                          color: Global().white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: width * .01,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .pushReplacement<void, void>(
+                                        MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              RegisterPage(),
+                                        ),
+                                      );
+                                    },
+                                    child: Container(
+                                      width: width * .415,
+                                      height: height * .037,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                          color: Colors.transparent,
+                                          borderRadius:
+                                              BorderRadius.circular(30.0)),
+                                      child: Text(
+                                        'Daftar',
+                                        style: TextStyle(
+                                          color: Global().white,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             Container(
                               width: double.infinity,
                               margin: EdgeInsets.symmetric(
                                 vertical: height * .02,
+                                horizontal: width * .04,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,50 +248,52 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                   ),
                                   SizedBox(height: height * .02),
-                                  ElevatedButton(
-                                    onPressed: () => _signUserIn(context),
-                                    child:
-                                        //  _isSigning
-                                        //     ? CircularProgressIndicator(
-                                        //         color: Colors.white,
-                                        //       )
-                                        //     :
-                                        Text(
-                                      'Masuk',
-                                      style: TextStyle(
-                                        color: Global().greenPrimary,
-                                        fontWeight: Global().extraBold,
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      onPressed: () => _signUserIn(context),
+                                      child:
+                                          //  _isSigning
+                                          //     ? CircularProgressIndicator(
+                                          //         color: Colors.white,
+                                          //       )
+                                          //     :
+                                          Text(
+                                        'Masuk',
+                                        style: TextStyle(
+                                          color: Global().greenPrimary,
+                                          fontWeight: Global().extraBold,
+                                        ),
+                                        textAlign: TextAlign.center,
                                       ),
-                                      textAlign: TextAlign.center,
                                     ),
                                   ),
-                                  SizedBox(height: height * .03),
-                                  const Column(
-                                    children: [
-                                      SizedBox(height: 50),
-                                      Divider(),
-                                      SizedBox(height: 10),
-                                      Text(
-                                        'Or continue with',
-                                        textAlign: TextAlign.center,
-                                        style:
-                                            TextStyle(color: Color(0xFF707070)),
-                                      ),
-                                      SizedBox(height: 10),
-                                      Divider(),
-                                      SizedBox(height: 50),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          FaIcon(FontAwesomeIcons.google),
-                                          SizedBox(width: 25),
-                                          FaIcon(FontAwesomeIcons.apple),
-                                        ],
-                                      ),
-                                      SizedBox(height: 50),
-                                    ],
-                                  ),
+                                  // const Column(
+                                  //   children: [
+                                  //     SizedBox(height: 50),
+                                  //     Divider(),
+                                  //     SizedBox(height: 10),
+                                  //     Text(
+                                  //       'Or continue with',
+                                  //       textAlign: TextAlign.center,
+                                  //       style:
+                                  //           TextStyle(color: Color(0xFF707070)),
+                                  //     ),
+                                  //     SizedBox(height: 10),
+                                  //     Divider(),
+                                  //     SizedBox(height: 50),
+                                  //     Row(
+                                  //       mainAxisAlignment:
+                                  //           MainAxisAlignment.center,
+                                  //       children: [
+                                  //         FaIcon(FontAwesomeIcons.google),
+                                  //         SizedBox(width: 25),
+                                  //         FaIcon(FontAwesomeIcons.apple),
+                                  //       ],
+                                  //     ),
+                                  //     SizedBox(height: 50),
+                                  //   ],
+                                  // ),
                                 ],
                               ),
                             ),
@@ -217,41 +306,84 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: Container(
-                  margin: EdgeInsets.only(bottom: width * .05),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Belum punya akun? ',
-                        style: TextStyle(
-                          color: Global().white,
-                          fontSize: 12,
-                          fontWeight: Global().light,
-                        ),
-                      ),
-                      const SizedBox(width: 4),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pushReplacement<void, void>(
-                              MaterialPageRoute(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: width * .05),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Belum punya akun? ',
+                            style: TextStyle(
+                              color: Global().white,
+                              fontSize: 12,
+                              fontWeight: Global().light,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pushReplacement<void, void>(
+                                MaterialPageRoute(
                                   builder: (BuildContext context) =>
                                       RegisterPage(
-                                        onTap: () {},
-                                      )));
-                        },
-                        child: Text(
-                          'Daftar',
-                          style: TextStyle(
-                            fontWeight: Global().semiBold,
-                            fontSize: 15,
-                            decoration: TextDecoration.underline,
-                            decorationThickness: 2,
+                                    onTap: () {},
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'Daftar',
+                              style: TextStyle(
+                                color: Global().white,
+                                fontWeight: Global().semiBold,
+                                fontSize: 15,
+                                decoration: TextDecoration.underline,
+                                decorationThickness: 2,
+                                decorationColor: Global().white,
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) => HomeScreen(),
+                          ),
+                          ModalRoute.withName('/'),
+                        );
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Masuk sebagai tamu',
+                            style: TextStyle(
+                              color: Global().white,
+                              fontWeight: Global().extraBold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(
+                            width: width * .01,
+                          ),
+                          FaIcon(
+                            FontAwesomeIcons.chevronRight,
+                            size: width * .045,
+                            color: Global().white,
+                          ),
+                          SizedBox(
+                            width: width * .07,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               )
             ],

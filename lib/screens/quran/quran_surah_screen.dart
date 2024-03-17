@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class QuranSurahScreen extends StatelessWidget {
   final int index;
-  const QuranSurahScreen(this.index, {super.key});
+  QuranSurahScreen(this.index, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +27,10 @@ class QuranSurahScreen extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    height: 120,
+                    padding: EdgeInsets.symmetric(
+                      vertical: height * .02,
+                    ),
+                    height: height * .13,
                     width: width,
                     child: Column(
                       children: [
@@ -46,8 +48,8 @@ class QuranSurahScreen extends StatelessWidget {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10)),
                             ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 35, vertical: 5),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: width * .06, vertical: 5),
                             margin: const EdgeInsets.only(top: 10),
                             child: Text(
                               "${surah["number_of_ayah"]} ayat",
@@ -61,7 +63,7 @@ class QuranSurahScreen extends StatelessWidget {
                   Expanded(
                     child: SingleChildScrollView(
                       child: Container(
-                        margin: const EdgeInsets.only(bottom: 70),
+                        margin: EdgeInsets.only(bottom: height * .08),
                         padding: EdgeInsets.symmetric(horizontal: width * .06),
                         width: width,
                         child: Column(
@@ -89,7 +91,7 @@ class QuranSurahScreen extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                     ),
                                     Container(
-                                      width: 250,
+                                      width: width * .7,
                                       child: const Text(
                                         'Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.',
                                         style: TextStyle(
@@ -107,8 +109,9 @@ class QuranSurahScreen extends StatelessWidget {
                                 return Container(
                                   decoration: const BoxDecoration(
                                       border: Border(bottom: BorderSide())),
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 20),
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: height * .03,
+                                  ),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -123,9 +126,8 @@ class QuranSurahScreen extends StatelessWidget {
                                               color: Global().greenPrimary,
                                               width: 2,
                                             ),
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(20))),
+                                            borderRadius: const BorderRadius.all(
+                                                Radius.circular(20))),
                                         child: Center(
                                             child: Text(
                                           '${index + 1}',
@@ -157,8 +159,8 @@ class QuranSurahScreen extends StatelessWidget {
                                               ),
                                               textAlign: TextAlign.right,
                                             ),
-                                            const SizedBox(
-                                              height: 10,
+                                            SizedBox(
+                                              height: height * .01,
                                             ),
                                             Text(
                                               '${surah["translations"]["id"]["text"]["${index + 1}"]}',
@@ -182,12 +184,12 @@ class QuranSurahScreen extends StatelessWidget {
                 top: 0,
                 left: 0,
                 child: Container(
-                  padding: const EdgeInsets.only(
-                      top: 10, left: 10, right: 20, bottom: 13),
+                  padding:
+                      const EdgeInsets.only(top: 10, left: 10, right: 20, bottom: 13),
                   decoration: BoxDecoration(
                     color: Global().greenPrimary,
-                    borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(50)),
+                    borderRadius:
+                        const BorderRadius.only(bottomRight: Radius.circular(50)),
                   ),
                   child: Column(
                     children: [
@@ -213,8 +215,8 @@ class QuranSurahScreen extends StatelessWidget {
                         top: 10, right: 10, left: 20, bottom: 13),
                     decoration: BoxDecoration(
                       color: Global().greenPrimary,
-                      borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(50)),
+                      borderRadius:
+                          const BorderRadius.only(bottomLeft: Radius.circular(50)),
                     ),
                     child: Icon(
                       Icons.close,
@@ -236,8 +238,8 @@ class QuranSurahScreen extends StatelessWidget {
                           bottom: 10, left: 10, right: 30, top: 13),
                       decoration: BoxDecoration(
                         color: Global().greenPrimary,
-                        borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(50)),
+                        borderRadius:
+                            const BorderRadius.only(topRight: Radius.circular(50)),
                       ),
                       child: Row(
                         children: [
@@ -246,8 +248,8 @@ class QuranSurahScreen extends StatelessWidget {
                             color: Global().white,
                             size: 13,
                           ),
-                          const SizedBox(
-                            width: 5,
+                          SizedBox(
+                            width: width * .02,
                           ),
                           Text(
                             "sebelumnya",
@@ -275,8 +277,8 @@ class QuranSurahScreen extends StatelessWidget {
                           bottom: 10, right: 10, left: 30, top: 13),
                       decoration: BoxDecoration(
                         color: Global().greenPrimary,
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(50)),
+                        borderRadius:
+                            const BorderRadius.only(topLeft: Radius.circular(50)),
                       ),
                       child: Row(
                         children: [
@@ -288,8 +290,8 @@ class QuranSurahScreen extends StatelessWidget {
                               fontWeight: Global().semiBold,
                             ),
                           ),
-                          const SizedBox(
-                            width: 5,
+                          SizedBox(
+                            width: width * .02,
                           ),
                           FaIcon(
                             FontAwesomeIcons.chevronRight,

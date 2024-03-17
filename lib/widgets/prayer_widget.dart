@@ -137,7 +137,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                 ],
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 20.0),
+                margin: EdgeInsets.symmetric(vertical: height * .04),
                 child: Column(
                   children: <Widget>[
                     StreamBuilder(
@@ -172,7 +172,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 24),
+                padding: EdgeInsets.symmetric(vertical: height * .03),
                 height: height * .124,
                 decoration: BoxDecoration(
                   color: Global().bgBlur,
@@ -208,7 +208,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                 ],
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 20.0),
+                margin: EdgeInsets.symmetric(vertical: height * .04),
                 child: Column(
                   children: <Widget>[
                     StreamBuilder(
@@ -243,12 +243,12 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 24),
+                padding: EdgeInsets.symmetric(vertical: height * .03),
                 decoration: BoxDecoration(
                   color: Global().bgBlur,
                   borderRadius: BorderRadius.circular(10.0),
-                  boxShadow: const [
-                    BoxShadow(
+                  boxShadow: [
+                    const BoxShadow(
                       color: Colors.black26,
                       blurRadius: 4.0,
                     ),

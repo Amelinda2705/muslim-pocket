@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:muslimpocket/screens/profile/log_in.dart';
@@ -33,9 +32,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       length: 3,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(85.0),
+          preferredSize: Size.fromHeight(height * .09),
           child: AppBar(
-            toolbarHeight: 85.0,
+            toolbarHeight: height * .09,
             centerTitle: true,
             scrolledUnderElevation: 0.0,
             title: Text(
@@ -77,18 +76,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               return Column(
                                 children: [
                                   Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 15, bottom: 7),
+                                    padding: EdgeInsets.only(
+                                        top: height * .01,
+                                        bottom: height * .008),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         InkWell(
                                           onTap: () {
-                                            Navigator.of(context)
-                                                .pushReplacement<void, void>(
+                                            Navigator.of(context).push(
                                               MaterialPageRoute(
-                                                builder: (BuildContext context) =>
-                                                    LoginPage(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        LoginPage(
                                                   onTap: () {},
                                                 ),
                                               ),
@@ -117,8 +118,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             Navigator.of(context)
                                                 .pushReplacement<void, void>(
                                               MaterialPageRoute(
-                                                builder: (BuildContext context) =>
-                                                    RegisterPage(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        RegisterPage(
                                                   onTap: () {},
                                                 ),
                                               ),
@@ -139,87 +141,56 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 185,
+                                    width: width * .4,
                                     child: Text(
                                       'Masuk untuk membuka akses semua fitur',
-                                      style:
-                                          TextStyle(color: Global().greenPrimary),
+                                      style: TextStyle(
+                                          color: Global().greenPrimary),
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
                                 ],
                               );
                             } else {
-                              String? userName = user.displayName;
-                              if (userName == null) {
-                                return Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(top: 10),
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          user.email.toString(),
-                                          style: TextStyle(
-                                            fontWeight: Global().semiBold,
-                                            fontSize: 15,
-                                            decorationThickness: 2,
-                                          ),
+                              return Center(
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: height * .01),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        user.email.toString(),
+                                        style: TextStyle(
+                                          fontWeight: Global().semiBold,
+                                          fontSize: 15,
+                                          decorationThickness: 2,
                                         ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            FirebaseAuth.instance.signOut();
-                                            Navigator.pushNamed(
-                                                context, "/login");
-                                            showmessage("Berhasil keluar");
-                                          },
-                                          child: const Center(
-                                            child: Text(
-                                              "Keluar",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          FirebaseAuth.instance.signOut();
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute<void>(
+                                              builder: (BuildContext context) =>
+                                                  LoginPage(),
+                                            ),
+                                            ModalRoute.withName('/'),
+                                          );
+                                          showmessage("Berhasil keluar");
+                                        },
+                                        child: const Center(
+                                          child: Text(
+                                            "Keluar",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                );
-                              } else {
-                                return Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(top: 10),
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          userName,
-                                          style: TextStyle(
-                                            fontWeight: Global().semiBold,
-                                            fontSize: 15,
-                                            decorationThickness: 2,
-                                          ),
-                                        ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            FirebaseAuth.instance.signOut();
-                                            Navigator.pushNamed(
-                                                context, "/login");
-                                            showmessage("Berhasil keluar");
-                                          },
-                                          child: const Center(
-                                            child: Text(
-                                              "Keluar",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              }
+                                ),
+                              );
                             }
                           },
                         ),
@@ -240,11 +211,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       );
                     },
                     child: Container(
-                      height: 124,
-                      margin: const EdgeInsets.only(
-                        bottom: 22,
-                        right: 20,
-                        left: 20,
+                      height: height * .14,
+                      margin: EdgeInsets.only(
+                        bottom: height * .02,
+                        right: width * .06,
+                        left: width * .06,
                       ),
                       decoration: const BoxDecoration(
                         color: Color(0xFFB3E6B9),
@@ -256,10 +227,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         children: [
                           Image.asset(
                             'assets/images/quran.png',
-                            width: 85,
+                            width: width * .26,
                           ),
-                          const SizedBox(
-                            width: 30,
+                          SizedBox(
+                            width: width * .08,
                           ),
                           Text(
                             'Baca Al-Quran',
@@ -272,17 +243,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   InkWell(
                     child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 22),
+                      margin: EdgeInsets.symmetric(horizontal: width * .06),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             width: width * .43,
-                            height: 146,
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            height: height * .16,
+                            padding:
+                                EdgeInsets.symmetric(horizontal: width * .06),
                             decoration: const BoxDecoration(
                               color: Color(0xFFB3E6B9),
-                              borderRadius: BorderRadius.all(Radius.circular(25)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25)),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -290,11 +263,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               children: [
                                 Image.asset(
                                   'assets/images/kalender.png',
-                                  width: 34,
-                                  height: 39,
+                                  width: width * .09,
                                 ),
-                                const SizedBox(
-                                  height: 10,
+                                SizedBox(
+                                  height: height * .015,
                                 ),
                                 Text(
                                   'Buka Kalender Hijriyah',
@@ -318,8 +290,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             },
                             child: Container(
                               width: width * .43,
-                              height: 146,
-                              padding: const EdgeInsets.symmetric(horizontal: 15),
+                              height: height * .16,
+                              padding:
+                                  EdgeInsets.symmetric(horizontal: width * .06),
                               decoration: const BoxDecoration(
                                 color: Color(0xFFB3E6B9),
                                 borderRadius:
@@ -331,11 +304,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 children: [
                                   Image.asset(
                                     'assets/images/progress.png',
-                                    width: 34,
-                                    height: 39,
+                                    width: width * .09,
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: height * .015,
                                   ),
                                   Text(
                                     'Lihat Track Prayer Saya',
@@ -355,10 +327,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                    margin: EdgeInsets.symmetric(
+                        horizontal: width * .06, vertical: height * .02),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: width * .06, vertical: height * .025),
                     decoration: BoxDecoration(
                       color: Global().bgBlur,
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -371,8 +343,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Icons.stars_rounded,
                               color: Global().greenPrimary,
                             ),
-                            const SizedBox(
-                              width: 8,
+                            SizedBox(
+                              width: width * .02,
                             ),
                             const Text(
                               'Review aplikasi ini',
@@ -381,8 +353,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             const Icon(Icons.navigate_next_rounded)
                           ],
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: height * .007,
                         ),
                         Row(
                           children: [
@@ -390,8 +362,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Icons.mobile_friendly_rounded,
                               color: Global().greenPrimary,
                             ),
-                            const SizedBox(
-                              width: 8,
+                            SizedBox(
+                              width: width * .02,
                             ),
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
