@@ -13,7 +13,8 @@ import 'package:muslimpocket/widgets/tasbih_widget.dart';
 import 'package:muslimpocket/widgets/tracker_widget.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  String currentSection = 'tracker';
+  HomeScreen({super.key, required this.currentSection});
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,8 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     const QuranScreen(),
                     Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: height * .03, horizontal: width * .08),
+                      padding: EdgeInsets.only(
+                          top: height * .025, bottom: height * .03, right: width * .08, left: width * .08),
                       child: Column(
                         children: [
                           Column(
@@ -44,8 +45,8 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const Expanded(
-                            child: SectionMenu(),
+                          Expanded(
+                            child: SectionMenu(currentSection: currentSection),
                           ),
                         ],
                       ),
@@ -92,7 +93,8 @@ class HomeScreen extends StatelessWidget {
 }
 
 class SectionMenu extends StatefulWidget {
-  const SectionMenu({super.key});
+  String currentSection = 'tracker';
+  SectionMenu({super.key, required this.currentSection});
 
   @override
   State<SectionMenu> createState() => _SectionMenuState();
@@ -123,7 +125,7 @@ class _SectionMenuState extends State<SectionMenu> {
       child: Container(
         decoration: BoxDecoration(
           color: Global().bgBlur,
-          borderRadius: BorderRadius.circular(21.0),
+          borderRadius: BorderRadius.circular(42.0),
         ),
         child: Column(
           children: [
@@ -136,11 +138,13 @@ class _SectionMenuState extends State<SectionMenu> {
                   BoxShadow(
                     color: Colors.black38,
                     blurRadius: 4.0,
-                  ), 
+                  ),
                 ],
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: height * .001,),
+                padding: EdgeInsets.symmetric(
+                  vertical: height * .001,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -203,7 +207,7 @@ class _SectionMenuState extends State<SectionMenu> {
                             },
                           ),
                         ),
-                        child: const Text('Tasbih'),
+                        child: Text('Tasbih'),
                       ),
                     ),
                     // ElevatedButton(

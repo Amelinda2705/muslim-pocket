@@ -30,7 +30,7 @@ class QuranSurahScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(
                       vertical: height * .02,
                     ),
-                    height: height * .13,
+                    // height: height * .13,
                     width: width,
                     child: Column(
                       children: [

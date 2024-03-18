@@ -75,10 +75,10 @@ class _TasbihSectionState extends State<TasbihSection> {
                   });
                 }
                 goals = newValue;
-                if (counter >= int.parse(goals)) {
+                if (int.parse(goals) != 1) {
+                  counter = counter;
+                } else {
                   counter = 1;
-                } else if (int.tryParse(goals) == null) {
-                  goals = '1';
                 }
               });
             },

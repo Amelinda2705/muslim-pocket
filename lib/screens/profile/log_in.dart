@@ -42,7 +42,8 @@ class _LoginPageState extends State<LoginPage> {
       );
       Navigator.of(context).pushReplacement<void, void>(
         MaterialPageRoute(
-          builder: (BuildContext context) => const HomeScreen(),
+          builder: (BuildContext context) =>
+              HomeScreen(currentSection: 'tracker'),
         ),
       );
     } on FirebaseAuthException catch (e) {
@@ -306,84 +307,38 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: width * .05),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Belum punya akun? ',
-                            style: TextStyle(
-                              color: Global().white,
-                              fontSize: 12,
-                              fontWeight: Global().light,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).pushReplacement<void, void>(
-                                MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      RegisterPage(
-                                    onTap: () {},
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Text(
-                              'Daftar',
-                              style: TextStyle(
-                                color: Global().white,
-                                fontWeight: Global().semiBold,
-                                fontSize: 15,
-                                decoration: TextDecoration.underline,
-                                decorationThickness: 2,
-                                decorationColor: Global().white,
-                              ),
-                            ),
-                          ),
-                        ],
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            HomeScreen(currentSection: 'tracker'),
                       ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) => HomeScreen(),
-                          ),
-                          ModalRoute.withName('/'),
-                        );
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Masuk sebagai tamu',
-                            style: TextStyle(
-                              color: Global().white,
-                              fontWeight: Global().extraBold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(
-                            width: width * .01,
-                          ),
-                          FaIcon(
-                            FontAwesomeIcons.chevronRight,
-                            size: width * .045,
-                            color: Global().white,
-                          ),
-                          SizedBox(
-                            width: width * .07,
-                          ),
-                        ],
+                      ModalRoute.withName('/'),
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Masuk sebagai tamu',
+                        style: TextStyle(
+                          color: Global().white,
+                          fontWeight: Global().extraBold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: width * .01,
+                      ),
+                      FaIcon(
+                        FontAwesomeIcons.chevronRight,
+                        size: width * .045,
+                        color: Global().white,
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],
