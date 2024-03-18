@@ -299,83 +299,37 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: width * .05),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Sudah punya akun? ',
-                            style: TextStyle(
-                              color: Global().white,
-                              fontSize: 12,
-                              fontWeight: Global().light,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).pushReplacement<void, void>(
-                                MaterialPageRoute(
-                                  builder: (BuildContext context) => LoginPage(
-                                    onTap: () {},
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Text(
-                              'Masuk',
-                              style: TextStyle(
-                                fontWeight: Global().semiBold,
-                                color: Global().white,
-                                fontSize: 14,
-                                decoration: TextDecoration.underline,
-                                decorationThickness: 2,
-                                decorationColor: Global().white,
-                              ),
-                            ),
-                          ),
-                        ],
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => HomeScreen(currentSection: 'tracker'),
                       ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) => HomeScreen(),
-                          ),
-                          ModalRoute.withName('/'),
-                        );
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Masuk sebagai tamu',
-                            style: TextStyle(
-                              color: Global().white,
-                              fontWeight: Global().extraBold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(
-                            width: width * .01,
-                          ),
-                          FaIcon(
-                            FontAwesomeIcons.chevronRight,
-                            size: width * .045,
-                            color: Global().white,
-                          ),
-                          SizedBox(
-                            width: width * .07,
-                          ),
-                        ],
+                      ModalRoute.withName('/'),
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Masuk sebagai tamu',
+                        style: TextStyle(
+                          color: Global().white,
+                          fontWeight: Global().extraBold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: width * .01,
+                      ),
+                      FaIcon(
+                        FontAwesomeIcons.chevronRight,
+                        size: width * .045,
+                        color: Global().white,
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],

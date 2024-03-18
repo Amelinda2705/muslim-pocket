@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -38,7 +39,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
   getScheduleLocation() async {
     DateTime dateTime = DateTime.now();
     http.Response response = await http.get(Uri.parse(
-        'https://api.aladhan.com/v1/calendar/${dateTime.year}/${dateTime.month}?latitude=${position.latitude}&longitude=${position.longitude}&method=4'));
+        'https://api.aladhan.com/v1/calendar/${dateTime.year}/${dateTime.month}?latitude=${position.latitude}&longitude=${position.longitude}&method=1'));
     if (response.statusCode >= 200 && response.statusCode <= 299) {
       Map<String, dynamic> dataResponse = jsonDecode(response.body);
       prayerSchedule = dataResponse['data'][dateTime.day - 1];
@@ -145,29 +146,31 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                       builder: (context, snapshot) {
                         String jam = DateFormat.Hm().format(DateTime.now());
 
-                        return Text(
-                          '${jam}',
-                          style: TextStyle(
-                            fontSize: 48,
-                            color: Global().greenPrimary,
-                            fontWeight: Global().bold,
+                        return Center(
+                          child: Text(
+                            '${jam}',
+                            style: TextStyle(
+                              fontSize: 48,
+                              color: Global().greenPrimary,
+                              fontWeight: Global().bold,
+                            ),
                           ),
                         );
                       },
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '1:37 ',
-                          style: TextStyle(
-                            color: Global().greenPrimary,
-                            fontWeight: Global().bold,
-                          ),
-                        ),
-                        const Text('menuju adzan Magrib')
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     Text(
+                    //       '1:37 ',
+                    //       style: TextStyle(
+                    //         color: Global().greenPrimary,
+                    //         fontWeight: Global().bold,
+                    //       ),
+                    //     ),
+                    //     const Text('menuju adzan Magrib')
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
@@ -216,29 +219,31 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                       builder: (context, snapshot) {
                         String jam = DateFormat.Hm().format(DateTime.now());
 
-                        return Text(
-                          '${jam}',
-                          style: TextStyle(
-                            fontSize: 48,
-                            color: Global().greenPrimary,
-                            fontWeight: Global().bold,
+                        return Center(
+                          child: Text(
+                            '${jam}',
+                            style: TextStyle(
+                              fontSize: 48,
+                              color: Global().greenPrimary,
+                              fontWeight: Global().bold,
+                            ),
                           ),
                         );
                       },
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '1:37 ',
-                          style: TextStyle(
-                            color: Global().greenPrimary,
-                            fontWeight: Global().bold,
-                          ),
-                        ),
-                        const Text('menuju adzan Magrib')
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     Text(
+                    //       '1:37 ',
+                    //       style: TextStyle(
+                    //         color: Global().greenPrimary,
+                    //         fontWeight: Global().bold,
+                    //       ),
+                    //     ),
+                    //     const Text('menuju adzan Magrib')
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
@@ -255,18 +260,29 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                   ],
                 ),
                 child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: List.generate(prayerIcon.length, (index) {
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: List.generate(
+                    prayerIcon.length,
+                    (index) {
                       String waktuSolat =
                           '${prayerSchedule['timings']['${prayerIcon[index]['id']}']}'
                               .split(' ')[0];
-                      String waktuSolatSelanjutnya = index + 1 ==
-                              prayerIcon.length
-                          ? '${prayerSchedule['timings']['${prayerIcon[0]['id']}']}'
-                              .split(' ')[0]
+                      String waktuSolatSelanjutnya = index ==
+                              prayerIcon.length - 1
+                          ? '${prayerSchedule['timings']['Fajr']}'.split(' ')[0]
                           : '${prayerSchedule['timings']['${prayerIcon[index + 1]['id']}']}'
                               .split(' ')[0];
+                      List<String> waktuSolatParts = waktuSolat.split(':');
+                      int jamSolat = int.parse(waktuSolatParts[0]);
+                      int menitSolat = int.parse(waktuSolatParts[1]);
+
+                      // List<String> waktuSolatSelanjutnyaParts =
+                      //     waktuSolatSelanjutnya.split(':');
+                      // int jamSolatSelanjutnya =
+                      //     int.parse(waktuSolatSelanjutnyaParts[0]);
+                      // int menitSolatSelanjutnya =
+                      //     int.parse(waktuSolatSelanjutnyaParts[1]);
                       DateTime sekarang = DateTime.now();
                       DateTime jadwalSolat = DateTime(
                         sekarang.year,
@@ -282,10 +298,19 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                         int.parse(waktuSolatSelanjutnya.split(':')[0]),
                         int.parse(waktuSolatSelanjutnya.split(':')[1]),
                       );
+
+                      // Duration remainingTime =
+                      //     jadwalSolatSelanjutnya.difference(DateTime.now());
+                      // int remainingHours = remainingTime.inHours;
+                      // int remainingMinutes =
+                      //     remainingTime.inMinutes.remainder(60);
+
                       bool isWaktuSolat = sekarang.isAfter(jadwalSolat) &&
                           sekarang.isBefore(jadwalSolatSelanjutnya);
-
-                      
+                      if (prayerIcon[index]['id'] == 'Isha') {
+                        isWaktuSolat = sekarang.isAfter(jadwalSolat) ||
+                            sekarang.isBefore(jadwalSolatSelanjutnya);
+                      }
 
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -327,9 +352,12 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                           ),
                         ],
                       );
-                    })),
+                    },
+                  ),
+                ),
               ),
             ],
           );
   }
 }
+

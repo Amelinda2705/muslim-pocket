@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:muslimpocket/screens/profile/log_in.dart';
@@ -17,10 +18,11 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   void showmessage(String errorMessage) {
     showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(title: Text(errorMessage));
-        });
+      context: context,
+      builder: (context) {
+        return AlertDialog(title: Text(errorMessage));
+      },
+    );
   }
 
   @override
@@ -55,14 +57,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         'assets/images/profile.png',
                         width: width * 0.25,
                       ),
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Icon(
-                          Icons.edit_square,
-                          color: Global().grayPrimary,
-                        ),
-                      ),
+                      // Positioned(
+                      //   bottom: 0,
+                      //   right: 0,
+                      //   child: Icon(
+                      //     Icons.edit_square,
+                      //     color: Global().grayPrimary,
+                      //   ),
+                      // ),
                     ],
                   ),
                   Row(
@@ -145,7 +147,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     child: Text(
                                       'Masuk untuk membuka akses semua fitur',
                                       style: TextStyle(
-                                          color: Global().greenPrimary),
+                                          color: Global().greenPrimary,
+                                          fontSize: 14),
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
@@ -262,14 +265,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Image.asset(
-                                  'assets/images/kalender.png',
-                                  width: width * .09,
+                                  'assets/images/tasbih.png',
+                                  width: width * .9,
                                 ),
                                 SizedBox(
                                   height: height * .015,
                                 ),
                                 Text(
-                                  'Buka Kalender Hijriyah',
+                                  'Buka Tasbih',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontWeight: Global().medium,
@@ -284,7 +287,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) => const HomeScreen(),
+                                  builder: (_) =>
+                                      HomeScreen(currentSection: 'tracker'),
                                 ),
                               );
                             },
@@ -339,18 +343,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Row(
                           children: [
-                            Icon(
-                              Icons.stars_rounded,
+                            SizedBox(
+                              width: width * .01,
+                            ),
+                            FaIcon(
+                              FontAwesomeIcons.server,
                               color: Global().greenPrimary,
+                              size: width * .05,
                             ),
                             SizedBox(
                               width: width * .02,
                             ),
-                            const Text(
-                              'Review aplikasi ini',
-                              style: TextStyle(fontSize: 12),
+                            InkWell(
+                              onTap: () => _showBottomSheet(context),
+                              child: const Text(
+                                'Referensi data',
+                                style: TextStyle(fontSize: 12),
+                              ),
                             ),
-                            const Icon(Icons.navigate_next_rounded)
                           ],
                         ),
                         SizedBox(
@@ -390,5 +400,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _showBottomSheet(BuildContext context) async {
+    int? result = await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      isDismissible: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+      ),
+      builder: (context) => DraggableScrollableSheet(
+        initialChildSize: 0.4,
+        minChildSize: 0.2,
+        maxChildSize: 0.9,
+        expand: false,
+        builder: (context, scrollController) => Container(
+          width: MediaQuery.of(context).size.width,
+          margin: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Al-Quran : ', style: TextStyle(fontSize: 18, fontWeight: Global().semiBold),),
+              Text('- Aladhan (Surat, Nomor Surat, Ayat, Nomor Ayat, dan Terjemahan bahasa Indonesia)'),
+              Text('- Kemenag (Terjemahan Latin)'),
+              SizedBox(height: 10,),
+              Text('Jadwal Sholat : ', style: TextStyle(fontSize: 18, fontWeight: Global().semiBold),),
+              Text('- Aladhan'),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    print(result);
   }
 }

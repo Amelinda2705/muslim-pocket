@@ -483,8 +483,9 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                               margin: const EdgeInsets.symmetric(
                                   vertical: 15.0, horizontal: 20.0),
                               decoration: BoxDecoration(
-                                  color: Global().greenPrimary,
-                                  borderRadius: BorderRadius.circular(30.0)),
+                                color: Global().greenPrimary,
+                                borderRadius: BorderRadius.circular(30.0),
+                              ),
                               child: ElevatedButton(
                                 style: ButtonStyle(
                                   backgroundColor:
@@ -500,10 +501,13 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                                     ),
                                   );
                                 },
-                                child: Text(
-                                  'Masuk',
-                                  style: TextStyle(
-                                    color: Global().white,
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text(
+                                    'Masuk',
+                                    style: TextStyle(
+                                      color: Global().white,
+                                    ),
                                   ),
                                 ),
                               ),
