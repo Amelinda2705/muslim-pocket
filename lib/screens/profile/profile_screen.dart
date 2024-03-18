@@ -245,6 +245,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => HomeScreen(currentSection: 'tasbih'),
+                        ),
+                      );
+                    },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: width * .06),
                       child: Row(
@@ -422,11 +430,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Al-Quran : ', style: TextStyle(fontSize: 18, fontWeight: Global().semiBold),),
-              Text('- Aladhan (Surat, Nomor Surat, Ayat, Nomor Ayat, dan Terjemahan bahasa Indonesia)'),
+              Text(
+                'Al-Quran : ',
+                style: TextStyle(fontSize: 18, fontWeight: Global().semiBold),
+              ),
+              Text(
+                  '- Aladhan (Surat, Nomor Surat, Ayat, Nomor Ayat, dan Terjemahan bahasa Indonesia)'),
               Text('- Kemenag (Terjemahan Latin)'),
-              SizedBox(height: 10,),
-              Text('Jadwal Sholat : ', style: TextStyle(fontSize: 18, fontWeight: Global().semiBold),),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                'Jadwal Sholat : ',
+                style: TextStyle(fontSize: 18, fontWeight: Global().semiBold),
+              ),
               Text('- Aladhan'),
             ],
           ),

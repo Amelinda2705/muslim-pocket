@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:muslimpocket/commons/global.dart';
 import 'package:intl/intl.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:muslimpocket/commons/notification.dart';
 
 class PrayerWidget extends StatefulWidget {
   const PrayerWidget({super.key});
@@ -298,6 +299,7 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                         int.parse(waktuSolatSelanjutnya.split(':')[0]),
                         int.parse(waktuSolatSelanjutnya.split(':')[1]),
                       );
+                      String jam = DateFormat.Hm().format(DateTime.now());
 
                       // Duration remainingTime =
                       //     jadwalSolatSelanjutnya.difference(DateTime.now());
@@ -310,6 +312,11 @@ class _PrayerWidgetState extends State<PrayerWidget> {
                       if (prayerIcon[index]['id'] == 'Isha') {
                         isWaktuSolat = sekarang.isAfter(jadwalSolat) ||
                             sekarang.isBefore(jadwalSolatSelanjutnya);
+                      }
+
+                      if (jam.toString() == jadwalSolat.toString()) {
+                        NotificationService().showNotification(
+                            title: 'Sample title', body: 'It works!');
                       }
 
                       return Column(
@@ -360,4 +367,3 @@ class _PrayerWidgetState extends State<PrayerWidget> {
           );
   }
 }
-
