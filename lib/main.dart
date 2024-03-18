@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:muslimpocket/commons/notification.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,6 +13,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  NotificationService().initNotification();
 
   runApp(
     const MyApp(),
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
       home: HomeScreen(currentSection: 'tracker'),
       routes: {
