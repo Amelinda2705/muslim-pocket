@@ -219,6 +219,8 @@ class _LoginPageState extends State<LoginPage> {
                                     hintText: "example.gmail.com",
                                     isPasswordField: false,
                                     prefixIcon: const Icon(Icons.person),
+                                    autoFocus: true,
+                                    textInputAction: TextInputAction.next,
                                   ),
                                   SizedBox(height: height * .02),
                                   Text(
@@ -235,6 +237,7 @@ class _LoginPageState extends State<LoginPage> {
                                     hintText: "********",
                                     isPasswordField: true,
                                     prefixIcon: const Icon(Icons.key),
+                                    autoFocus: true,
                                   ),
                                   SizedBox(height: height * .01),
                                   Text(

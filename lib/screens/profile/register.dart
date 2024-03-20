@@ -210,10 +210,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                   SizedBox(height: height * .01),
                                   FormContainerWidget(
+                                    autoFocus: true,
                                     controller: _emailController,
                                     hintText: "example.gmail.com",
                                     isPasswordField: false,
                                     prefixIcon: const Icon(Icons.person),
+                                    textInputAction: TextInputAction.next,
                                   ),
                                   SizedBox(height: height * .02),
                                   Text(
@@ -226,10 +228,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                   SizedBox(height: height * .01),
                                   FormContainerWidget(
+                                    autoFocus: true,
                                     controller: _passwordController,
                                     hintText: "********",
                                     isPasswordField: true,
                                     prefixIcon: const Icon(Icons.key),
+                                    textInputAction: TextInputAction.next,
                                   ),
                                   SizedBox(height: height * .02),
                                   Text(
@@ -242,6 +246,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                   SizedBox(height: height * .01),
                                   FormContainerWidget(
+                                    autoFocus: true,
                                     controller: _confirmPasswordController,
                                     hintText: "********",
                                     isPasswordField: true,

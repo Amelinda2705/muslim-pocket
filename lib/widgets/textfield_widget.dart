@@ -13,6 +13,8 @@ class FormContainerWidget extends StatefulWidget {
   final ValueChanged<String>? onFieldSubmitted;
   final TextInputType? inputType;
   final Widget? prefixIcon;
+  final bool autoFocus;
+  final TextInputAction? textInputAction;
 
   const FormContainerWidget({
     this.controller,
@@ -26,6 +28,8 @@ class FormContainerWidget extends StatefulWidget {
     this.onFieldSubmitted,
     this.inputType,
     this.prefixIcon,
+    required this.autoFocus,
+    this.textInputAction,
   });
 
   @override
@@ -55,6 +59,8 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
         key: widget.fieldKey,
         obscureText: widget.isPasswordField == true ? _obscureText : false,
         onSaved: widget.onSaved,
+        autofocus: widget.autoFocus,
+        textInputAction: widget.textInputAction,
         validator: widget.isPasswordField == true
             ? (value) {
                 if (value == null || value.isEmpty) {
