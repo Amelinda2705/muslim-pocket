@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:muslimpocket/commons/notification.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:device_preview/device_preview.dart';
+// import 'package:device_preview/device_preview.dart';
+import 'package:muslimpocket/resources/datas/widget_data.dart';
+import 'package:home_widget/home_widget.dart';
+
+const String appGroupId = '';
+const String iOSWidgetName = 'quranWidget';
+const String androidWidgetName = 'quranWidget';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,14 +26,32 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+void updateHeadline(AyatQuran newHeadline) {
+  // Save the headline data to the widget
+  HomeWidget.saveWidgetData<String>('headline_title', newHeadline.ayat);
+  HomeWidget.saveWidgetData<String>(
+      'headline_description', newHeadline.tranlation);
+  HomeWidget.updateWidget(
+    iOSName: iOSWidgetName,
+    androidName: androidWidgetName,
+  );
+}
+
+class _MyAppState extends State<MyApp> {
   Future<void> initializeDefault() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
   }
+
+  
 
   @override
   Widget build(BuildContext context) {

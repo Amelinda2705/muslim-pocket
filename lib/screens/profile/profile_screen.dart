@@ -244,21 +244,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => HomeScreen(currentSection: 'tasbih'),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: width * .06),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: width * .06),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    HomeScreen(currentSection: 'tasbih'),
+                              ),
+                            );
+                          },
+                          child: Container(
                             width: width * .43,
                             height: height * .16,
                             padding:
@@ -290,52 +291,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ],
                             ),
                           ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) =>
-                                      HomeScreen(currentSection: 'tracker'),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    HomeScreen(currentSection: 'tracker'),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: width * .43,
+                            height: height * .16,
+                            padding:
+                                EdgeInsets.symmetric(horizontal: width * .06),
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFB3E6B9),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25)),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/images/progress.png',
+                                  width: width * .09,
                                 ),
-                              );
-                            },
-                            child: Container(
-                              width: width * .43,
-                              height: height * .16,
-                              padding:
-                                  EdgeInsets.symmetric(horizontal: width * .06),
-                              decoration: const BoxDecoration(
-                                color: Color(0xFFB3E6B9),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(25)),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/images/progress.png',
-                                    width: width * .09,
+                                SizedBox(
+                                  height: height * .015,
+                                ),
+                                Text(
+                                  'Lihat Track Prayer Saya',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: Global().medium,
+                                    fontSize: 15,
+                                    color: Colors.black,
                                   ),
-                                  SizedBox(
-                                    height: height * .015,
-                                  ),
-                                  Text(
-                                    'Lihat Track Prayer Saya',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontWeight: Global().medium,
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   Container(
