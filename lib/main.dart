@@ -26,32 +26,14 @@ void main() async {
   );
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-void updateHeadline(AyatQuran newHeadline) {
-  // Save the headline data to the widget
-  HomeWidget.saveWidgetData<String>('headline_title', newHeadline.ayat);
-  HomeWidget.saveWidgetData<String>(
-      'headline_description', newHeadline.tranlation);
-  HomeWidget.updateWidget(
-    iOSName: iOSWidgetName,
-    androidName: androidWidgetName,
-  );
-}
-
-class _MyAppState extends State<MyApp> {
   Future<void> initializeDefault() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -65,4 +47,15 @@ class _MyAppState extends State<MyApp> {
       },
     );
   }
+}
+
+void updateHeadline(AyatQuran newHeadline) {
+  // Save the headline data to the widget
+  HomeWidget.saveWidgetData<String>('headline_title', newHeadline.ayat);
+  HomeWidget.saveWidgetData<String>(
+      'headline_description', newHeadline.tranlation);
+  HomeWidget.updateWidget(
+    iOSName: iOSWidgetName,
+    androidName: androidWidgetName,
+  );
 }
