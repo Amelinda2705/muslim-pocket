@@ -89,9 +89,9 @@ class _PrayerWidgetState extends State<PrayerWidget> {
   }
 
   inisiasi() async {
-    setState(() async {
-      await getLocation();
-      await getScheduleLocation();
+    await getLocation();
+    await getScheduleLocation();
+    setState(() {
       isLoading = false;
     });
   }
