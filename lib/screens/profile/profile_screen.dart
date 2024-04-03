@@ -185,6 +185,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           child: Text(
                                             "Keluar",
                                             style: TextStyle(
+                                              decoration:
+                                                  TextDecoration.underline,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -204,26 +206,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               Column(
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const QuranScreen(),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      height: height * .14,
-                      margin: EdgeInsets.only(
-                        bottom: height * .02,
-                        right: width * .06,
-                        left: width * .06,
-                      ),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFB3E6B9),
-                        borderRadius: BorderRadius.all(Radius.circular(25)),
-                      ),
+                  Container(
+                    height: height * .14,
+                    margin: EdgeInsets.only(
+                      bottom: height * .02,
+                      right: width * .06,
+                      left: width * .06,
+                    ),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFB3E6B9),
+                      borderRadius: BorderRadius.all(Radius.circular(25)),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const QuranScreen(),
+                          ),
+                        );
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -249,26 +251,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) =>
-                                    HomeScreen(currentSection: 'tasbih'),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            width: width * .43,
-                            height: height * .16,
-                            padding:
-                                EdgeInsets.symmetric(horizontal: width * .06),
-                            decoration: const BoxDecoration(
-                              color: Color(0xFFB3E6B9),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(25)),
-                            ),
+                        Container(
+                          width: width * .43,
+                          height: height * .16,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: width * .06),
+                          decoration: const BoxDecoration(
+                            color: Color(0xFFB3E6B9),
+                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                          ),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) =>
+                                      HomeScreen(currentSection: 'tasbih'),
+                                ),
+                              );
+                            },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -292,26 +293,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                         ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) =>
-                                    HomeScreen(currentSection: 'tracker'),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            width: width * .43,
-                            height: height * .16,
-                            padding:
-                                EdgeInsets.symmetric(horizontal: width * .06),
-                            decoration: const BoxDecoration(
-                              color: Color(0xFFB3E6B9),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(25)),
-                            ),
+                        Container(
+                          width: width * .43,
+                          height: height * .16,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: width * .06),
+                          decoration: const BoxDecoration(
+                            color: Color(0xFFB3E6B9),
+                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                          ),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) =>
+                                      HomeScreen(currentSection: 'tracker'),
+                                ),
+                              );
+                            },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,

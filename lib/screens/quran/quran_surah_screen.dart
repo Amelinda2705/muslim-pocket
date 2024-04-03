@@ -43,20 +43,21 @@ class QuranSurahScreen extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 12, fontWeight: Global().light)),
                         Container(
-                            decoration: BoxDecoration(
-                              color: Global().greenPrimary,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10)),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: width * .06, vertical: 5),
-                            margin: const EdgeInsets.only(top: 10),
-                            child: Text(
-                              "${surah["number_of_ayah"]} ayat",
-                              style: TextStyle(
-                                  color: Global().white,
-                                  fontWeight: Global().semiBold),
-                            )),
+                          decoration: BoxDecoration(
+                            color: Global().greenPrimary,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: width * .06, vertical: 5),
+                          margin: const EdgeInsets.only(top: 10),
+                          child: Text(
+                            "${surah["number_of_ayah"]} ayat",
+                            style: TextStyle(
+                                color: Global().white,
+                                fontWeight: Global().semiBold),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -126,8 +127,9 @@ class QuranSurahScreen extends StatelessWidget {
                                               color: Global().greenPrimary,
                                               width: 2,
                                             ),
-                                            borderRadius: const BorderRadius.all(
-                                                Radius.circular(20))),
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                                    Radius.circular(20))),
                                         child: Center(
                                             child: Text(
                                           '${index + 1}',
@@ -184,12 +186,12 @@ class QuranSurahScreen extends StatelessWidget {
                 top: 0,
                 left: 0,
                 child: Container(
-                  padding:
-                      const EdgeInsets.only(top: 10, left: 10, right: 20, bottom: 13),
+                  padding: const EdgeInsets.only(
+                      top: 10, left: 10, right: 20, bottom: 13),
                   decoration: BoxDecoration(
                     color: Global().greenPrimary,
-                    borderRadius:
-                        const BorderRadius.only(bottomRight: Radius.circular(50)),
+                    borderRadius: const BorderRadius.only(
+                        bottomRight: Radius.circular(50)),
                   ),
                   child: Column(
                     children: [
@@ -215,8 +217,9 @@ class QuranSurahScreen extends StatelessWidget {
                         top: 10, right: 10, left: 20, bottom: 13),
                     decoration: BoxDecoration(
                       color: Global().greenPrimary,
-                      borderRadius:
-                          const BorderRadius.only(bottomLeft: Radius.circular(50)),
+                      borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(50),
+                      ),
                     ),
                     child: Icon(
                       Icons.close,
@@ -238,8 +241,8 @@ class QuranSurahScreen extends StatelessWidget {
                           bottom: 10, left: 10, right: 30, top: 13),
                       decoration: BoxDecoration(
                         color: Global().greenPrimary,
-                        borderRadius:
-                            const BorderRadius.only(topRight: Radius.circular(50)),
+                        borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(50)),
                       ),
                       child: Row(
                         children: [
@@ -277,8 +280,8 @@ class QuranSurahScreen extends StatelessWidget {
                           bottom: 10, right: 10, left: 30, top: 13),
                       decoration: BoxDecoration(
                         color: Global().greenPrimary,
-                        borderRadius:
-                            const BorderRadius.only(topLeft: Radius.circular(50)),
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(50)),
                       ),
                       child: Row(
                         children: [
