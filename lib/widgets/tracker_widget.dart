@@ -454,67 +454,62 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                       height: height * .36,
                       width: double.infinity,
                       alignment: Alignment.center,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, "login");
-                        },
-                        child: Center(
-                            child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const FaIcon(FontAwesomeIcons.lock),
-                            SizedBox(
-                              height: height * .01,
-                            ),
-                            SizedBox(
-                              width: width * .5,
-                              child: Text(
-                                "Masuk untuk membuka fitur ini.",
-                                style: TextStyle(
-                                  fontWeight: Global().medium,
-                                  fontSize: 18,
-                                ),
-                                textAlign: TextAlign.center,
+                      child: Center(
+                          child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const FaIcon(FontAwesomeIcons.lock),
+                          SizedBox(
+                            height: height * .01,
+                          ),
+                          SizedBox(
+                            width: width * .5,
+                            child: Text(
+                              "Masuk untuk membuka fitur ini.",
+                              style: TextStyle(
+                                fontWeight: Global().medium,
+                                fontSize: 18,
                               ),
+                              textAlign: TextAlign.center,
                             ),
-                            Container(
-                              width: width * .25,
-                              height: height * .035,
-                              margin: const EdgeInsets.symmetric(
-                                  vertical: 15.0, horizontal: 20.0),
-                              decoration: BoxDecoration(
-                                color: Global().greenPrimary,
-                                borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          Container(
+                            width: width * .25,
+                            height: height * .035,
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 15.0, horizontal: 20.0),
+                            decoration: BoxDecoration(
+                              color: Global().greenPrimary,
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Global().greenPrimary),
                               ),
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Global().greenPrimary),
-                                ),
-                                onPressed: () {
-                                  Navigator.of(context)
-                                      .pushReplacement<void, void>(
-                                    MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          LoginPage(),
-                                    ),
-                                  );
-                                },
-                                child: FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Text(
-                                    'Masuk',
-                                    style: TextStyle(
-                                      color: Global().white,
-                                    ),
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .push(
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        LoginPage(),
+                                  ),
+                                );
+                              },
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  'Masuk',
+                                  style: TextStyle(
+                                    color: Global().white,
                                   ),
                                 ),
                               ),
                             ),
-                          ],
-                        )),
-                      ),
+                          ),
+                        ],
+                      )),
                     ),
                   ),
                 ),
@@ -704,67 +699,69 @@ class _TrackerWidgetState extends State<TrackerWidget> {
                 return Column(
                   children: [
                     Column(
-                      children: List.generate(doc.data()!['checklists'].length,
-                          (index) {
-                        String value = doc.data()!['checklists'][index];
-                        bool isCheck = false;
-                        try {
-                          isCheck = doc.data()!['udahChecklists'][index];
-                        } catch (e) {}
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                          ),
-                          child: GestureDetector(
-                            onTap: () {
-                              List<bool> value = [];
-                              try {
-                                value = List<bool>.from(
-                                    doc.data()!['udahChecklists']);
-                              } catch (e) {
-                                print(e);
-                                value = List.generate(
-                                    doc.data()!['checklists'].length,
-                                    (index) => false);
-                              }
-                              value[index] = !isCheck;
-                              doc.reference.update({"udahChecklists": value});
-                            },
-                            child: Container(
-                              width: width * .64,
-                              height: height * .04,
-                              margin: const EdgeInsets.only(top: 5.0),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 20.0,
-                              ),
-                              decoration: BoxDecoration(
-                                color: isCheck
-                                    ? Global().bgDone
-                                    : Global().bgNotYet,
-                                borderRadius: BorderRadius.circular(30.0),
-                              ),
-                              child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Expanded(
-                                        child: Text(
-                                      value,
-                                      style: TextStyle(
-                                        fontWeight: Global().medium,
-                                      ),
-                                    )),
-                                    FaIcon(
-                                      isCheck
-                                          ? FontAwesomeIcons.solidCircleCheck
-                                          : FontAwesomeIcons.circle,
-                                      size: width * .05,
-                                    ),
-                                  ]),
+                      children: List.generate(
+                        doc.data()!['checklists'].length,
+                        (index) {
+                          String value = doc.data()!['checklists'][index];
+                          bool isCheck = false;
+                          try {
+                            isCheck = doc.data()!['udahChecklists'][index];
+                          } catch (e) {}
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
                             ),
-                          ),
-                        );
-                      }),
+                            child: GestureDetector(
+                              onTap: () {
+                                List<bool> value = [];
+                                try {
+                                  value = List<bool>.from(
+                                      doc.data()!['udahChecklists']);
+                                } catch (e) {
+                                  print(e);
+                                  value = List.generate(
+                                      doc.data()!['checklists'].length,
+                                      (index) => false);
+                                }
+                                value[index] = !isCheck;
+                                doc.reference.update({"udahChecklists": value});
+                              },
+                              child: Container(
+                                width: width * .64,
+                                height: height * .04,
+                                margin: const EdgeInsets.only(top: 5.0),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 20.0,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: isCheck
+                                      ? Global().bgDone
+                                      : Global().bgNotYet,
+                                  borderRadius: BorderRadius.circular(30.0),
+                                ),
+                                child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Expanded(
+                                          child: Text(
+                                        value,
+                                        style: TextStyle(
+                                          fontWeight: Global().medium,
+                                        ),
+                                      )),
+                                      FaIcon(
+                                        isCheck
+                                            ? FontAwesomeIcons.solidCircleCheck
+                                            : FontAwesomeIcons.circle,
+                                        size: width * .05,
+                                      ),
+                                    ]),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                     const SizedBox(
                       height: 16,

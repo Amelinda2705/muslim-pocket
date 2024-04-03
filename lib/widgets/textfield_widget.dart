@@ -45,12 +45,12 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
       width: double.infinity,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        color: Global().bgLogin,
+        color: Global().white,
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
         style: TextStyle(
-          color: Global().white,
+          color: Global().greenPrimary,
           fontWeight: Global().light,
           fontSize: 14,
         ),
@@ -77,13 +77,13 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
         onFieldSubmitted: widget.onFieldSubmitted,
         decoration: InputDecoration(
           prefixIcon: widget.prefixIcon,
-          prefixIconColor: Global().white,
+          prefixIconColor: Global().greenPrimary,
           border: InputBorder.none,
           filled: true,
-          fillColor: Global().graySecondary,
+          fillColor: Global().white,
           hintText: widget.hintText,
           hintStyle: TextStyle(
-            color: Global().white,
+            color: Global().greenPrimary,
             fontWeight: Global().light,
             fontSize: 14,
           ),
@@ -96,7 +96,9 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
             child: widget.isPasswordField == true
                 ? Icon(
                     _obscureText ? Icons.visibility_off : Icons.visibility,
-                    color: _obscureText == false ? Colors.blue : Global().white,
+                    color: _obscureText == false
+                        ? Global().greenPrimary
+                        : Global().grayPrimary,
                   )
                 : const Text(""),
           ),

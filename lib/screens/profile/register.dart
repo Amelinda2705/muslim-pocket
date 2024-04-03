@@ -107,8 +107,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         decoration: BoxDecoration(
                           color: Global().bgLogin,
                           borderRadius: BorderRadius.circular(25.0),
-                          boxShadow: [
-                            const BoxShadow(
+                          boxShadow: const [
+                            BoxShadow(
                               color: Colors.black26,
                               blurRadius: 4.0,
                             ),

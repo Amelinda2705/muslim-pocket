@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            color: Global().greenPrimary,
+            color: Global().white,
           ),
           child: CustomScrollView(
             slivers: <Widget>[
@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                                   style: TextStyle(
                                     fontSize: 32,
                                     fontWeight: Global().semiBold,
-                                    color: Global().white,
+                                    color: Global().greenPrimary,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -109,14 +109,8 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         width: width,
                         decoration: BoxDecoration(
-                          color: Global().bgLogin,
-                          borderRadius: BorderRadius.circular(25.0),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black26,
-                              blurRadius: 4.0,
-                            ),
-                          ],
+                          color: Global().bgBlur,
+                          borderRadius: BorderRadius.circular(21.0),
                         ),
                         child: Column(
                           children: [
@@ -128,21 +122,28 @@ class _LoginPageState extends State<LoginPage> {
                                 horizontal: width * .015,
                               ),
                               decoration: BoxDecoration(
-                                  color: Global().bgLogin,
-                                  borderRadius: BorderRadius.circular(21.0)),
+                                color: Global().bgBlur,
+                                borderRadius: BorderRadius.circular(21.0),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black38,
+                                    blurRadius: 4.0,
+                                  ),
+                                ],
+                              ),
                               child: Row(
                                 children: [
                                   Container(
                                     width: width * .415,
                                     decoration: BoxDecoration(
-                                        color: Global().bgLogin,
-                                        borderRadius:
-                                            BorderRadius.circular(30.0)),
+                                      color: Global().greenPrimary,
+                                      borderRadius: BorderRadius.circular(30.0),
+                                    ),
                                     child: ElevatedButton(
                                       style: ButtonStyle(
                                         backgroundColor:
                                             MaterialStateProperty.all<Color>(
-                                          Global().bgLogin,
+                                          Global().greenPrimary,
                                         ),
                                       ),
                                       onPressed: () {
@@ -186,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                                       child: Text(
                                         'Daftar',
                                         style: TextStyle(
-                                          color: Global().white,
+                                          color: Global().greenPrimary,
                                         ),
                                         textAlign: TextAlign.center,
                                       ),
@@ -207,7 +208,7 @@ class _LoginPageState extends State<LoginPage> {
                                   Text(
                                     'Email',
                                     style: TextStyle(
-                                      color: Global().white,
+                                      color: Global().greenPrimary,
                                       fontWeight: Global().semiBold,
                                       fontSize: 14,
                                     ),
@@ -226,7 +227,7 @@ class _LoginPageState extends State<LoginPage> {
                                   Text(
                                     'Password',
                                     style: TextStyle(
-                                      color: Global().white,
+                                      color: Global().greenPrimary,
                                       fontWeight: Global().semiBold,
                                       fontSize: 14,
                                     ),
@@ -243,30 +244,35 @@ class _LoginPageState extends State<LoginPage> {
                                   Text(
                                     'Lupa Password?',
                                     style: TextStyle(
-                                      color: Global().white,
+                                      color: Global().greenPrimary,
                                       fontSize: 12,
                                       fontWeight: Global().light,
                                       decoration: TextDecoration.underline,
                                       decorationThickness: 2,
-                                      decorationColor: Global().white,
+                                      decorationColor: Global().greenPrimary,
                                     ),
                                   ),
                                   SizedBox(height: height * .02),
-                                  SizedBox(
+
+                                  Container(
                                     width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Global().greenPrimary,
+                                      borderRadius: BorderRadius.circular(30.0),
+                                    ),
                                     child: ElevatedButton(
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                          Global().greenPrimary,
+                                        ),
+                                      ),
                                       onPressed: () => _signUserIn(context),
-                                      child:
-                                          //  _isSigning
-                                          //     ? CircularProgressIndicator(
-                                          //         color: Colors.white,
-                                          //       )
-                                          //     :
-                                          Text(
+                                      child: Text(
                                         'Masuk',
                                         style: TextStyle(
-                                          color: Global().greenPrimary,
-                                          fontWeight: Global().extraBold,
+                                          color: Global().white,
+                                          fontWeight: Global().bold,
                                         ),
                                         textAlign: TextAlign.center,
                                       ),
@@ -327,7 +333,7 @@ class _LoginPageState extends State<LoginPage> {
                       Text(
                         'Masuk sebagai tamu',
                         style: TextStyle(
-                          color: Global().white,
+                          color: Global().greenPrimary,
                           fontWeight: Global().extraBold,
                         ),
                         textAlign: TextAlign.center,
@@ -338,7 +344,7 @@ class _LoginPageState extends State<LoginPage> {
                       FaIcon(
                         FontAwesomeIcons.chevronRight,
                         size: width * .045,
-                        color: Global().white,
+                        color: Global().greenPrimary,
                       ),
                     ],
                   ),
