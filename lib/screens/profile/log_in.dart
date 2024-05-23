@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             Container(
                               width: double.infinity,
-                              height: height * .05,
+                              height: height * .054,
                               padding: EdgeInsets.symmetric(
                                 vertical: height * .005,
                                 horizontal: width * .015,
