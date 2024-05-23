@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
@@ -79,13 +81,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                        top: height * .01,
-                                        bottom: height * .008),
+                                      top: height * .01,
+                                      bottom: height * .008,
+                                    ),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        InkWell(
+                                        GestureDetector(
                                           onTap: () {
                                             Navigator.of(context).push(
                                               MaterialPageRoute(
@@ -115,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             fontSize: 15,
                                           ),
                                         ),
-                                        InkWell(
+                                        GestureDetector(
                                           onTap: () {
                                             Navigator.of(context)
                                                 .pushReplacement<void, void>(
@@ -204,206 +207,203 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ],
               ),
-              Column(
+              Container(
+                height: height * .14,
+                width: width * .9,
+                margin: EdgeInsets.only(
+                  bottom: height * .02,
+                  right: width * .06,
+                  left: width * .06,
+                ),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFB3E6B9),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const QuranScreen(),
+                      ),
+                    );
+                  },
+                  borderRadius: BorderRadius.circular(25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/quran.png',
+                        width: width * .26,
+                      ),
+                      SizedBox(
+                        width: width * .08,
+                      ),
+                      Text(
+                        'Baca Al-Quran',
+                        style: TextStyle(
+                            fontWeight: Global().medium, fontSize: 15),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: width * .06),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: width * .43,
+                      height: height * .16,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFB3E6B9),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) =>
+                                  HomeScreen(currentSection: 'tasbih'),
+                            ),
+                          );
+                        },
+                        borderRadius: BorderRadius.circular(25),
+                        child: Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: width * .06),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/images/tasbih.png',
+                                width: width * .9,
+                              ),
+                              SizedBox(
+                                height: height * .015,
+                              ),
+                              Text(
+                                'Buka Tasbih',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontWeight: Global().medium,
+                                    fontSize: 15,
+                                    color: Colors.black),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: width * .43,
+                      height: height * .16,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFB3E6B9),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) =>
+                                  HomeScreen(currentSection: 'tracker'),
+                            ),
+                          );
+                        },
+                        borderRadius: BorderRadius.circular(25),
+                        child: Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: width * .06),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/images/progress.png',
+                                width: width * .09,
+                              ),
+                              SizedBox(
+                                height: height * .015,
+                              ),
+                              Text(
+                                'Lihat Track Prayer Saya',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: Global().medium,
+                                  fontSize: 15,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: width * .06, vertical: height * .02),
+                padding: EdgeInsets.symmetric(
+                    horizontal: width * .06, vertical: height * .025),
+                decoration: BoxDecoration(
+                  color: Global().bgBlur,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.mobile_friendly_rounded,
+                          color: Global().greenPrimary,
+                        ),
+                        SizedBox(
+                          width: width * .02,
+                        ),
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Ini merupakan aplikasi versi terbaru',
+                              style: TextStyle(fontSize: 12),
+                            ),
+                            Text(
+                              'versi 1.0.0',
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: height * .14,
-                    margin: EdgeInsets.only(
-                      bottom: height * .02,
-                      right: width * .06,
-                      left: width * .06,
-                    ),
-                    decoration: const BoxDecoration(
-                      color: Color(0xFFB3E6B9),
-                      borderRadius: BorderRadius.all(Radius.circular(25)),
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const QuranScreen(),
-                          ),
-                        );
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/images/quran.png',
-                            width: width * .26,
-                          ),
-                          SizedBox(
-                            width: width * .08,
-                          ),
-                          Text(
-                            'Baca Al-Quran',
-                            style: TextStyle(
-                                fontWeight: Global().medium, fontSize: 15),
-                          ),
-                        ],
+                  // SizedBox(height: height * .17,),
+                  InkWell(
+                    onTap: () => _showBottomSheet(context),
+                    child: Text(
+                      'Ketentuan Layanan',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: Global().bold,
+                        decoration: TextDecoration.underline,
+                        decorationThickness: 2,
                       ),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: width * .06),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: width * .43,
-                          height: height * .16,
-                          padding:
-                              EdgeInsets.symmetric(horizontal: width * .06),
-                          decoration: const BoxDecoration(
-                            color: Color(0xFFB3E6B9),
-                            borderRadius: BorderRadius.all(Radius.circular(25)),
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) =>
-                                      HomeScreen(currentSection: 'tasbih'),
-                                ),
-                              );
-                            },
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'assets/images/tasbih.png',
-                                  width: width * .9,
-                                ),
-                                SizedBox(
-                                  height: height * .015,
-                                ),
-                                Text(
-                                  'Buka Tasbih',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontWeight: Global().medium,
-                                      fontSize: 15,
-                                      color: Colors.black),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: width * .43,
-                          height: height * .16,
-                          padding:
-                              EdgeInsets.symmetric(horizontal: width * .06),
-                          decoration: const BoxDecoration(
-                            color: Color(0xFFB3E6B9),
-                            borderRadius: BorderRadius.all(Radius.circular(25)),
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) =>
-                                      HomeScreen(currentSection: 'tracker'),
-                                ),
-                              );
-                            },
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'assets/images/progress.png',
-                                  width: width * .09,
-                                ),
-                                SizedBox(
-                                  height: height * .015,
-                                ),
-                                Text(
-                                  'Lihat Track Prayer Saya',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: Global().medium,
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: width * .06, vertical: height * .02),
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * .06, vertical: height * .025),
-                    decoration: BoxDecoration(
-                      color: Global().bgBlur,
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: width * .01,
-                            ),
-                            FaIcon(
-                              FontAwesomeIcons.server,
-                              color: Global().greenPrimary,
-                              size: width * .05,
-                            ),
-                            SizedBox(
-                              width: width * .02,
-                            ),
-                            InkWell(
-                              onTap: () => _showBottomSheet(context),
-                              child: const Text(
-                                'Referensi data',
-                                style: TextStyle(fontSize: 12),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: height * .007,
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.mobile_friendly_rounded,
-                              color: Global().greenPrimary,
-                            ),
-                            SizedBox(
-                              width: width * .02,
-                            ),
-                            const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Ini merupakan aplikasi versi terbaru',
-                                  style: TextStyle(fontSize: 12),
-                                ),
-                                Text(
-                                  'versi 1.0.0',
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
-              ),
+              )
             ],
           ),
         ),
@@ -426,32 +426,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
         expand: false,
         builder: (context, scrollController) => Container(
           width: MediaQuery.of(context).size.width,
-          margin: EdgeInsets.all(20),
+          margin: const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Al-Quran : ',
+                'Ketentuan Layanan',
                 style: TextStyle(fontSize: 18, fontWeight: Global().semiBold),
               ),
-              Text(
-                  '- Aladhan (Surat, Nomor Surat, Ayat, Nomor Ayat, dan Terjemahan bahasa Indonesia)'),
-              Text('- Kemenag (Terjemahan Latin)'),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Jadwal Sholat : ',
-                style: TextStyle(fontSize: 18, fontWeight: Global().semiBold),
-              ),
-              Text('- Aladhan'),
+              const Text(
+                  'Layanan yang tersedia pada aplikasi "Muslim Pocket" berasal dari beberapa sumber dan berhubungan dengan pihak ketiga, yaitu sebagai berikut: \n1. Al-Qur\'an \n Data Al-Qur\'an diambil dari beberapa sumber, yaitu:\n - Surat, nomor surat, ayat, nomor ayat, dan terjemahan bahasa Indonesia dari Aladhan \n - Terjemahan Latin dari Kemenag \n 2. Jadwal Sholat. \n Jadwal Sholat diambil dari sumber Aladhan.'),
             ],
           ),
         ),
       ),
     );
-
-    print(result);
   }
 }

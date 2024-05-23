@@ -70,7 +70,7 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            color: Global().greenPrimary,
+            color: Global().white,
           ),
           child: CustomScrollView(
             slivers: <Widget>[
@@ -87,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               style: TextStyle(
                                 fontSize: 32,
                                 fontWeight: Global().semiBold,
-                                color: Global().white,
+                                color: Global().greenPrimary,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -98,6 +98,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ],
                       ),
+                      
                       Container(
                         margin: EdgeInsets.symmetric(
                           horizontal: width * .065,
@@ -105,27 +106,28 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         width: width,
                         decoration: BoxDecoration(
-                          color: Global().bgLogin,
-                          borderRadius: BorderRadius.circular(25.0),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black26,
-                              blurRadius: 4.0,
-                            ),
-                          ],
+                          color: Global().bgBlur,
+                          borderRadius: BorderRadius.circular(21.0),
                         ),
                         child: Column(
                           children: [
                             Container(
                               width: double.infinity,
-                              height: height * .05,
+                              height: height * .054,
                               padding: EdgeInsets.symmetric(
                                 vertical: height * .005,
                                 horizontal: width * .015,
                               ),
                               decoration: BoxDecoration(
-                                  color: Global().bgLogin,
-                                  borderRadius: BorderRadius.circular(21.0)),
+                                color: Global().bgBlur,
+                                borderRadius: BorderRadius.circular(21.0),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black38,
+                                    blurRadius: 4.0,
+                                  ),
+                                ],
+                              ),
                               child: Row(
                                 children: [
                                   InkWell(
@@ -149,7 +151,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                       child: Text(
                                         'Masuk',
                                         style: TextStyle(
-                                          color: Global().white,
+                                          color: Global().greenPrimary,
                                         ),
                                         textAlign: TextAlign.center,
                                       ),
@@ -158,17 +160,18 @@ class _RegisterPageState extends State<RegisterPage> {
                                   SizedBox(
                                     width: width * .01,
                                   ),
+                                  
                                   Container(
                                     width: width * .415,
                                     decoration: BoxDecoration(
-                                        color: Global().bgLogin,
-                                        borderRadius:
-                                            BorderRadius.circular(30.0)),
+                                      color: Global().greenPrimary,
+                                      borderRadius: BorderRadius.circular(30.0),
+                                    ),
                                     child: ElevatedButton(
                                       style: ButtonStyle(
                                         backgroundColor:
                                             MaterialStateProperty.all<Color>(
-                                          Global().bgLogin,
+                                          Global().greenPrimary,
                                         ),
                                       ),
                                       onPressed: () {
@@ -203,7 +206,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   Text(
                                     'Email',
                                     style: TextStyle(
-                                      color: Global().white,
+                                      color: Global().greenPrimary,
                                       fontWeight: Global().semiBold,
                                       fontSize: 14,
                                     ),
@@ -221,7 +224,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   Text(
                                     'Password',
                                     style: TextStyle(
-                                      color: Global().white,
+                                      color: Global().greenPrimary,
                                       fontWeight: Global().semiBold,
                                       fontSize: 14,
                                     ),
@@ -239,7 +242,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   Text(
                                     'Konfirmasi Password',
                                     style: TextStyle(
-                                      color: Global().white,
+                                      color: Global().greenPrimary,
                                       fontWeight: Global().semiBold,
                                       fontSize: 14,
                                     ),
@@ -253,15 +256,26 @@ class _RegisterPageState extends State<RegisterPage> {
                                     prefixIcon: const Icon(Icons.key),
                                   ),
                                   SizedBox(height: height * .02),
-                                  SizedBox(
+                                  
+                                  Container(
                                     width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Global().greenPrimary,
+                                      borderRadius: BorderRadius.circular(30.0),
+                                    ),
                                     child: ElevatedButton(
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                          Global().greenPrimary,
+                                        ),
+                                      ),
                                       onPressed: () => _signUserup(context),
                                       child: Text(
                                         'Daftar',
                                         style: TextStyle(
-                                          color: Global().greenPrimary,
-                                          fontWeight: Global().extraBold,
+                                          color: Global().white,
+                                          fontWeight: Global().bold,
                                         ),
                                         textAlign: TextAlign.center,
                                       ),
@@ -297,8 +311,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                      ),],
                   ),
                 ]),
               ),
@@ -320,7 +333,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       Text(
                         'Masuk sebagai tamu',
                         style: TextStyle(
-                          color: Global().white,
+                          color: Global().greenPrimary,
                           fontWeight: Global().extraBold,
                         ),
                         textAlign: TextAlign.center,
@@ -331,7 +344,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       FaIcon(
                         FontAwesomeIcons.chevronRight,
                         size: width * .045,
-                        color: Global().white,
+                        color: Global().greenPrimary,
                       ),
                     ],
                   ),

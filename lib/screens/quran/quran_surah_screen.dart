@@ -11,6 +11,7 @@ class QuranSurahScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    String sajdah = "۩".trim();
     Map<String, dynamic> surah = quranData[index]["${index + 1}"];
 
     return Scaffold(
@@ -145,12 +146,17 @@ class QuranSurahScreen extends StatelessWidget {
                                               CrossAxisAlignment.stretch,
                                           children: [
                                             Text(
-                                              surah["text"]["${index + 1}"],
+                                              surah["text"]["${index + 1}"].toString().contains("۩") ? surah["text"]["${index + 1}"]
+                                                  .toString()
+                                                  .replaceAll("۩", '')+
+                      "\u202B" + '۩' :surah["text"]["${index + 1}"]
+                                                  .toString(),
                                               style: TextStyle(
-                                                  fontSize: 25,
-                                                  fontWeight: Global().bold,
-                                                  fontFamily: 'IsepMisbah',
-                                                  height: 2.0),
+                                                fontSize: 25,
+                                                fontWeight: Global().bold,
+                                                fontFamily: 'IsepMisbah',
+                                                height: 2.0,
+                                              ),
                                               textAlign: TextAlign.right,
                                             ),
                                             Text(

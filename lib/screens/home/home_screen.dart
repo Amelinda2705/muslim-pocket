@@ -34,7 +34,11 @@ class HomeScreen extends StatelessWidget {
                     const QuranScreen(),
                     Container(
                       padding: EdgeInsets.only(
-                          top: height * .025, bottom: height * .03, right: width * .08, left: width * .08),
+                        top: height * .025,
+                        bottom: height * .03,
+                        right: width * .08,
+                        left: width * .08,
+                      ),
                       child: Column(
                         children: [
                           Column(
@@ -59,6 +63,14 @@ class HomeScreen extends StatelessWidget {
                 height: height * .09,
                 width: width,
                 child: TabBar(
+                    splashFactory: NoSplash.splashFactory,
+                    overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                        return states.contains(MaterialState.focused)
+                            ? null
+                            : Colors.transparent;
+                      },
+                    ),
                     indicatorColor: Global().greenPrimary,
                     labelColor: Global().greenPrimary,
                     indicatorPadding:
@@ -157,6 +169,11 @@ class _SectionMenuState extends State<SectionMenu> {
                           });
                         },
                         style: ButtonStyle(
+                          overlayColor: MaterialStateProperty.resolveWith(
+                            (states) {
+                              return Global().greenPrimary.withAlpha(30);
+                            },
+                          ),
                           backgroundColor:
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
@@ -188,6 +205,11 @@ class _SectionMenuState extends State<SectionMenu> {
                           });
                         },
                         style: ButtonStyle(
+                          overlayColor: MaterialStateProperty.resolveWith(
+                            (states) {
+                              return Global().greenPrimary.withAlpha(30);
+                            },
+                          ),
                           backgroundColor:
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {

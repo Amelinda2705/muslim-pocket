@@ -41,6 +41,7 @@ dependencies:
   flutter_timezone: ^1.0.8
   device_info_plus: ^9.1.2
   home_widget: ^0.4.1
+  gif: ^2.3.0
 
 dev_dependencies:
   flutter_test:
