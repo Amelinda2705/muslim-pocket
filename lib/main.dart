@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'firebase_options.dart';
+import 'package:home_widget/home_widget.dart';
+
 import 'package:muslimpocket/commons/notification.dart';
 import 'package:muslimpocket/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:muslimpocket/screens/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
-// import 'package:device_preview/device_preview.dart';
 import 'package:muslimpocket/resources/datas/widget_data.dart';
-import 'package:home_widget/home_widget.dart';
 
+// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+// import 'package:device_preview/device_preview.dart';
+
+// variable for home widget
 const String appGroupId = '';
 const String iOSWidgetName = 'quranWidget';
 const String androidWidgetName = 'quranWidget';

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gif/gif.dart';
 import 'package:muslimpocket/commons/global.dart';
-import 'package:muslimpocket/widgets/tasbih_animation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TasbihSection extends StatefulWidget {
@@ -20,6 +19,7 @@ class _TasbihSectionState extends State<TasbihSection>
   late TextEditingController _editingController;
   String goals = "33";
   String? _errorMessage;
+  late final GifController _gifController;
 
   Future<void> setPreference() async {
     final SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -132,6 +132,8 @@ class _TasbihSectionState extends State<TasbihSection>
             () {
               setPreference();
               counter++;
+              _gifController.reset();
+              _gifController.forward();
               if (counter > int.parse(goals)) {
                 counter = 1;
               } else if (int.tryParse(goals) == null) {
@@ -160,20 +162,20 @@ class _TasbihSectionState extends State<TasbihSection>
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 7.0),
-                child: TasbihAnimation(),
-                // child: Gif(
-                //   image: const AssetImage("assets/images/tasbih.gif"),
-                //   controller:
-                //       _controller, // if duration and fps is null, original gif fps will be used.
-                //   // fps: 30,
-                //   // duration: const Duration(seconds: 1),
-                //   autostart: Autostart.no,
-                //   placeholder: (context) => const Text('Loading...'),
-                //   onFetchCompleted: () {
-                //     _controller.reset();
-                //     _controller.forward();
-                //   },
-                // ),
+                // child: TasbihAnimation(),
+                child: Gif(
+                  image: const AssetImage("assets/images/tasbih.gif"),
+                  controller:
+                      _gifController, // if duration and fps is null, original gif fps will be used.
+                  // fps: 30,
+                  // duration: const Duration(seconds: 1),
+                  autostart: Autostart.no,
+                  placeholder: (context) => const Text('Loading...'),
+                  // onFetchCompleted: () {
+                  //   _gifController.reset();
+                  //   _gifController.forward();
+                  // },
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 40),
