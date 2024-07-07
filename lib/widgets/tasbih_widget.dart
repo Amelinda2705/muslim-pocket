@@ -1,9 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:gif/gif.dart';
+import 'package:flutter/services.dart';
 import 'package:muslimpocket/commons/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:rive/rive.dart';
 
 class TasbihSection extends StatefulWidget {
   const TasbihSection({super.key});
@@ -12,14 +12,29 @@ class TasbihSection extends StatefulWidget {
   State<TasbihSection> createState() => _TasbihSectionState();
 }
 
-class _TasbihSectionState extends State<TasbihSection>
-    with TickerProviderStateMixin {
+class _TasbihSectionState extends State<TasbihSection> {
   int counter = 0;
   bool _isEditingText = false;
   late TextEditingController _editingController;
   String goals = "33";
   String? _errorMessage;
-  late final GifController _gifController;
+  late RiveAnimationController _riveController;
+  bool _isPlaying = false;
+
+  void playAnimation() => setState(() {
+        _riveController.isActive = !_riveController.isActive;
+      });
+
+  void resetAnimation() {
+    setState(() {
+      _riveController.isActive = true;
+      (_riveController as SimpleAnimation).reset();
+
+      _riveController.apply(
+          (_riveController as SimpleAnimation).instance!.animation.context, 0);
+      _riveController.isActive = true;
+    });
+  }
 
   Future<void> setPreference() async {
     final SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -51,6 +66,12 @@ class _TasbihSectionState extends State<TasbihSection>
     super.initState();
     _editingController = TextEditingController(text: goals);
     getPreference();
+    _riveController = OneShotAnimation(
+      'sort',
+      autoplay: false,
+      onStop: () => setState(() => _isPlaying = false),
+      onStart: () => setState(() => _isPlaying = true),
+    );
   }
 
   @override
@@ -62,20 +83,16 @@ class _TasbihSectionState extends State<TasbihSection>
   Widget _editTitleTextField() {
     if (_isEditingText) {
       return Center(
-        child: Container(
+        child: SizedBox(
           width: 50,
           child: TextField(
             onChanged: (newValue) {
               setPreference();
               setState(() {
                 if (newValue.isEmpty) {
-                  setState(() {
-                    _errorMessage = 'isi goals-mu';
-                  });
+                  _errorMessage = 'isi goals-mu';
                 } else {
-                  setState(() {
-                    _errorMessage = null;
-                  });
+                  _errorMessage = null;
                 }
                 goals = newValue;
                 if (int.parse(goals) != 1) {
@@ -128,20 +145,19 @@ class _TasbihSectionState extends State<TasbihSection>
       builder: (context, _) => InkWell(
         borderRadius: BorderRadius.circular(100),
         onTap: () {
-          setState(
-            () {
-              setPreference();
-              counter++;
-              _gifController.reset();
-              _gifController.forward();
-              if (counter > int.parse(goals)) {
-                counter = 1;
-              } else if (int.tryParse(goals) == null) {
-                goals = '1';
-              }
-              // _controller = GifController(vsync: this);
-            },
-          );
+          _isPlaying ? null : _riveController.isActive = true;
+          // playAnimation();
+          setState(() {
+            // _riveController.isActive;
+            setPreference();
+            counter++;
+            if (counter > int.parse(goals)) {
+              counter = 1;
+            } else if (int.tryParse(goals) == null) {
+              goals = '1';
+            }
+          });
+          // _togglePlay;
         },
         child: Padding(
           padding: const EdgeInsets.only(top: 30.0),
@@ -160,21 +176,14 @@ class _TasbihSectionState extends State<TasbihSection>
                   _editTitleTextField(),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 7.0),
-                // child: TasbihAnimation(),
-                child: Gif(
-                  image: const AssetImage("assets/images/tasbih.gif"),
-                  controller:
-                      _gifController, // if duration and fps is null, original gif fps will be used.
-                  // fps: 30,
-                  // duration: const Duration(seconds: 1),
-                  autostart: Autostart.no,
-                  placeholder: (context) => const Text('Loading...'),
-                  // onFetchCompleted: () {
-                  //   _gifController.reset();
-                  //   _gifController.forward();
-                  // },
+              SizedBox(
+                height: 200,
+                child: Center(
+                  child: RiveAnimation.asset(
+                    'assets/images/tasbih.riv',
+                    fit: BoxFit.cover,
+                    controllers: [_riveController],
+                  ),
                 ),
               ),
               Padding(
@@ -189,7 +198,14 @@ class _TasbihSectionState extends State<TasbihSection>
                     textAlign: TextAlign.center,
                   ),
                 ),
-              )
+              ),
+              // FloatingActionButton(
+              //   onPressed: _togglePlay,
+              //   tooltip: isPlaying ? 'Pause' : 'Play',
+              //   child: Icon(
+              //     isPlaying ? Icons.pause : Icons.play_arrow,
+              //   ),
+              // ),
             ],
           ),
         ),

@@ -42,6 +42,8 @@ dependencies:
   device_info_plus: ^9.1.2
   home_widget: ^0.4.1
   gif: ^2.3.0
+  rive: ^0.13.2
+  meta: ^1.3.0
 
 dev_dependencies:
   flutter_test:
@@ -52,7 +54,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -71,7 +73,6 @@ flutter:
     - assets/images/done.png
     - assets/images/not-yet.png
     - assets/images/tasbih.png
-    - assets/images/tasbih.gif
     - assets/images/next.png
     - assets/images/back.png
     - assets/images/edit.png
@@ -83,6 +84,7 @@ flutter:
     - assets/images/quran-nav.png
     - assets/images/auth.png
     - assets/images/login.png
+    - assets/images/tasbih.riv
   fonts:
     - family: Poppins
       fonts:
