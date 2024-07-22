@@ -62,7 +62,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: ENV['AUTH_TOKEN'],
+    apiKey: 'AIzaSyDFxYi7DPOZCiwX3UKgfLxLjfVdR5u5998',
     appId: '1:203745722239:ios:f827dcfe08743db01e244a',
     messagingSenderId: '203745722239',
     projectId: 'muslim-pocket-e8e32',
@@ -71,7 +71,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: ENV['AUTH_TOKEN'],
+    apiKey: 'AIzaSyDFxYi7DPOZCiwX3UKgfLxLjfVdR5u5998',
     appId: '1:203745722239:ios:d404d0a7dcc3f3f91e244a',
     messagingSenderId: '203745722239',
     projectId: 'muslim-pocket-e8e32',

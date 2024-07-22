@@ -1,8 +1,8 @@
-# muslimpocket
+# Muslim Pocket
+## Introduction 
+Muslim Pocket is an Android application for Muslims that not only provides prayer times but also features that are essential for Muslims, such as a prayer tracker, a tasbih, and the Quran in Latin script and Indonesian translation.
 
-A new Flutter project.
-
-## Getting Started
+## App Preview 
 
 This project is a starting point for a Flutter application.
 
